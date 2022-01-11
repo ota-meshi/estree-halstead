@@ -4,6 +4,15 @@
 
 Calculate complexity using [Halstead complexity measures] from an ESTree-compliant AST.
 
+[![NPM license](https://img.shields.io/npm/l/estree-halstead.svg)](https://www.npmjs.com/package/estree-halstead)
+[![NPM version](https://img.shields.io/npm/v/estree-halstead.svg)](https://www.npmjs.com/package/estree-halstead)
+[![NPM downloads](https://img.shields.io/badge/dynamic/json.svg?label=downloads&colorB=green&suffix=/day&query=$.downloads&uri=https://api.npmjs.org//downloads/point/last-day/estree-halstead&maxAge=3600)](http://www.npmtrends.com/estree-halstead)
+[![NPM downloads](https://img.shields.io/npm/dw/estree-halstead.svg)](http://www.npmtrends.com/estree-halstead)
+[![NPM downloads](https://img.shields.io/npm/dm/estree-halstead.svg)](http://www.npmtrends.com/estree-halstead)
+[![NPM downloads](https://img.shields.io/npm/dy/estree-halstead.svg)](http://www.npmtrends.com/estree-halstead)
+[![NPM downloads](https://img.shields.io/npm/dt/estree-halstead.svg)](http://www.npmtrends.com/estree-halstead)
+[![Build Status](https://github.com/ota-meshi/estree-halstead/workflows/CI/badge.svg?branch=main)](https://github.com/ota-meshi/estree-halstead/actions?query=workflow%3ACI)
+
 ## 💿 Installation
 
 ```bash
