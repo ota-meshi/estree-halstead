@@ -16,7 +16,7 @@ Calculate complexity using [Halstead complexity measures] from an ESTree-complia
 ## 💿 Installation
 
 ```bash
-npm install --save-dev estree-halstead
+npm install estree-halstead
 ```
 
 ## 📖 Usage
