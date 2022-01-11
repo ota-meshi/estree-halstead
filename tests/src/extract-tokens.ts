@@ -108,6 +108,10 @@ function splitTokens(
                 ? ["for", "(", ")"]
                 : token === "while()"
                 ? ["while", "(", ")"]
+                : token === "switch()"
+                ? ["switch", "(", ")"]
+                : token === "with()"
+                ? ["with", "(", ")"]
                 : token,
         )
         .sort((a, b) => b.length - a.length)

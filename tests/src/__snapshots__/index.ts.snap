@@ -3480,6 +3480,1736 @@ Object {
 }
 `;
 
+exports[`test for halstead complexity measures /js/new-expression.js CallExpression\`
+A()
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0006666666666666666,
+  "difficulty": 0.5,
+  "effort": 1,
+  "length": 2,
+  "time": 0.05555555555555555,
+  "vocabulary": 2,
+  "volume": 2,
+}
+`;
+
+exports[`test for halstead complexity measures /js/new-expression.js CallExpression\`
+new A()()
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.002113283334294875,
+  "difficulty": 1,
+  "effort": 6.339850002884624,
+  "length": 4,
+  "time": 0.3522138890491458,
+  "vocabulary": 3,
+  "volume": 6.339850002884624,
+}
+`;
+
+exports[`test for halstead complexity measures /js/new-expression.js ExpressionStatement\`
+v = new (A())()
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.005417832221403845,
+  "difficulty": 1.5,
+  "effort": 24.380244996317302,
+  "length": 7,
+  "time": 1.3544580553509613,
+  "vocabulary": 5,
+  "volume": 16.253496664211536,
+}
+`;
+
+exports[`test for halstead complexity measures /js/new-expression.js ExpressionStatement\`
+v = new A()
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0038698801581456034,
+  "difficulty": 1.5,
+  "effort": 17.414460711655217,
+  "length": 5,
+  "time": 0.9674700395364009,
+  "vocabulary": 5,
+  "volume": 11.60964047443681,
+}
+`;
+
+exports[`test for halstead complexity measures /js/new-expression.js ExpressionStatement\`
+v = new A()()
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.004643856189774725,
+  "difficulty": 1.5,
+  "effort": 20.897352853986263,
+  "length": 6,
+  "time": 1.1609640474436813,
+  "vocabulary": 5,
+  "volume": 13.931568569324174,
+}
+`;
+
+exports[`test for halstead complexity measures /js/new-expression.js NewExpression\`
+new (A())()
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0026416041678685932,
+  "difficulty": 1,
+  "effort": 7.92481250360578,
+  "length": 5,
+  "time": 0.44026736131143224,
+  "vocabulary": 3,
+  "volume": 7.92481250360578,
+}
+`;
+
+exports[`test for halstead complexity measures /js/new-expression.js NewExpression\`
+new A()
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 1,
+  "effort": 4.754887502163468,
+  "length": 3,
+  "time": 0.26416041678685936,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /js/new-expression.js Program\`
+v = new A()
+v = new A()()
+v = new (A())()
+
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.013931568569324173,
+  "difficulty": 4.5,
+  "effort": 188.07617568587634,
+  "length": 18,
+  "time": 10.44867642699313,
+  "vocabulary": 5,
+  "volume": 41.79470570797252,
+}
+`;
+
+exports[`test for halstead complexity measures /js/object-pattern.js ObjectPattern\`
+{}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0.5,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/object-pattern.js ObjectPattern\`
+{a}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0006666666666666666,
+  "difficulty": 0.5,
+  "effort": 1,
+  "length": 2,
+  "time": 0.05555555555555555,
+  "vocabulary": 2,
+  "volume": 2,
+}
+`;
+
+exports[`test for halstead complexity measures /js/object-pattern.js ObjectPattern\`
+{b, c}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0026666666666666666,
+  "difficulty": 1,
+  "effort": 8,
+  "length": 4,
+  "time": 0.4444444444444444,
+  "vocabulary": 4,
+  "volume": 8,
+}
+`;
+
+exports[`test for halstead complexity measures /js/object-pattern.js Program\`
+const {} = a
+const {a} = a
+const {b, c} = a
+
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.014972559584307222,
+  "difficulty": 4,
+  "effort": 179.67071501168667,
+  "length": 16,
+  "time": 9.981706389538148,
+  "vocabulary": 7,
+  "volume": 44.91767875292167,
+}
+`;
+
+exports[`test for halstead complexity measures /js/object-pattern.js Property\`
+a
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/object-pattern.js Property\`
+b
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/object-pattern.js Property\`
+c
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/object-pattern.js VariableDeclaration\`
+const {} = a
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0026666666666666666,
+  "difficulty": 1.5,
+  "effort": 12,
+  "length": 4,
+  "time": 0.6666666666666666,
+  "vocabulary": 4,
+  "volume": 8,
+}
+`;
+
+exports[`test for halstead complexity measures /js/object-pattern.js VariableDeclaration\`
+const {a} = a
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0033333333333333335,
+  "difficulty": 3,
+  "effort": 30,
+  "length": 5,
+  "time": 1.6666666666666667,
+  "vocabulary": 4,
+  "volume": 10,
+}
+`;
+
+exports[`test for halstead complexity measures /js/object-pattern.js VariableDeclaration\`
+const {b, c} = a
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.00655049481813441,
+  "difficulty": 2,
+  "effort": 39.302968908806456,
+  "length": 7,
+  "time": 2.1834982727114696,
+  "vocabulary": 7,
+  "volume": 19.651484454403228,
+}
+`;
+
+exports[`test for halstead complexity measures /js/object-pattern.js VariableDeclarator\`
+{} = a
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 1,
+  "effort": 4.754887502163468,
+  "length": 3,
+  "time": 0.26416041678685936,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /js/object-pattern.js VariableDeclarator\`
+{a} = a
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.002113283334294875,
+  "difficulty": 2,
+  "effort": 12.679700005769249,
+  "length": 4,
+  "time": 0.7044277780982916,
+  "vocabulary": 3,
+  "volume": 6.339850002884624,
+}
+`;
+
+exports[`test for halstead complexity measures /js/object-pattern.js VariableDeclarator\`
+{b, c} = a
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.005169925001442312,
+  "difficulty": 1.5,
+  "effort": 23.264662506490403,
+  "length": 6,
+  "time": 1.292481250360578,
+  "vocabulary": 6,
+  "volume": 15.509775004326936,
+}
+`;
+
+exports[`test for halstead complexity measures /js/private-identifier.js BlockStatement\`
+{}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0.5,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/private-identifier.js ClassBody\`
+{
+    #x
+    #y = 42
+    static #z
+    #fx() {}
+    static #fy() {}
+}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.01550233110947436,
+  "difficulty": 2,
+  "effort": 93.01398665684616,
+  "length": 14,
+  "time": 5.16744370315812,
+  "vocabulary": 10,
+  "volume": 46.50699332842308,
+}
+`;
+
+exports[`test for halstead complexity measures /js/private-identifier.js ClassDeclaration\`
+class A {
+    #x
+    #y = 42
+    static #z
+    #fx() {}
+    static #fy() {}
+}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.01911980000384617,
+  "difficulty": 2.5,
+  "effort": 143.39850002884626,
+  "length": 16,
+  "time": 7.966583334935903,
+  "vocabulary": 12,
+  "volume": 57.359400011538504,
+}
+`;
+
+exports[`test for halstead complexity measures /js/private-identifier.js FunctionExpression\`
+() {}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 1.5,
+  "effort": 7.132331253245202,
+  "length": 3,
+  "time": 0.396240625180289,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /js/private-identifier.js Literal\`
+42
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/private-identifier.js MethodDefinition\`
+#fx() {}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 1,
+  "effort": 4.754887502163468,
+  "length": 3,
+  "time": 0.26416041678685936,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /js/private-identifier.js MethodDefinition\`
+static #fy() {}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0026666666666666666,
+  "difficulty": 1.5,
+  "effort": 12,
+  "length": 4,
+  "time": 0.6666666666666666,
+  "vocabulary": 4,
+  "volume": 8,
+}
+`;
+
+exports[`test for halstead complexity measures /js/private-identifier.js PrivateIdentifier\`
+#fx
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/private-identifier.js PrivateIdentifier\`
+#fy
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/private-identifier.js PrivateIdentifier\`
+#y
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/private-identifier.js PrivateIdentifier\`
+#z
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/private-identifier.js Program\`
+class A {
+    #x
+    #y = 42
+    static #z
+    #fx() {}
+    static #fy() {}
+}
+
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.01911980000384617,
+  "difficulty": 2.5,
+  "effort": 143.39850002884626,
+  "length": 16,
+  "time": 7.966583334935903,
+  "vocabulary": 12,
+  "volume": 57.359400011538504,
+}
+`;
+
+exports[`test for halstead complexity measures /js/private-identifier.js PropertyDefinition\`
+#x
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/private-identifier.js PropertyDefinition\`
+#y = 42
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 0.5,
+  "effort": 2.377443751081734,
+  "length": 3,
+  "time": 0.13208020839342968,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /js/private-identifier.js PropertyDefinition\`
+static #z
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0006666666666666666,
+  "difficulty": 0.5,
+  "effort": 1,
+  "length": 2,
+  "time": 0.05555555555555555,
+  "vocabulary": 2,
+  "volume": 2,
+}
+`;
+
+exports[`test for halstead complexity measures /js/property.js BlockStatement\`
+{}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0.5,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/property.js FunctionExpression\`
+(){}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 1.5,
+  "effort": 7.132331253245202,
+  "length": 3,
+  "time": 0.396240625180289,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /js/property.js Literal\`
+42
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/property.js ObjectExpression\`
+{
+    a: 42,
+    b,
+    c(){},
+    get d(){},
+    set e(){},
+    [a]: 42,
+    [c](){},
+    get [d](){},
+    set [e](){}
+}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.05180615605397529,
+  "difficulty": 6.416666666666666,
+  "effort": 997.2685040390242,
+  "length": 42,
+  "time": 55.403805779945785,
+  "vocabulary": 13,
+  "volume": 155.41846816192586,
+}
+`;
+
+exports[`test for halstead complexity measures /js/property.js Program\`
+o = {
+    a: 42,
+    b,
+    c(){},
+    get d(){},
+    set e(){},
+    [a]: 42,
+    [c](){},
+    get [d](){},
+    set [e](){}
+}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.05730106206892494,
+  "difficulty": 6.857142857142857,
+  "effort": 1178.7647054178844,
+  "length": 44,
+  "time": 65.48692807877136,
+  "vocabulary": 15,
+  "volume": 171.90318620677482,
+}
+`;
+
+exports[`test for halstead complexity measures /js/property.js Property\`
+[a]: 42
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0026666666666666666,
+  "difficulty": 1,
+  "effort": 8,
+  "length": 4,
+  "time": 0.4444444444444444,
+  "vocabulary": 4,
+  "volume": 8,
+}
+`;
+
+exports[`test for halstead complexity measures /js/property.js Property\`
+[c](){}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0026666666666666666,
+  "difficulty": 1.5,
+  "effort": 12,
+  "length": 4,
+  "time": 0.6666666666666666,
+  "vocabulary": 4,
+  "volume": 8,
+}
+`;
+
+exports[`test for halstead complexity measures /js/property.js Property\`
+a: 42
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 0.5,
+  "effort": 2.377443751081734,
+  "length": 3,
+  "time": 0.13208020839342968,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /js/property.js Property\`
+b
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/property.js Property\`
+c(){}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 1,
+  "effort": 4.754887502163468,
+  "length": 3,
+  "time": 0.26416041678685936,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /js/property.js Property\`
+get [d](){}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0038698801581456034,
+  "difficulty": 2,
+  "effort": 23.21928094887362,
+  "length": 5,
+  "time": 1.289960052715201,
+  "vocabulary": 5,
+  "volume": 11.60964047443681,
+}
+`;
+
+exports[`test for halstead complexity measures /js/property.js Property\`
+get d(){}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0026666666666666666,
+  "difficulty": 1.5,
+  "effort": 12,
+  "length": 4,
+  "time": 0.6666666666666666,
+  "vocabulary": 4,
+  "volume": 8,
+}
+`;
+
+exports[`test for halstead complexity measures /js/property.js Property\`
+set [e](){}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0038698801581456034,
+  "difficulty": 2,
+  "effort": 23.21928094887362,
+  "length": 5,
+  "time": 1.289960052715201,
+  "vocabulary": 5,
+  "volume": 11.60964047443681,
+}
+`;
+
+exports[`test for halstead complexity measures /js/property.js Property\`
+set e(){}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0026666666666666666,
+  "difficulty": 1.5,
+  "effort": 12,
+  "length": 4,
+  "time": 0.6666666666666666,
+  "vocabulary": 4,
+  "volume": 8,
+}
+`;
+
+exports[`test for halstead complexity measures /js/property-definition.js ClassBody\`
+{
+    a = 42
+    b
+    [a] = 42
+    [b]
+}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.009478195835977574,
+  "difficulty": 3,
+  "effort": 85.30376252379816,
+  "length": 11,
+  "time": 4.739097917988786,
+  "vocabulary": 6,
+  "volume": 28.43458750793272,
+}
+`;
+
+exports[`test for halstead complexity measures /js/property-definition.js Literal\`
+42
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/property-definition.js MemberExpression\`
+42
+    [b]
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 0.5,
+  "effort": 2.377443751081734,
+  "length": 3,
+  "time": 0.13208020839342968,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /js/property-definition.js Program\`
+class A {
+    a = 42
+    b
+    [a] = 42
+    [b]
+}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.013,
+  "difficulty": 3.5,
+  "effort": 136.5,
+  "length": 13,
+  "time": 7.583333333333333,
+  "vocabulary": 8,
+  "volume": 39,
+}
+`;
+
+exports[`test for halstead complexity measures /js/property-definition.js PropertyDefinition\`
+[a] = 42
+    [b]
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.004643856189774725,
+  "difficulty": 1,
+  "effort": 13.931568569324174,
+  "length": 6,
+  "time": 0.7739760316291208,
+  "vocabulary": 5,
+  "volume": 13.931568569324174,
+}
+`;
+
+exports[`test for halstead complexity measures /js/property-definition.js PropertyDefinition\`
+a = 42
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 0.5,
+  "effort": 2.377443751081734,
+  "length": 3,
+  "time": 0.13208020839342968,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /js/property-definition.js PropertyDefinition\`
+b
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/rest-element.js BlockStatement\`
+{}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0.5,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/rest-element.js FunctionDeclaration\`
+function fn (...rest) {}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.005169925001442312,
+  "difficulty": 2,
+  "effort": 31.019550008653873,
+  "length": 6,
+  "time": 1.723308333814104,
+  "vocabulary": 6,
+  "volume": 15.509775004326936,
+}
+`;
+
+exports[`test for halstead complexity measures /js/rest-element.js Program\`
+function fn (...rest) {}
+
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.005169925001442312,
+  "difficulty": 2,
+  "effort": 31.019550008653873,
+  "length": 6,
+  "time": 1.723308333814104,
+  "vocabulary": 6,
+  "volume": 15.509775004326936,
+}
+`;
+
+exports[`test for halstead complexity measures /js/rest-element.js RestElement\`
+...rest
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0006666666666666666,
+  "difficulty": 0.5,
+  "effort": 1,
+  "length": 2,
+  "time": 0.05555555555555555,
+  "vocabulary": 2,
+  "volume": 2,
+}
+`;
+
+exports[`test for halstead complexity measures /js/static-block.js ClassBody\`
+{
+    static {}
+}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001,
+  "difficulty": 1,
+  "effort": 3,
+  "length": 3,
+  "time": 0.16666666666666666,
+  "vocabulary": 2,
+  "volume": 3,
+}
+`;
+
+exports[`test for halstead complexity measures /js/static-block.js ClassDeclaration\`
+class A {
+    static {}
+}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0033333333333333335,
+  "difficulty": 1.5,
+  "effort": 15,
+  "length": 5,
+  "time": 0.8333333333333334,
+  "vocabulary": 4,
+  "volume": 10,
+}
+`;
+
+exports[`test for halstead complexity measures /js/static-block.js Program\`
+class A {
+    static {}
+}
+
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0033333333333333335,
+  "difficulty": 1.5,
+  "effort": 15,
+  "length": 5,
+  "time": 0.8333333333333334,
+  "vocabulary": 4,
+  "volume": 10,
+}
+`;
+
+exports[`test for halstead complexity measures /js/static-block.js StaticBlock\`
+static {}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0006666666666666666,
+  "difficulty": 1,
+  "effort": 2,
+  "length": 2,
+  "time": 0.1111111111111111,
+  "vocabulary": 2,
+  "volume": 2,
+}
+`;
+
+exports[`test for halstead complexity measures /js/super.js BlockStatement\`
+{
+        super()
+    }
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 1,
+  "effort": 4.754887502163468,
+  "length": 3,
+  "time": 0.26416041678685936,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /js/super.js BlockStatement\`
+{
+        super.fn()
+    }
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0038698801581456034,
+  "difficulty": 1.5,
+  "effort": 17.414460711655217,
+  "length": 5,
+  "time": 0.9674700395364009,
+  "vocabulary": 5,
+  "volume": 11.60964047443681,
+}
+`;
+
+exports[`test for halstead complexity measures /js/super.js ClassBody\`
+{
+    constructor(){
+        super()
+    }
+    fn() {
+        super.fn()
+    }
+}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.011201504169791677,
+  "difficulty": 2.5,
+  "effort": 84.01128127343756,
+  "length": 13,
+  "time": 4.667293404079865,
+  "vocabulary": 6,
+  "volume": 33.60451250937503,
+}
+`;
+
+exports[`test for halstead complexity measures /js/super.js ClassDeclaration\`
+class A extends B {
+    constructor(){
+        super()
+    }
+    fn() {
+        super.fn()
+    }
+}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.01882425920436172,
+  "difficulty": 3.5,
+  "effort": 197.65472164579808,
+  "length": 17,
+  "time": 10.980817869211004,
+  "vocabulary": 10,
+  "volume": 56.472777613085164,
+}
+`;
+
+exports[`test for halstead complexity measures /js/super.js ExpressionStatement\`
+super()
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0006666666666666666,
+  "difficulty": 0.5,
+  "effort": 1,
+  "length": 2,
+  "time": 0.05555555555555555,
+  "vocabulary": 2,
+  "volume": 2,
+}
+`;
+
+exports[`test for halstead complexity measures /js/super.js ExpressionStatement\`
+super.fn()
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0026666666666666666,
+  "difficulty": 1,
+  "effort": 8,
+  "length": 4,
+  "time": 0.4444444444444444,
+  "vocabulary": 4,
+  "volume": 8,
+}
+`;
+
+exports[`test for halstead complexity measures /js/super.js FunctionExpression\`
+() {
+        super.fn()
+    }
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.006031579168349364,
+  "difficulty": 2,
+  "effort": 36.18947501009619,
+  "length": 7,
+  "time": 2.0105263894497885,
+  "vocabulary": 6,
+  "volume": 18.094737505048094,
+}
+`;
+
+exports[`test for halstead complexity measures /js/super.js FunctionExpression\`
+(){
+        super()
+    }
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0033333333333333335,
+  "difficulty": 1.5,
+  "effort": 15,
+  "length": 5,
+  "time": 0.8333333333333334,
+  "vocabulary": 4,
+  "volume": 10,
+}
+`;
+
+exports[`test for halstead complexity measures /js/super.js MemberExpression\`
+super.fn
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 0.5,
+  "effort": 2.377443751081734,
+  "length": 3,
+  "time": 0.13208020839342968,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /js/super.js MethodDefinition\`
+constructor(){
+        super()
+    }
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0033333333333333335,
+  "difficulty": 1,
+  "effort": 10,
+  "length": 5,
+  "time": 0.5555555555555556,
+  "vocabulary": 4,
+  "volume": 10,
+}
+`;
+
+exports[`test for halstead complexity measures /js/super.js MethodDefinition\`
+fn() {
+        super.fn()
+    }
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.005417832221403845,
+  "difficulty": 2.25,
+  "effort": 36.57036749447595,
+  "length": 7,
+  "time": 2.031687083026442,
+  "vocabulary": 5,
+  "volume": 16.253496664211536,
+}
+`;
+
+exports[`test for halstead complexity measures /js/super.js Program\`
+class A extends B {
+    constructor(){
+        super()
+    }
+    fn() {
+        super.fn()
+    }
+}
+
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.01882425920436172,
+  "difficulty": 3.5,
+  "effort": 197.65472164579808,
+  "length": 17,
+  "time": 10.980817869211004,
+  "vocabulary": 10,
+  "volume": 56.472777613085164,
+}
+`;
+
+exports[`test for halstead complexity measures /js/super.js Super\`
+super
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/switch-statement.js BreakStatement\`
+break;
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0.5,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/switch-statement.js Program\`
+switch (key) {
+    case value:
+        break;
+
+    default:
+        break;
+}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.01,
+  "difficulty": 3,
+  "effort": 90,
+  "length": 10,
+  "time": 5,
+  "vocabulary": 8,
+  "volume": 30,
+}
+`;
+
+exports[`test for halstead complexity measures /js/switch-statement.js SwitchCase\`
+case value:
+        break;
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0026666666666666666,
+  "difficulty": 1.5,
+  "effort": 12,
+  "length": 4,
+  "time": 0.6666666666666666,
+  "vocabulary": 4,
+  "volume": 8,
+}
+`;
+
+exports[`test for halstead complexity measures /js/switch-statement.js SwitchCase\`
+default:
+        break;
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 1.5,
+  "effort": 7.132331253245202,
+  "length": 3,
+  "time": 0.396240625180289,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /js/try-statement.js BlockStatement\`
+{}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0.5,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/try-statement.js Program\`
+try{}finally{}
+
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.002113283334294875,
+  "difficulty": 1.5,
+  "effort": 9.509775004326936,
+  "length": 4,
+  "time": 0.5283208335737187,
+  "vocabulary": 3,
+  "volume": 6.339850002884624,
+}
+`;
+
+exports[`test for halstead complexity measures /js/try-statement.js TryStatement\`
+try{}finally{}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.002113283334294875,
+  "difficulty": 1.5,
+  "effort": 9.509775004326936,
+  "length": 4,
+  "time": 0.5283208335737187,
+  "vocabulary": 3,
+  "volume": 6.339850002884624,
+}
+`;
+
+exports[`test for halstead complexity measures /js/unary-expression.js BinaryExpression\`
+1 + 2
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 0.5,
+  "effort": 2.377443751081734,
+  "length": 3,
+  "time": 0.13208020839342968,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /js/unary-expression.js BinaryExpression\`
+typeof 1 + 2
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0026666666666666666,
+  "difficulty": 1,
+  "effort": 8,
+  "length": 4,
+  "time": 0.4444444444444444,
+  "vocabulary": 4,
+  "volume": 8,
+}
+`;
+
+exports[`test for halstead complexity measures /js/unary-expression.js ExpressionStatement\`
+v = typeof (1 + 2)
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.00655049481813441,
+  "difficulty": 2,
+  "effort": 39.302968908806456,
+  "length": 7,
+  "time": 2.1834982727114696,
+  "vocabulary": 7,
+  "volume": 19.651484454403228,
+}
+`;
+
+exports[`test for halstead complexity measures /js/unary-expression.js ExpressionStatement\`
+v = typeof 1 + 2
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.005169925001442312,
+  "difficulty": 1.5,
+  "effort": 23.264662506490403,
+  "length": 6,
+  "time": 1.292481250360578,
+  "vocabulary": 6,
+  "volume": 15.509775004326936,
+}
+`;
+
+exports[`test for halstead complexity measures /js/unary-expression.js ExpressionStatement\`
+v = typeof a
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0026666666666666666,
+  "difficulty": 1,
+  "effort": 8,
+  "length": 4,
+  "time": 0.4444444444444444,
+  "vocabulary": 4,
+  "volume": 8,
+}
+`;
+
+exports[`test for halstead complexity measures /js/unary-expression.js ExpressionStatement\`
+v = typeof typeof a
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0033333333333333335,
+  "difficulty": 1,
+  "effort": 10,
+  "length": 5,
+  "time": 0.5555555555555556,
+  "vocabulary": 4,
+  "volume": 10,
+}
+`;
+
+exports[`test for halstead complexity measures /js/unary-expression.js Literal\`
+1
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/unary-expression.js Literal\`
+2
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/unary-expression.js Program\`
+v = typeof a
+v = typeof 1 + 2
+v = typeof (1 + 2)
+v = typeof typeof a
+
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.022,
+  "difficulty": 5,
+  "effort": 330,
+  "length": 22,
+  "time": 18.333333333333332,
+  "vocabulary": 8,
+  "volume": 66,
+}
+`;
+
+exports[`test for halstead complexity measures /js/unary-expression.js UnaryExpression\`
+typeof (1 + 2)
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0038698801581456034,
+  "difficulty": 1.5,
+  "effort": 17.414460711655217,
+  "length": 5,
+  "time": 0.9674700395364009,
+  "vocabulary": 5,
+  "volume": 11.60964047443681,
+}
+`;
+
+exports[`test for halstead complexity measures /js/unary-expression.js UnaryExpression\`
+typeof 1
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0006666666666666666,
+  "difficulty": 0.5,
+  "effort": 1,
+  "length": 2,
+  "time": 0.05555555555555555,
+  "vocabulary": 2,
+  "volume": 2,
+}
+`;
+
+exports[`test for halstead complexity measures /js/unary-expression.js UnaryExpression\`
+typeof a
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0006666666666666666,
+  "difficulty": 0.5,
+  "effort": 1,
+  "length": 2,
+  "time": 0.05555555555555555,
+  "vocabulary": 2,
+  "volume": 2,
+}
+`;
+
+exports[`test for halstead complexity measures /js/unary-expression.js UnaryExpression\`
+typeof typeof a
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001,
+  "difficulty": 0.5,
+  "effort": 1.5,
+  "length": 3,
+  "time": 0.08333333333333333,
+  "vocabulary": 2,
+  "volume": 3,
+}
+`;
+
+exports[`test for halstead complexity measures /js/update-expression.js ExpressionStatement\`
+--i
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0006666666666666666,
+  "difficulty": 0.5,
+  "effort": 1,
+  "length": 2,
+  "time": 0.05555555555555555,
+  "vocabulary": 2,
+  "volume": 2,
+}
+`;
+
+exports[`test for halstead complexity measures /js/update-expression.js ExpressionStatement\`
+i++
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0006666666666666666,
+  "difficulty": 0.5,
+  "effort": 1,
+  "length": 2,
+  "time": 0.05555555555555555,
+  "vocabulary": 2,
+  "volume": 2,
+}
+`;
+
+exports[`test for halstead complexity measures /js/update-expression.js Program\`
+i++
+--i
+
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.002113283334294875,
+  "difficulty": 2,
+  "effort": 12.679700005769249,
+  "length": 4,
+  "time": 0.7044277780982916,
+  "vocabulary": 3,
+  "volume": 6.339850002884624,
+}
+`;
+
+exports[`test for halstead complexity measures /js/with-statement.js BlockStatement\`
+{
+
+}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0.5,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/with-statement.js Program\`
+with(window) {
+
+}
+
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 1,
+  "effort": 4.754887502163468,
+  "length": 3,
+  "time": 0.26416041678685936,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /js/with-statement.js WithStatement\`
+with(window) {
+
+}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 1,
+  "effort": 4.754887502163468,
+  "length": 3,
+  "time": 0.26416041678685936,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /js/yield-expression.js ArrayExpression\`
+[42]
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0006666666666666666,
+  "difficulty": 0.5,
+  "effort": 1,
+  "length": 2,
+  "time": 0.05555555555555555,
+  "vocabulary": 2,
+  "volume": 2,
+}
+`;
+
+exports[`test for halstead complexity measures /js/yield-expression.js BlockStatement\`
+{
+    yield 42
+    yield * [42]
+    yield (42, 1)
+}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.012,
+  "difficulty": 6,
+  "effort": 216,
+  "length": 12,
+  "time": 12,
+  "vocabulary": 8,
+  "volume": 36,
+}
+`;
+
+exports[`test for halstead complexity measures /js/yield-expression.js ExpressionStatement\`
+yield (42, 1)
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0038698801581456034,
+  "difficulty": 1.5,
+  "effort": 17.414460711655217,
+  "length": 5,
+  "time": 0.9674700395364009,
+  "vocabulary": 5,
+  "volume": 11.60964047443681,
+}
+`;
+
+exports[`test for halstead complexity measures /js/yield-expression.js ExpressionStatement\`
+yield * [42]
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0026666666666666666,
+  "difficulty": 1.5,
+  "effort": 12,
+  "length": 4,
+  "time": 0.6666666666666666,
+  "vocabulary": 4,
+  "volume": 8,
+}
+`;
+
+exports[`test for halstead complexity measures /js/yield-expression.js ExpressionStatement\`
+yield 42
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0006666666666666666,
+  "difficulty": 0.5,
+  "effort": 1,
+  "length": 2,
+  "time": 0.05555555555555555,
+  "vocabulary": 2,
+  "volume": 2,
+}
+`;
+
+exports[`test for halstead complexity measures /js/yield-expression.js FunctionDeclaration\`
+function * fn () {
+    yield 42
+    yield * [42]
+    yield (42, 1)
+}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.017716949839399268,
+  "difficulty": 5.833333333333334,
+  "effort": 310.0466221894872,
+  "length": 16,
+  "time": 17.2248123438604,
+  "vocabulary": 10,
+  "volume": 53.1508495181978,
+}
+`;
+
+exports[`test for halstead complexity measures /js/yield-expression.js Literal\`
+1
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/yield-expression.js Literal\`
+42
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /js/yield-expression.js Program\`
+function * fn () {
+    yield 42
+    yield * [42]
+    yield (42, 1)
+}
+
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.017716949839399268,
+  "difficulty": 5.833333333333334,
+  "effort": 310.0466221894872,
+  "length": 16,
+  "time": 17.2248123438604,
+  "vocabulary": 10,
+  "volume": 53.1508495181978,
+}
+`;
+
+exports[`test for halstead complexity measures /js/yield-expression.js SequenceExpression\`
+42, 1
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 0.5,
+  "effort": 2.377443751081734,
+  "length": 3,
+  "time": 0.13208020839342968,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
 exports[`test for halstead complexity measures /ts/class-declaration-expression.ts ClassBody\`
 {}
 \` 1`] = `
@@ -54621,5 +56351,62 @@ Object {
   "time": 1011.4242145677272,
   "vocabulary": 42,
   "volume": 722.5705346523539,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/variable-declaration.ts Literal\`
+42
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/variable-declaration.ts Program\`
+declare const V = 42
+
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0038698801581456034,
+  "difficulty": 1.5,
+  "effort": 17.414460711655217,
+  "length": 5,
+  "time": 0.9674700395364009,
+  "vocabulary": 5,
+  "volume": 11.60964047443681,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/variable-declaration.ts VariableDeclaration\`
+declare const V = 42
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0038698801581456034,
+  "difficulty": 1.5,
+  "effort": 17.414460711655217,
+  "length": 5,
+  "time": 0.9674700395364009,
+  "vocabulary": 5,
+  "volume": 11.60964047443681,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/variable-declaration.ts VariableDeclarator\`
+V = 42
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 0.5,
+  "effort": 2.377443751081734,
+  "length": 3,
+  "time": 0.13208020839342968,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
 }
 `;
