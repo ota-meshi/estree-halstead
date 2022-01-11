@@ -1,0 +1,7 @@
+/.nyc_output
+/coverage
+/lib
+/node_modules
+/tests/fixtures/**/*.ts
+/tests/fixtures/**/*.js
+!/.vscode
