@@ -452,8 +452,9 @@ const EXTRACT_TOKENS: AllVisitor = {
         this.operators.add("for()")
         this.operators.add("in")
     },
-    ForOfStatement(this: ExtractTokensContext) {
+    ForOfStatement(this: ExtractTokensContext, node) {
         this.operators.add("for()")
+        if (node.await) this.operators.add("await")
         this.operators.add("of")
     },
     ForStatement(this: ExtractTokensContext) {
@@ -552,8 +553,8 @@ const EXTRACT_TOKENS: AllVisitor = {
             )
         ) {
             this.operators.add("{}")
-            this.operators.add(",", node.specifiers.length - 1)
         }
+        this.operators.add(",", node.specifiers.length - 1)
         if (node.specifiers.length) {
             this.operators.add("from")
         }
@@ -568,6 +569,7 @@ const EXTRACT_TOKENS: AllVisitor = {
         node: TSESTree.ImportExpression,
     ) {
         this.operators.add("import")
+        this.operators.add("()")
         if (node.attributes) {
             this.operators.add(",")
         }
@@ -949,6 +951,7 @@ const EXTRACT_TOKENS: AllVisitor = {
         this: ExtractTokensContext,
         node: TSESTree.TSDeclareFunction,
     ) {
+        if (node.declare) this.operators.add("declare")
         if (node.async) {
             this.operators.add("async")
         }
