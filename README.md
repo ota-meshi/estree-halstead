@@ -34,5 +34,5 @@ console.log(result)
 [Halstead complexity measures]: https://en.wikipedia.org/wiki/Halstead_complexity_measures
 
 Note:  
-Semicolons and unnecessary parentheses tokens are ignored as the calculation uses AST.
+The calculation uses the AST, so tokens not included in the AST, such as semicolons and unwanted parenthesis tokens, are ignored.
 This means that the calculation result is format independent.

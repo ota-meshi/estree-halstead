@@ -6,10 +6,10 @@ import {
 
 const visitorKeys = { ...baseVisitorKeys }
 visitorKeys.TSNamedTupleMember = [
-    ...new Set([...(visitorKeys.TSNamedTupleMember || []), "label"]),
+    ...new Set([...visitorKeys.TSNamedTupleMember || [], "label"]),
 ]
 visitorKeys.TSInterfaceDeclaration = [
-    ...new Set([...(visitorKeys.TSInterfaceDeclaration || []), "implements"]),
+    ...new Set([...visitorKeys.TSInterfaceDeclaration || [], "implements"]),
 ]
 
 /**

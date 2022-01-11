@@ -12,9 +12,12 @@ const dirname = __dirname // path.dirname(filename)
 
 chai.use(jestSnapshotPlugin())
 const FIXTURES_ROOT = path.resolve(dirname, "../fixtures")
-const SRC_ROOT = path.resolve(dirname, "../../src")
+// const SRC_ROOT = path.resolve(dirname, "../../src")
 describe("test for halstead complexity measures", () => {
-    for (const fixture of listupFixtures(FIXTURES_ROOT, SRC_ROOT)) {
+    for (const fixture of listupFixtures(
+        FIXTURES_ROOT,
+        // , SRC_ROOT
+    )) {
         describe(fixture.filename, () => {
             const ast = parse(fixture.content, {
                 project: [],

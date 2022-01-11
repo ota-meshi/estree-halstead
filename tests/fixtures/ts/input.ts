@@ -38,8 +38,8 @@ enum Enum {
     C = "C"
 }
 export = foo
-import a = require('foo')
-type ImportType = import('foo').B
+import a = require("foo")
+type ImportType = import("foo").B
 type UnpackedPromise<T=string> = T extends Promise<infer U>
   ? U
   : T
@@ -75,4 +75,4 @@ type TemplateLiteralType = `A${B}C`
 const typeAssertion = <string>"foo"
 type Keyof = keyof T
 type Typeof = typeof typeAssertion
-type TypePredicate = (v)=>v is T
+type TypePredicate = (v:any)=>v is T

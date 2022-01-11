@@ -487,9 +487,9 @@ const EXTRACT_TOKENS: AllVisitor = {
 
         if (
             !parent ||
-            (parent.type !== AST_NODE_TYPES.MethodDefinition &&
+            parent.type !== AST_NODE_TYPES.MethodDefinition &&
                 (parent.type !== AST_NODE_TYPES.Property || !parent.method) &&
-                parent.type !== AST_NODE_TYPES.TSAbstractMethodDefinition)
+                parent.type !== AST_NODE_TYPES.TSAbstractMethodDefinition
         ) {
             this.operators.add("function")
         }
@@ -973,9 +973,9 @@ const EXTRACT_TOKENS: AllVisitor = {
 
         if (
             !parent ||
-            (parent.type !== AST_NODE_TYPES.MethodDefinition &&
+            parent.type !== AST_NODE_TYPES.MethodDefinition &&
                 (parent.type !== AST_NODE_TYPES.Property || !parent.method) &&
-                parent.type !== AST_NODE_TYPES.TSAbstractMethodDefinition)
+                parent.type !== AST_NODE_TYPES.TSAbstractMethodDefinition
         ) {
             this.operators.add("function")
         }
@@ -1219,10 +1219,10 @@ const EXTRACT_TOKENS: AllVisitor = {
     ) {
         if (parent) {
             if (
-                (parent.type === AST_NODE_TYPES.TSFunctionType &&
-                    parent.returnType === node) ||
-                (parent.type === AST_NODE_TYPES.TSConstructorType &&
-                    parent.returnType === node)
+                parent.type === AST_NODE_TYPES.TSFunctionType &&
+                    parent.returnType === node ||
+                parent.type === AST_NODE_TYPES.TSConstructorType &&
+                    parent.returnType === node
             ) {
                 this.operators.add("=>")
                 return
