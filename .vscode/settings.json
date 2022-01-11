@@ -1,0 +1,14 @@
+{
+    "eslint.validate": ["javascript", "typescript", "json", "jsonc", "vue"],
+    // "eslint.run": "onSave",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "vetur.validation.template": false,
+    "files.watcherExclude": {
+        "**/lib/**": true,
+        "**/build/**": true,
+        "**/coverage/**": true
+    },
+    "typescript.tsdk": "./node_modules/typescript/lib"
+}
