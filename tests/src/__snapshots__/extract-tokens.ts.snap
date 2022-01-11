@@ -1,6 +1,228 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test for extractTokens /js/fn.js BlockStatement\`
+exports[`test for extractTokens /js/array-pattern.js ArrayExpression\`
+[1, 2]
+\` 1`] = `
+Object {
+  "operands": Array [
+    "1",
+    "2",
+  ],
+  "operators": Array [
+    "[]",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/array-pattern.js ArrayPattern\`
+[a, b]
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "b",
+  ],
+  "operators": Array [
+    "[]",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/array-pattern.js Literal\`
+1
+\` 1`] = `
+Object {
+  "operands": Array [
+    "1",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/array-pattern.js Literal\`
+2
+\` 1`] = `
+Object {
+  "operands": Array [
+    "2",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/array-pattern.js Program\`
+const [a, b] = [1, 2]
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "b",
+    "1",
+    "2",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "[]",
+    ",",
+    "[]",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/array-pattern.js VariableDeclaration\`
+const [a, b] = [1, 2]
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "b",
+    "1",
+    "2",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "[]",
+    ",",
+    "[]",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/array-pattern.js VariableDeclarator\`
+[a, b] = [1, 2]
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "b",
+    "1",
+    "2",
+  ],
+  "operators": Array [
+    "=",
+    "[]",
+    ",",
+    "[]",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/arrow-function-expression.js ArrowFunctionExpression\`
+() => ({})
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "()",
+    "=>",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/arrow-function-expression.js ArrowFunctionExpression\`
+() => {}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "()",
+    "=>",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/arrow-function-expression.js ArrowFunctionExpression\`
+() => 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+  ],
+  "operators": Array [
+    "()",
+    "=>",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/arrow-function-expression.js ArrowFunctionExpression\`
+(a, b) => 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "b",
+    "42",
+  ],
+  "operators": Array [
+    "()",
+    ",",
+    "=>",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/arrow-function-expression.js ArrowFunctionExpression\`
+a => 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "42",
+  ],
+  "operators": Array [
+    "=>",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/arrow-function-expression.js ArrowFunctionExpression\`
+async () => {
+    await 42
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+  ],
+  "operators": Array [
+    "async",
+    "()",
+    "=>",
+    "{}",
+    "await",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/arrow-function-expression.js BlockStatement\`
+{
+    await 42
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+  ],
+  "operators": Array [
+    "{}",
+    "await",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/arrow-function-expression.js BlockStatement\`
 {}
 \` 1`] = `
 Object {
@@ -11,7 +233,2788 @@ Object {
 }
 `;
 
-exports[`test for extractTokens /js/fn.js FunctionDeclaration\`
+exports[`test for extractTokens /js/arrow-function-expression.js ExpressionStatement\`
+await 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+  ],
+  "operators": Array [
+    "await",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/arrow-function-expression.js Literal\`
+42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/arrow-function-expression.js Program\`
+const a = () => 42
+const b = a => 42
+const c = (a, b) => 42
+
+const d = () => {}
+const e = () => ({})
+
+const f = async () => {
+    await 42
+}
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "42",
+    "b",
+    "a",
+    "42",
+    "c",
+    "a",
+    "b",
+    "42",
+    "d",
+    "e",
+    "f",
+    "42",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "()",
+    "=>",
+    "const",
+    "=",
+    "=>",
+    "const",
+    "=",
+    "()",
+    ",",
+    "=>",
+    "const",
+    "=",
+    "()",
+    "=>",
+    "{}",
+    "const",
+    "=",
+    "()",
+    "=>",
+    "()",
+    "{}",
+    "const",
+    "=",
+    "async",
+    "()",
+    "=>",
+    "{}",
+    "await",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/arrow-function-expression.js VariableDeclaration\`
+const a = () => 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "42",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "()",
+    "=>",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/arrow-function-expression.js VariableDeclaration\`
+const b = a => 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "b",
+    "a",
+    "42",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "=>",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/arrow-function-expression.js VariableDeclaration\`
+const c = (a, b) => 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "c",
+    "a",
+    "b",
+    "42",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "()",
+    ",",
+    "=>",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/arrow-function-expression.js VariableDeclaration\`
+const d = () => {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "d",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "()",
+    "=>",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/arrow-function-expression.js VariableDeclaration\`
+const e = () => ({})
+\` 1`] = `
+Object {
+  "operands": Array [
+    "e",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "()",
+    "=>",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/arrow-function-expression.js VariableDeclaration\`
+const f = async () => {
+    await 42
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "f",
+    "42",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "async",
+    "()",
+    "=>",
+    "{}",
+    "await",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/arrow-function-expression.js VariableDeclarator\`
+a = () => 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "42",
+  ],
+  "operators": Array [
+    "=",
+    "()",
+    "=>",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/arrow-function-expression.js VariableDeclarator\`
+b = a => 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "b",
+    "a",
+    "42",
+  ],
+  "operators": Array [
+    "=",
+    "=>",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/arrow-function-expression.js VariableDeclarator\`
+c = (a, b) => 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "c",
+    "a",
+    "b",
+    "42",
+  ],
+  "operators": Array [
+    "=",
+    "()",
+    ",",
+    "=>",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/arrow-function-expression.js VariableDeclarator\`
+d = () => {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "d",
+  ],
+  "operators": Array [
+    "=",
+    "()",
+    "=>",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/arrow-function-expression.js VariableDeclarator\`
+e = () => ({})
+\` 1`] = `
+Object {
+  "operands": Array [
+    "e",
+  ],
+  "operators": Array [
+    "=",
+    "()",
+    "=>",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/arrow-function-expression.js VariableDeclarator\`
+f = async () => {
+    await 42
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "f",
+    "42",
+  ],
+  "operators": Array [
+    "=",
+    "async",
+    "()",
+    "=>",
+    "{}",
+    "await",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/assignment-expression.js ExpressionStatement\`
+a *= (42, 1)
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "42",
+    "1",
+  ],
+  "operators": Array [
+    "*=",
+    "()",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/assignment-expression.js ExpressionStatement\`
+a += 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "42",
+  ],
+  "operators": Array [
+    "+=",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/assignment-expression.js ExpressionStatement\`
+a = 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "42",
+  ],
+  "operators": Array [
+    "=",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/assignment-expression.js Literal\`
+1
+\` 1`] = `
+Object {
+  "operands": Array [
+    "1",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/assignment-expression.js Literal\`
+42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/assignment-expression.js Program\`
+a = 42
+a += 42
+a *= (42, 1)
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "42",
+    "a",
+    "42",
+    "a",
+    "42",
+    "1",
+  ],
+  "operators": Array [
+    "=",
+    "+=",
+    "*=",
+    "()",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/assignment-expression.js SequenceExpression\`
+42, 1
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+    "1",
+  ],
+  "operators": Array [
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/await-expression.js BinaryExpression\`
+42 ** 1
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+    "1",
+  ],
+  "operators": Array [
+    "**",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/await-expression.js BlockStatement\`
+{
+    await 42
+    await await 42
+    await (42 ** 1)
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+    "42",
+    "42",
+    "1",
+  ],
+  "operators": Array [
+    "{}",
+    "await",
+    "await",
+    "await",
+    "await",
+    "()",
+    "**",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/await-expression.js ExpressionStatement\`
+await (42 ** 1)
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+    "1",
+  ],
+  "operators": Array [
+    "await",
+    "()",
+    "**",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/await-expression.js ExpressionStatement\`
+await 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+  ],
+  "operators": Array [
+    "await",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/await-expression.js ExpressionStatement\`
+await await 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+  ],
+  "operators": Array [
+    "await",
+    "await",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/await-expression.js FunctionDeclaration\`
+async function fn () {
+    await 42
+    await await 42
+    await (42 ** 1)
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "fn",
+    "42",
+    "42",
+    "42",
+    "1",
+  ],
+  "operators": Array [
+    "async",
+    "function",
+    "()",
+    "{}",
+    "await",
+    "await",
+    "await",
+    "await",
+    "()",
+    "**",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/await-expression.js Literal\`
+1
+\` 1`] = `
+Object {
+  "operands": Array [
+    "1",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/await-expression.js Literal\`
+42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/await-expression.js Program\`
+async function fn () {
+    await 42
+    await await 42
+    await (42 ** 1)
+}
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "fn",
+    "42",
+    "42",
+    "42",
+    "1",
+  ],
+  "operators": Array [
+    "async",
+    "function",
+    "()",
+    "{}",
+    "await",
+    "await",
+    "await",
+    "await",
+    "()",
+    "**",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js BlockStatement\`
+{
+            break
+        }
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+    "break",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js BlockStatement\`
+{
+            break foo
+        }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "foo",
+  ],
+  "operators": Array [
+    "{}",
+    "break",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js BlockStatement\`
+{
+            continue
+        }
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+    "continue",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js BlockStatement\`
+{
+            continue foo
+        }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "foo",
+  ],
+  "operators": Array [
+    "{}",
+    "continue",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js BlockStatement\`
+{
+        if (a) {
+            break
+        }
+        if (a) {
+            break foo
+        }
+        if (a) {
+            continue
+        }
+        if (a) {
+            continue foo
+        }
+    }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "a",
+    "foo",
+    "a",
+    "a",
+    "foo",
+  ],
+  "operators": Array [
+    "{}",
+    "if()",
+    "{}",
+    "break",
+    "if()",
+    "{}",
+    "break",
+    "if()",
+    "{}",
+    "continue",
+    "if()",
+    "{}",
+    "continue",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js BlockStatement\`
+{
+        return
+    }
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+    "return",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js BlockStatement\`
+{
+        return foo
+    }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "foo",
+  ],
+  "operators": Array [
+    "{}",
+    "return",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js BlockStatement\`
+{
+    foo: for (const e of list) {
+        if (a) {
+            break
+        }
+        if (a) {
+            break foo
+        }
+        if (a) {
+            continue
+        }
+        if (a) {
+            continue foo
+        }
+    }
+    if (a) {
+        return
+    }
+    if (a) {
+        return foo
+    }
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "foo",
+    "e",
+    "list",
+    "a",
+    "a",
+    "foo",
+    "a",
+    "a",
+    "foo",
+    "a",
+    "a",
+    "foo",
+  ],
+  "operators": Array [
+    "{}",
+    ":",
+    "for()",
+    "of",
+    "const",
+    "{}",
+    "if()",
+    "{}",
+    "break",
+    "if()",
+    "{}",
+    "break",
+    "if()",
+    "{}",
+    "continue",
+    "if()",
+    "{}",
+    "continue",
+    "if()",
+    "{}",
+    "return",
+    "if()",
+    "{}",
+    "return",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js BreakStatement\`
+break
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "break",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js BreakStatement\`
+break foo
+\` 1`] = `
+Object {
+  "operands": Array [
+    "foo",
+  ],
+  "operators": Array [
+    "break",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js ContinueStatement\`
+continue
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "continue",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js ContinueStatement\`
+continue foo
+\` 1`] = `
+Object {
+  "operands": Array [
+    "foo",
+  ],
+  "operators": Array [
+    "continue",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js ForOfStatement\`
+for (const e of list) {
+        if (a) {
+            break
+        }
+        if (a) {
+            break foo
+        }
+        if (a) {
+            continue
+        }
+        if (a) {
+            continue foo
+        }
+    }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "e",
+    "list",
+    "a",
+    "a",
+    "foo",
+    "a",
+    "a",
+    "foo",
+  ],
+  "operators": Array [
+    "for()",
+    "of",
+    "const",
+    "{}",
+    "if()",
+    "{}",
+    "break",
+    "if()",
+    "{}",
+    "break",
+    "if()",
+    "{}",
+    "continue",
+    "if()",
+    "{}",
+    "continue",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js FunctionDeclaration\`
+function fn() {
+    foo: for (const e of list) {
+        if (a) {
+            break
+        }
+        if (a) {
+            break foo
+        }
+        if (a) {
+            continue
+        }
+        if (a) {
+            continue foo
+        }
+    }
+    if (a) {
+        return
+    }
+    if (a) {
+        return foo
+    }
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "fn",
+    "foo",
+    "e",
+    "list",
+    "a",
+    "a",
+    "foo",
+    "a",
+    "a",
+    "foo",
+    "a",
+    "a",
+    "foo",
+  ],
+  "operators": Array [
+    "function",
+    "()",
+    "{}",
+    ":",
+    "for()",
+    "of",
+    "const",
+    "{}",
+    "if()",
+    "{}",
+    "break",
+    "if()",
+    "{}",
+    "break",
+    "if()",
+    "{}",
+    "continue",
+    "if()",
+    "{}",
+    "continue",
+    "if()",
+    "{}",
+    "return",
+    "if()",
+    "{}",
+    "return",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js IfStatement\`
+if (a) {
+            break
+        }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+  ],
+  "operators": Array [
+    "if()",
+    "{}",
+    "break",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js IfStatement\`
+if (a) {
+            break foo
+        }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "foo",
+  ],
+  "operators": Array [
+    "if()",
+    "{}",
+    "break",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js IfStatement\`
+if (a) {
+            continue
+        }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+  ],
+  "operators": Array [
+    "if()",
+    "{}",
+    "continue",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js IfStatement\`
+if (a) {
+            continue foo
+        }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "foo",
+  ],
+  "operators": Array [
+    "if()",
+    "{}",
+    "continue",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js IfStatement\`
+if (a) {
+        return
+    }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+  ],
+  "operators": Array [
+    "if()",
+    "{}",
+    "return",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js IfStatement\`
+if (a) {
+        return foo
+    }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "foo",
+  ],
+  "operators": Array [
+    "if()",
+    "{}",
+    "return",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js LabeledStatement\`
+foo: for (const e of list) {
+        if (a) {
+            break
+        }
+        if (a) {
+            break foo
+        }
+        if (a) {
+            continue
+        }
+        if (a) {
+            continue foo
+        }
+    }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "foo",
+    "e",
+    "list",
+    "a",
+    "a",
+    "foo",
+    "a",
+    "a",
+    "foo",
+  ],
+  "operators": Array [
+    ":",
+    "for()",
+    "of",
+    "const",
+    "{}",
+    "if()",
+    "{}",
+    "break",
+    "if()",
+    "{}",
+    "break",
+    "if()",
+    "{}",
+    "continue",
+    "if()",
+    "{}",
+    "continue",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js Program\`
+function fn() {
+    foo: for (const e of list) {
+        if (a) {
+            break
+        }
+        if (a) {
+            break foo
+        }
+        if (a) {
+            continue
+        }
+        if (a) {
+            continue foo
+        }
+    }
+    if (a) {
+        return
+    }
+    if (a) {
+        return foo
+    }
+}
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "fn",
+    "foo",
+    "e",
+    "list",
+    "a",
+    "a",
+    "foo",
+    "a",
+    "a",
+    "foo",
+    "a",
+    "a",
+    "foo",
+  ],
+  "operators": Array [
+    "function",
+    "()",
+    "{}",
+    ":",
+    "for()",
+    "of",
+    "const",
+    "{}",
+    "if()",
+    "{}",
+    "break",
+    "if()",
+    "{}",
+    "break",
+    "if()",
+    "{}",
+    "continue",
+    "if()",
+    "{}",
+    "continue",
+    "if()",
+    "{}",
+    "return",
+    "if()",
+    "{}",
+    "return",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js ReturnStatement\`
+return
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "return",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js ReturnStatement\`
+return foo
+\` 1`] = `
+Object {
+  "operands": Array [
+    "foo",
+  ],
+  "operators": Array [
+    "return",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js VariableDeclaration\`
+const e
+\` 1`] = `
+Object {
+  "operands": Array [
+    "e",
+  ],
+  "operators": Array [
+    "const",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/break-continue-return.js VariableDeclarator\`
+e
+\` 1`] = `
+Object {
+  "operands": Array [
+    "e",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/call-espression.js ExpressionStatement\`
+call()
+\` 1`] = `
+Object {
+  "operands": Array [
+    "call",
+  ],
+  "operators": Array [
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/call-espression.js ExpressionStatement\`
+call(a)
+\` 1`] = `
+Object {
+  "operands": Array [
+    "call",
+    "a",
+  ],
+  "operators": Array [
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/call-espression.js ExpressionStatement\`
+call(a, b)
+\` 1`] = `
+Object {
+  "operands": Array [
+    "call",
+    "a",
+    "b",
+  ],
+  "operators": Array [
+    "()",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/call-espression.js ExpressionStatement\`
+call?.()
+\` 1`] = `
+Object {
+  "operands": Array [
+    "call",
+  ],
+  "operators": Array [
+    "?.",
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/call-espression.js Program\`
+call()
+call(a)
+call(a, b)
+call?.()
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "call",
+    "call",
+    "a",
+    "call",
+    "a",
+    "b",
+    "call",
+  ],
+  "operators": Array [
+    "()",
+    "()",
+    "()",
+    ",",
+    "?.",
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/catch-clause.js BlockStatement\`
+{}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/catch-clause.js CatchClause\`
+catch(e){}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "e",
+  ],
+  "operators": Array [
+    "catch",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/catch-clause.js CatchClause\`
+catch{}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "catch",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/catch-clause.js Program\`
+try{}catch{}
+try{}catch(e){}
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "e",
+  ],
+  "operators": Array [
+    "try",
+    "{}",
+    "catch",
+    "{}",
+    "try",
+    "{}",
+    "catch",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/catch-clause.js TryStatement\`
+try{}catch(e){}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "e",
+  ],
+  "operators": Array [
+    "try",
+    "{}",
+    "catch",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/catch-clause.js TryStatement\`
+try{}catch{}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "try",
+    "{}",
+    "catch",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/class-declaration-expression.js ClassBody\`
+{}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/class-declaration-expression.js ClassDeclaration\`
+class A {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+  ],
+  "operators": Array [
+    "class",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/class-declaration-expression.js ClassDeclaration\`
+class B extends A {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "B",
+    "A",
+  ],
+  "operators": Array [
+    "class",
+    "extends",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/class-declaration-expression.js ClassExpression\`
+class {}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "class",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/class-declaration-expression.js ClassExpression\`
+class extends A {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+  ],
+  "operators": Array [
+    "class",
+    "extends",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/class-declaration-expression.js Program\`
+class A {}
+class B extends A {}
+const a = class A {}
+const b = class B extends A {}
+const c = class {}
+const d = class extends A {}
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+    "B",
+    "A",
+    "a",
+    "A",
+    "b",
+    "B",
+    "A",
+    "c",
+    "d",
+    "A",
+  ],
+  "operators": Array [
+    "class",
+    "{}",
+    "class",
+    "extends",
+    "{}",
+    "const",
+    "=",
+    "class",
+    "{}",
+    "const",
+    "=",
+    "class",
+    "extends",
+    "{}",
+    "const",
+    "=",
+    "class",
+    "{}",
+    "const",
+    "=",
+    "class",
+    "extends",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/class-declaration-expression.js VariableDeclaration\`
+const a = class A {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "A",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "class",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/class-declaration-expression.js VariableDeclaration\`
+const b = class B extends A {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "b",
+    "B",
+    "A",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "class",
+    "extends",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/class-declaration-expression.js VariableDeclaration\`
+const c = class {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "c",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "class",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/class-declaration-expression.js VariableDeclaration\`
+const d = class extends A {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "d",
+    "A",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "class",
+    "extends",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/class-declaration-expression.js VariableDeclarator\`
+a = class A {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "A",
+  ],
+  "operators": Array [
+    "=",
+    "class",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/class-declaration-expression.js VariableDeclarator\`
+b = class B extends A {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "b",
+    "B",
+    "A",
+  ],
+  "operators": Array [
+    "=",
+    "class",
+    "extends",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/class-declaration-expression.js VariableDeclarator\`
+c = class {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "c",
+  ],
+  "operators": Array [
+    "=",
+    "class",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/class-declaration-expression.js VariableDeclarator\`
+d = class extends A {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "d",
+    "A",
+  ],
+  "operators": Array [
+    "=",
+    "class",
+    "extends",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/conditional-expression.js AssignmentExpression\`
+a = 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "42",
+  ],
+  "operators": Array [
+    "=",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/conditional-expression.js ConditionalExpression\`
+(a = 42) ? a : b
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "42",
+    "a",
+    "b",
+  ],
+  "operators": Array [
+    "()",
+    "?:",
+    "=",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/conditional-expression.js ConditionalExpression\`
+a ? a : b
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "a",
+    "b",
+  ],
+  "operators": Array [
+    "?:",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/conditional-expression.js ExpressionStatement\`
+v = (a = 42) ? a : b
+\` 1`] = `
+Object {
+  "operands": Array [
+    "v",
+    "a",
+    "42",
+    "a",
+    "b",
+  ],
+  "operators": Array [
+    "=",
+    "()",
+    "?:",
+    "=",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/conditional-expression.js ExpressionStatement\`
+v = a ? a : b
+\` 1`] = `
+Object {
+  "operands": Array [
+    "v",
+    "a",
+    "a",
+    "b",
+  ],
+  "operators": Array [
+    "=",
+    "?:",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/conditional-expression.js Literal\`
+42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/conditional-expression.js Program\`
+v = a ? a : b
+v = (a = 42) ? a : b
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "v",
+    "a",
+    "a",
+    "b",
+    "v",
+    "a",
+    "42",
+    "a",
+    "b",
+  ],
+  "operators": Array [
+    "=",
+    "?:",
+    "=",
+    "()",
+    "?:",
+    "=",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/debugger-statement.js Program\`
+debugger
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "debugger",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/do-while-statement.js BlockStatement\`
+{
+
+}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/do-while-statement.js BlockStatement\`
+{}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/do-while-statement.js DoWhileStatement\`
+do {
+
+} while (a)
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+  ],
+  "operators": Array [
+    "do",
+    "while()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/do-while-statement.js Program\`
+do {
+
+} while (a) {}
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+  ],
+  "operators": Array [
+    "do",
+    "while()",
+    "{}",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/empty-statement.js EmptyStatement\`
+;
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    ";",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/empty-statement.js Program\`
+;
+
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    ";",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/export-all-declaration.js ExportAllDeclaration\`
+export * as Foo from "foo"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "Foo",
+    "\\"foo\\"",
+  ],
+  "operators": Array [
+    "export",
+    "*",
+    "as",
+    "from",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/export-all-declaration.js ExportAllDeclaration\`
+export * from "foo"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"foo\\"",
+  ],
+  "operators": Array [
+    "export",
+    "*",
+    "from",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/export-all-declaration.js Literal\`
+"foo"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"foo\\"",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/export-all-declaration.js Program\`
+export * from "foo"
+export * as Foo from "foo"
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"foo\\"",
+    "Foo",
+    "\\"foo\\"",
+  ],
+  "operators": Array [
+    "export",
+    "*",
+    "from",
+    "export",
+    "*",
+    "as",
+    "from",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/export-default-declaration.js ExportDefaultDeclaration\`
+export default {}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "export",
+    "default",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/export-default-declaration.js ObjectExpression\`
+{}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/export-default-declaration.js Program\`
+export default {}
+
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "export",
+    "default",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/export-named-declaration.js ClassBody\`
+{}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/export-named-declaration.js ClassDeclaration\`
+class A {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+  ],
+  "operators": Array [
+    "class",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/export-named-declaration.js ExportNamedDeclaration\`
+export {a} from "foo"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "\\"foo\\"",
+  ],
+  "operators": Array [
+    "export",
+    "{}",
+    "from",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/export-named-declaration.js ExportNamedDeclaration\`
+export {b as c} from "foo"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "c",
+    "b",
+    "\\"foo\\"",
+  ],
+  "operators": Array [
+    "export",
+    "{}",
+    "from",
+    "as",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/export-named-declaration.js ExportNamedDeclaration\`
+export {d}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "d",
+  ],
+  "operators": Array [
+    "export",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/export-named-declaration.js ExportNamedDeclaration\`
+export {e, f}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "e",
+    "f",
+  ],
+  "operators": Array [
+    "export",
+    "{}",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/export-named-declaration.js ExportNamedDeclaration\`
+export class A {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+  ],
+  "operators": Array [
+    "export",
+    "class",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/export-named-declaration.js ExportNamedDeclaration\`
+export const g = 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "g",
+    "42",
+  ],
+  "operators": Array [
+    "export",
+    "const",
+    "=",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/export-named-declaration.js ExportNamedDeclaration\`
+export function h() {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "h",
+  ],
+  "operators": Array [
+    "export",
+    "function",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/export-named-declaration.js ExportSpecifier\`
+a
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/export-named-declaration.js ExportSpecifier\`
+b as c
+\` 1`] = `
+Object {
+  "operands": Array [
+    "c",
+    "b",
+  ],
+  "operators": Array [
+    "as",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/export-named-declaration.js ExportSpecifier\`
+d
+\` 1`] = `
+Object {
+  "operands": Array [
+    "d",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/export-named-declaration.js ExportSpecifier\`
+e
+\` 1`] = `
+Object {
+  "operands": Array [
+    "e",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/export-named-declaration.js ExportSpecifier\`
+f
+\` 1`] = `
+Object {
+  "operands": Array [
+    "f",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/export-named-declaration.js FunctionDeclaration\`
+function h() {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "h",
+  ],
+  "operators": Array [
+    "function",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/export-named-declaration.js Literal\`
+"foo"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"foo\\"",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/export-named-declaration.js Literal\`
+42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/export-named-declaration.js Program\`
+export {a} from "foo"
+export {b as c} from "foo"
+
+export {d}
+export {e, f}
+
+export const g = 42
+export class A {}
+export function h() {}
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "\\"foo\\"",
+    "c",
+    "b",
+    "\\"foo\\"",
+    "d",
+    "e",
+    "f",
+    "g",
+    "42",
+    "A",
+    "h",
+  ],
+  "operators": Array [
+    "export",
+    "{}",
+    "from",
+    "export",
+    "{}",
+    "from",
+    "as",
+    "export",
+    "{}",
+    "export",
+    "{}",
+    ",",
+    "export",
+    "const",
+    "=",
+    "export",
+    "class",
+    "{}",
+    "export",
+    "function",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/export-named-declaration.js VariableDeclaration\`
+const g = 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "g",
+    "42",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/export-named-declaration.js VariableDeclarator\`
+g = 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "g",
+    "42",
+  ],
+  "operators": Array [
+    "=",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/for-in-statement.js BlockStatement\`
+{
+        const element = object[key];
+        
+    }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "element",
+    "object",
+    "key",
+  ],
+  "operators": Array [
+    "{}",
+    "const",
+    "=",
+    "[]",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/for-in-statement.js BlockStatement\`
+{
+    if (Object.hasOwnProperty.call(object, key)) {
+        const element = object[key];
+        
+    }
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "Object",
+    "hasOwnProperty",
+    "call",
+    "object",
+    "key",
+    "element",
+    "object",
+    "key",
+  ],
+  "operators": Array [
+    "{}",
+    "if()",
+    "()",
+    ",",
+    ".",
+    ".",
+    "{}",
+    "const",
+    "=",
+    "[]",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/for-in-statement.js CallExpression\`
+Object.hasOwnProperty.call(object, key)
+\` 1`] = `
+Object {
+  "operands": Array [
+    "Object",
+    "hasOwnProperty",
+    "call",
+    "object",
+    "key",
+  ],
+  "operators": Array [
+    "()",
+    ",",
+    ".",
+    ".",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/for-in-statement.js ForInStatement\`
+for (const key in object) {
+    if (Object.hasOwnProperty.call(object, key)) {
+        const element = object[key];
+        
+    }
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "key",
+    "object",
+    "Object",
+    "hasOwnProperty",
+    "call",
+    "object",
+    "key",
+    "element",
+    "object",
+    "key",
+  ],
+  "operators": Array [
+    "for()",
+    "in",
+    "const",
+    "{}",
+    "if()",
+    "()",
+    ",",
+    ".",
+    ".",
+    "{}",
+    "const",
+    "=",
+    "[]",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/for-in-statement.js IfStatement\`
+if (Object.hasOwnProperty.call(object, key)) {
+        const element = object[key];
+        
+    }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "Object",
+    "hasOwnProperty",
+    "call",
+    "object",
+    "key",
+    "element",
+    "object",
+    "key",
+  ],
+  "operators": Array [
+    "if()",
+    "()",
+    ",",
+    ".",
+    ".",
+    "{}",
+    "const",
+    "=",
+    "[]",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/for-in-statement.js MemberExpression\`
+Object.hasOwnProperty
+\` 1`] = `
+Object {
+  "operands": Array [
+    "Object",
+    "hasOwnProperty",
+  ],
+  "operators": Array [
+    ".",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/for-in-statement.js MemberExpression\`
+Object.hasOwnProperty.call
+\` 1`] = `
+Object {
+  "operands": Array [
+    "Object",
+    "hasOwnProperty",
+    "call",
+  ],
+  "operators": Array [
+    ".",
+    ".",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/for-in-statement.js MemberExpression\`
+object[key]
+\` 1`] = `
+Object {
+  "operands": Array [
+    "object",
+    "key",
+  ],
+  "operators": Array [
+    "[]",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/for-in-statement.js Program\`
+for (const key in object) {
+    if (Object.hasOwnProperty.call(object, key)) {
+        const element = object[key];
+        
+    }
+}
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "key",
+    "object",
+    "Object",
+    "hasOwnProperty",
+    "call",
+    "object",
+    "key",
+    "element",
+    "object",
+    "key",
+  ],
+  "operators": Array [
+    "for()",
+    "in",
+    "const",
+    "{}",
+    "if()",
+    "()",
+    ",",
+    ".",
+    ".",
+    "{}",
+    "const",
+    "=",
+    "[]",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/for-in-statement.js VariableDeclaration\`
+const element = object[key];
+\` 1`] = `
+Object {
+  "operands": Array [
+    "element",
+    "object",
+    "key",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "[]",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/for-in-statement.js VariableDeclaration\`
+const key
+\` 1`] = `
+Object {
+  "operands": Array [
+    "key",
+  ],
+  "operators": Array [
+    "const",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/for-in-statement.js VariableDeclarator\`
+element = object[key]
+\` 1`] = `
+Object {
+  "operands": Array [
+    "element",
+    "object",
+    "key",
+  ],
+  "operators": Array [
+    "=",
+    "[]",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/for-in-statement.js VariableDeclarator\`
+key
+\` 1`] = `
+Object {
+  "operands": Array [
+    "key",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/for-of-statement.js BlockStatement\`
+{
+    }
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/for-of-statement.js BlockStatement\`
+{
+    for await (variable of iterable) {
+    }
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "variable",
+    "iterable",
+  ],
+  "operators": Array [
+    "{}",
+    "for()",
+    "await",
+    "of",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/for-of-statement.js BlockStatement\`
+{
+}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/for-of-statement.js ForOfStatement\`
+for (const iterator of object) {
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "iterator",
+    "object",
+  ],
+  "operators": Array [
+    "for()",
+    "of",
+    "const",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/for-of-statement.js ForOfStatement\`
+for await (variable of iterable) {
+    }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "variable",
+    "iterable",
+  ],
+  "operators": Array [
+    "for()",
+    "await",
+    "of",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/for-of-statement.js FunctionDeclaration\`
+async function f() {
+    for await (variable of iterable) {
+    }
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "f",
+    "variable",
+    "iterable",
+  ],
+  "operators": Array [
+    "async",
+    "function",
+    "()",
+    "{}",
+    "for()",
+    "await",
+    "of",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/for-of-statement.js Program\`
+for (const iterator of object) {
+}
+async function f() {
+    for await (variable of iterable) {
+    }
+}
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "iterator",
+    "object",
+    "f",
+    "variable",
+    "iterable",
+  ],
+  "operators": Array [
+    "for()",
+    "of",
+    "const",
+    "{}",
+    "async",
+    "function",
+    "()",
+    "{}",
+    "for()",
+    "await",
+    "of",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/for-of-statement.js VariableDeclaration\`
+const iterator
+\` 1`] = `
+Object {
+  "operands": Array [
+    "iterator",
+  ],
+  "operators": Array [
+    "const",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/for-of-statement.js VariableDeclarator\`
+iterator
+\` 1`] = `
+Object {
+  "operands": Array [
+    "iterator",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/function-declaration.js BlockStatement\`
+{}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/function-declaration.js FunctionDeclaration\`
+async function * fn5() {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "fn5",
+  ],
+  "operators": Array [
+    "async",
+    "function",
+    "*",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/function-declaration.js FunctionDeclaration\`
+function * fn4() {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "fn4",
+  ],
+  "operators": Array [
+    "function",
+    "*",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/function-declaration.js FunctionDeclaration\`
 function fn1() {}
 \` 1`] = `
 Object {
@@ -26,7 +3029,7 @@ Object {
 }
 `;
 
-exports[`test for extractTokens /js/fn.js FunctionDeclaration\`
+exports[`test for extractTokens /js/function-declaration.js FunctionDeclaration\`
 function fn2(a) {}
 \` 1`] = `
 Object {
@@ -42,7 +3045,7 @@ Object {
 }
 `;
 
-exports[`test for extractTokens /js/fn.js FunctionDeclaration\`
+exports[`test for extractTokens /js/function-declaration.js FunctionDeclaration\`
 function fn3(a, a2) {}
 \` 1`] = `
 Object {
@@ -60,7 +3063,153 @@ Object {
 }
 `;
 
-exports[`test for extractTokens /js/fn.js FunctionExpression\`
+exports[`test for extractTokens /js/function-declaration.js Program\`
+function fn1() {}
+function fn2(a) {}
+function fn3(a, a2) {}
+function * fn4() {}
+async function * fn5() {}
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "fn1",
+    "fn2",
+    "a",
+    "fn3",
+    "a",
+    "a2",
+    "fn4",
+    "fn5",
+  ],
+  "operators": Array [
+    "function",
+    "()",
+    "{}",
+    "function",
+    "()",
+    "{}",
+    "function",
+    "()",
+    ",",
+    "{}",
+    "function",
+    "*",
+    "()",
+    "{}",
+    "async",
+    "function",
+    "*",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/function-expression.js BlockStatement\`
+{}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/function-expression.js ExpressionStatement\`
+v = async function * fn5() {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "v",
+    "fn5",
+  ],
+  "operators": Array [
+    "=",
+    "async",
+    "function",
+    "*",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/function-expression.js ExpressionStatement\`
+v = function * fn4() {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "v",
+    "fn4",
+  ],
+  "operators": Array [
+    "=",
+    "function",
+    "*",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/function-expression.js ExpressionStatement\`
+v = function fn1() {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "v",
+    "fn1",
+  ],
+  "operators": Array [
+    "=",
+    "function",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/function-expression.js ExpressionStatement\`
+v = function fn2(a) {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "v",
+    "fn2",
+    "a",
+  ],
+  "operators": Array [
+    "=",
+    "function",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/function-expression.js ExpressionStatement\`
+v = function fn3(a, a2) {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "v",
+    "fn3",
+    "a",
+    "a2",
+  ],
+  "operators": Array [
+    "=",
+    "function",
+    "()",
+    ",",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/function-expression.js FunctionExpression\`
 () {}
 \` 1`] = `
 Object {
@@ -73,7 +3222,7 @@ Object {
 }
 `;
 
-exports[`test for extractTokens /js/fn.js FunctionExpression\`
+exports[`test for extractTokens /js/function-expression.js FunctionExpression\`
 (a) {}
 \` 1`] = `
 Object {
@@ -88,7 +3237,7 @@ Object {
 }
 `;
 
-exports[`test for extractTokens /js/fn.js FunctionExpression\`
+exports[`test for extractTokens /js/function-expression.js FunctionExpression\`
 (a, a2) {}
 \` 1`] = `
 Object {
@@ -105,30 +3254,81 @@ Object {
 }
 `;
 
-exports[`test for extractTokens /js/fn.js ObjectExpression\`
-{
-    fn1() {},
-    fn2(a) {},
-    fn3(a, a2) {}
+exports[`test for extractTokens /js/function-expression.js FunctionExpression\`
+async function * fn5() {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "fn5",
+  ],
+  "operators": Array [
+    "async",
+    "function",
+    "*",
+    "()",
+    "{}",
+  ],
 }
+`;
+
+exports[`test for extractTokens /js/function-expression.js FunctionExpression\`
+function * fn4() {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "fn4",
+  ],
+  "operators": Array [
+    "function",
+    "*",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/function-expression.js FunctionExpression\`
+function fn1() {}
 \` 1`] = `
 Object {
   "operands": Array [
     "fn1",
+  ],
+  "operators": Array [
+    "function",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/function-expression.js FunctionExpression\`
+function fn2(a) {}
+\` 1`] = `
+Object {
+  "operands": Array [
     "fn2",
     "a",
+  ],
+  "operators": Array [
+    "function",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/function-expression.js FunctionExpression\`
+function fn3(a, a2) {}
+\` 1`] = `
+Object {
+  "operands": Array [
     "fn3",
     "a",
     "a2",
   ],
   "operators": Array [
-    "{}",
-    ",",
-    ",",
-    "()",
-    "{}",
-    "()",
-    "{}",
+    "function",
     "()",
     ",",
     "{}",
@@ -136,16 +3336,14 @@ Object {
 }
 `;
 
-exports[`test for extractTokens /js/fn.js Program\`
-function fn1() {}
-function fn2(a) {}
-function fn3(a, a2) {}
-const object = {
+exports[`test for extractTokens /js/function-expression.js ObjectExpression\`
+{
     fn1() {},
     fn2(a) {},
-    fn3(a, a2) {}
+    fn3(a, a2) {},
+    *fn4() {},
+    async fn5() {}
 }
-
 \` 1`] = `
 Object {
   "operands": Array [
@@ -155,6 +3353,62 @@ Object {
     "fn3",
     "a",
     "a2",
+    "fn4",
+    "fn5",
+  ],
+  "operators": Array [
+    "{}",
+    ",",
+    ",",
+    ",",
+    ",",
+    "()",
+    "{}",
+    "()",
+    "{}",
+    "()",
+    ",",
+    "{}",
+    "*",
+    "()",
+    "{}",
+    "async",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/function-expression.js Program\`
+v = function fn1() {}
+v = function fn2(a) {}
+v = function fn3(a, a2) {}
+v = function * fn4() {}
+v = async function * fn5() {}
+const object = {
+    fn1() {},
+    fn2(a) {},
+    fn3(a, a2) {},
+    *fn4() {},
+    async fn5() {}
+}
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "v",
+    "fn1",
+    "v",
+    "fn2",
+    "a",
+    "v",
+    "fn3",
+    "a",
+    "a2",
+    "v",
+    "fn4",
+    "v",
+    "fn5",
     "object",
     "fn1",
     "fn2",
@@ -162,23 +3416,41 @@ Object {
     "fn3",
     "a",
     "a2",
+    "fn4",
+    "fn5",
   ],
   "operators": Array [
+    "=",
     "function",
     "()",
     "{}",
+    "=",
     "function",
     "()",
     "{}",
+    "=",
     "function",
     "()",
     ",",
+    "{}",
+    "=",
+    "function",
+    "*",
+    "()",
+    "{}",
+    "=",
+    "async",
+    "function",
+    "*",
+    "()",
     "{}",
     "const",
     "=",
     "{}",
     ",",
     ",",
+    ",",
+    ",",
     "()",
     "{}",
     "()",
@@ -186,11 +3458,47 @@ Object {
     "()",
     ",",
     "{}",
+    "*",
+    "()",
+    "{}",
+    "async",
+    "()",
+    "{}",
   ],
 }
 `;
 
-exports[`test for extractTokens /js/fn.js Property\`
+exports[`test for extractTokens /js/function-expression.js Property\`
+*fn4() {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "fn4",
+  ],
+  "operators": Array [
+    "*",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/function-expression.js Property\`
+async fn5() {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "fn5",
+  ],
+  "operators": Array [
+    "async",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/function-expression.js Property\`
 fn1() {}
 \` 1`] = `
 Object {
@@ -204,7 +3512,7 @@ Object {
 }
 `;
 
-exports[`test for extractTokens /js/fn.js Property\`
+exports[`test for extractTokens /js/function-expression.js Property\`
 fn2(a) {}
 \` 1`] = `
 Object {
@@ -219,7 +3527,7 @@ Object {
 }
 `;
 
-exports[`test for extractTokens /js/fn.js Property\`
+exports[`test for extractTokens /js/function-expression.js Property\`
 fn3(a, a2) {}
 \` 1`] = `
 Object {
@@ -236,11 +3544,13 @@ Object {
 }
 `;
 
-exports[`test for extractTokens /js/fn.js VariableDeclaration\`
+exports[`test for extractTokens /js/function-expression.js VariableDeclaration\`
 const object = {
     fn1() {},
     fn2(a) {},
-    fn3(a, a2) {}
+    fn3(a, a2) {},
+    *fn4() {},
+    async fn5() {}
 }
 \` 1`] = `
 Object {
@@ -252,6 +3562,8 @@ Object {
     "fn3",
     "a",
     "a2",
+    "fn4",
+    "fn5",
   ],
   "operators": Array [
     "const",
@@ -259,6 +3571,8 @@ Object {
     "{}",
     ",",
     ",",
+    ",",
+    ",",
     "()",
     "{}",
     "()",
@@ -266,15 +3580,23 @@ Object {
     "()",
     ",",
     "{}",
+    "*",
+    "()",
+    "{}",
+    "async",
+    "()",
+    "{}",
   ],
 }
 `;
 
-exports[`test for extractTokens /js/fn.js VariableDeclarator\`
+exports[`test for extractTokens /js/function-expression.js VariableDeclarator\`
 object = {
     fn1() {},
     fn2(a) {},
-    fn3(a, a2) {}
+    fn3(a, a2) {},
+    *fn4() {},
+    async fn5() {}
 }
 \` 1`] = `
 Object {
@@ -286,12 +3608,16 @@ Object {
     "fn3",
     "a",
     "a2",
+    "fn4",
+    "fn5",
   ],
   "operators": Array [
     "=",
     "{}",
     ",",
     ",",
+    ",",
+    ",",
     "()",
     "{}",
     "()",
@@ -299,6 +3625,3626 @@ Object {
     "()",
     ",",
     "{}",
+    "*",
+    "()",
+    "{}",
+    "async",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/import-declaration.js ImportDeclaration\`
+import "foo"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"foo\\"",
+  ],
+  "operators": Array [
+    "import",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/import-declaration.js ImportDeclaration\`
+import * as All from "foo"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "All",
+    "\\"foo\\"",
+  ],
+  "operators": Array [
+    "import",
+    "from",
+    "*",
+    "as",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/import-declaration.js ImportDeclaration\`
+import {C, D as d} from "foo"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "C",
+    "D",
+    "d",
+    "\\"foo\\"",
+  ],
+  "operators": Array [
+    "import",
+    "{}",
+    ",",
+    "from",
+    "as",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/import-declaration.js ImportDeclaration\`
+import B, {C} from "foo"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "B",
+    "C",
+    "\\"foo\\"",
+  ],
+  "operators": Array [
+    "import",
+    "{}",
+    ",",
+    "from",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/import-declaration.js ImportDeclaration\`
+import E, * as All2 from "foo"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "E",
+    "All2",
+    "\\"foo\\"",
+  ],
+  "operators": Array [
+    "import",
+    ",",
+    "from",
+    "*",
+    "as",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/import-declaration.js ImportDefaultSpecifier\`
+B
+\` 1`] = `
+Object {
+  "operands": Array [
+    "B",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/import-declaration.js ImportDefaultSpecifier\`
+E
+\` 1`] = `
+Object {
+  "operands": Array [
+    "E",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/import-declaration.js ImportNamespaceSpecifier\`
+* as All
+\` 1`] = `
+Object {
+  "operands": Array [
+    "All",
+  ],
+  "operators": Array [
+    "*",
+    "as",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/import-declaration.js ImportNamespaceSpecifier\`
+* as All2
+\` 1`] = `
+Object {
+  "operands": Array [
+    "All2",
+  ],
+  "operators": Array [
+    "*",
+    "as",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/import-declaration.js ImportSpecifier\`
+C
+\` 1`] = `
+Object {
+  "operands": Array [
+    "C",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/import-declaration.js ImportSpecifier\`
+D as d
+\` 1`] = `
+Object {
+  "operands": Array [
+    "D",
+    "d",
+  ],
+  "operators": Array [
+    "as",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/import-declaration.js Literal\`
+"foo"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"foo\\"",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/import-declaration.js Program\`
+import "foo"
+import B, {C} from "foo"
+import {C, D as d} from "foo"
+import * as All from "foo"
+import E, * as All2 from "foo"
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"foo\\"",
+    "B",
+    "C",
+    "\\"foo\\"",
+    "C",
+    "D",
+    "d",
+    "\\"foo\\"",
+    "All",
+    "\\"foo\\"",
+    "E",
+    "All2",
+    "\\"foo\\"",
+  ],
+  "operators": Array [
+    "import",
+    "import",
+    "{}",
+    ",",
+    "from",
+    "import",
+    "{}",
+    ",",
+    "from",
+    "as",
+    "import",
+    "from",
+    "*",
+    "as",
+    "import",
+    ",",
+    "from",
+    "*",
+    "as",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/import-expression.js ExpressionStatement\`
+import("foo")
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"foo\\"",
+  ],
+  "operators": Array [
+    "import",
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/import-expression.js Literal\`
+"foo"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"foo\\"",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/import-expression.js Program\`
+import("foo")
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"foo\\"",
+  ],
+  "operators": Array [
+    "import",
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/literal.js Literal\`
+/regexp/ig
+\` 1`] = `
+Object {
+  "operands": Array [
+    "/regexp/ig",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/literal.js Program\`
+v = /regexp/ig
+\` 1`] = `
+Object {
+  "operands": Array [
+    "v",
+    "/regexp/ig",
+  ],
+  "operators": Array [
+    "=",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/member-expression.js ChainExpression\`
+c?.[d]
+\` 1`] = `
+Object {
+  "operands": Array [
+    "c",
+    "d",
+  ],
+  "operators": Array [
+    "?.",
+    "[]",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/member-expression.js ChainExpression\`
+c?.d
+\` 1`] = `
+Object {
+  "operands": Array [
+    "c",
+    "d",
+  ],
+  "operators": Array [
+    "?.",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/member-expression.js ExpressionStatement\`
+a.b = c.d
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "b",
+    "c",
+    "d",
+  ],
+  "operators": Array [
+    "=",
+    ".",
+    ".",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/member-expression.js ExpressionStatement\`
+a.b = c?.[d]
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "b",
+    "c",
+    "d",
+  ],
+  "operators": Array [
+    "=",
+    ".",
+    "?.",
+    "[]",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/member-expression.js ExpressionStatement\`
+a.b = c?.d
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "b",
+    "c",
+    "d",
+  ],
+  "operators": Array [
+    "=",
+    ".",
+    "?.",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/member-expression.js ExpressionStatement\`
+a.b = c[d]
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "b",
+    "c",
+    "d",
+  ],
+  "operators": Array [
+    "=",
+    ".",
+    "[]",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/member-expression.js MemberExpression\`
+a.b
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "b",
+  ],
+  "operators": Array [
+    ".",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/member-expression.js MemberExpression\`
+c.d
+\` 1`] = `
+Object {
+  "operands": Array [
+    "c",
+    "d",
+  ],
+  "operators": Array [
+    ".",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/member-expression.js MemberExpression\`
+c[d]
+\` 1`] = `
+Object {
+  "operands": Array [
+    "c",
+    "d",
+  ],
+  "operators": Array [
+    "[]",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/member-expression.js Program\`
+a.b = c.d
+a.b = c[d]
+a.b = c?.d
+a.b = c?.[d]
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "b",
+    "c",
+    "d",
+    "a",
+    "b",
+    "c",
+    "d",
+    "a",
+    "b",
+    "c",
+    "d",
+    "a",
+    "b",
+    "c",
+    "d",
+  ],
+  "operators": Array [
+    "=",
+    ".",
+    ".",
+    "=",
+    ".",
+    "[]",
+    "=",
+    ".",
+    "?.",
+    "=",
+    ".",
+    "?.",
+    "[]",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/meta-property.js ExpressionStatement\`
+import.meta.url
+\` 1`] = `
+Object {
+  "operands": Array [
+    "import",
+    "meta",
+    "url",
+  ],
+  "operators": Array [
+    ".",
+    ".",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/meta-property.js MetaProperty\`
+import.meta
+\` 1`] = `
+Object {
+  "operands": Array [
+    "import",
+    "meta",
+  ],
+  "operators": Array [
+    ".",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/meta-property.js Program\`
+import.meta.url
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "import",
+    "meta",
+    "url",
+  ],
+  "operators": Array [
+    ".",
+    ".",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/method-definition.js BlockStatement\`
+{}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/method-definition.js ClassBody\`
+{
+    a () {}
+    static b () {}
+    [c] () {}
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "b",
+    "c",
+  ],
+  "operators": Array [
+    "{}",
+    "()",
+    "{}",
+    "static",
+    "()",
+    "{}",
+    "[]",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/method-definition.js FunctionExpression\`
+() {}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "function",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/method-definition.js MethodDefinition\`
+[c] () {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "c",
+  ],
+  "operators": Array [
+    "[]",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/method-definition.js MethodDefinition\`
+a () {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+  ],
+  "operators": Array [
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/method-definition.js MethodDefinition\`
+static b () {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "b",
+  ],
+  "operators": Array [
+    "static",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/method-definition.js Program\`
+class A {
+    a () {}
+    static b () {}
+    [c] () {}
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+    "a",
+    "b",
+    "c",
+  ],
+  "operators": Array [
+    "class",
+    "{}",
+    "()",
+    "{}",
+    "static",
+    "()",
+    "{}",
+    "[]",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/new-expression.js CallExpression\`
+A()
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+  ],
+  "operators": Array [
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/new-expression.js CallExpression\`
+new A()()
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+  ],
+  "operators": Array [
+    "()",
+    "new",
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/new-expression.js ExpressionStatement\`
+v = new (A())()
+\` 1`] = `
+Object {
+  "operands": Array [
+    "v",
+    "A",
+  ],
+  "operators": Array [
+    "=",
+    "new",
+    "()",
+    "()",
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/new-expression.js ExpressionStatement\`
+v = new A()
+\` 1`] = `
+Object {
+  "operands": Array [
+    "v",
+    "A",
+  ],
+  "operators": Array [
+    "=",
+    "new",
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/new-expression.js ExpressionStatement\`
+v = new A()()
+\` 1`] = `
+Object {
+  "operands": Array [
+    "v",
+    "A",
+  ],
+  "operators": Array [
+    "=",
+    "()",
+    "new",
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/new-expression.js NewExpression\`
+new (A())()
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+  ],
+  "operators": Array [
+    "new",
+    "()",
+    "()",
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/new-expression.js NewExpression\`
+new A()
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+  ],
+  "operators": Array [
+    "new",
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/new-expression.js Program\`
+v = new A()
+v = new A()()
+v = new (A())()
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "v",
+    "A",
+    "v",
+    "A",
+    "v",
+    "A",
+  ],
+  "operators": Array [
+    "=",
+    "new",
+    "()",
+    "=",
+    "()",
+    "new",
+    "()",
+    "=",
+    "new",
+    "()",
+    "()",
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/object-pattern.js ObjectPattern\`
+{}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/object-pattern.js ObjectPattern\`
+{a}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+  ],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/object-pattern.js ObjectPattern\`
+{b, c}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "b",
+    "c",
+  ],
+  "operators": Array [
+    "{}",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/object-pattern.js Program\`
+const {} = a
+const {a} = a
+const {b, c} = a
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "a",
+    "a",
+    "b",
+    "c",
+    "a",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "{}",
+    "const",
+    "=",
+    "{}",
+    "const",
+    "=",
+    "{}",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/object-pattern.js Property\`
+a
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/object-pattern.js Property\`
+b
+\` 1`] = `
+Object {
+  "operands": Array [
+    "b",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/object-pattern.js Property\`
+c
+\` 1`] = `
+Object {
+  "operands": Array [
+    "c",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/object-pattern.js VariableDeclaration\`
+const {} = a
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/object-pattern.js VariableDeclaration\`
+const {a} = a
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "a",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/object-pattern.js VariableDeclaration\`
+const {b, c} = a
+\` 1`] = `
+Object {
+  "operands": Array [
+    "b",
+    "c",
+    "a",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "{}",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/object-pattern.js VariableDeclarator\`
+{} = a
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+  ],
+  "operators": Array [
+    "=",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/object-pattern.js VariableDeclarator\`
+{a} = a
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "a",
+  ],
+  "operators": Array [
+    "=",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/object-pattern.js VariableDeclarator\`
+{b, c} = a
+\` 1`] = `
+Object {
+  "operands": Array [
+    "b",
+    "c",
+    "a",
+  ],
+  "operators": Array [
+    "=",
+    "{}",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/private-identifier.js BlockStatement\`
+{}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/private-identifier.js ClassBody\`
+{
+    #x
+    #y = 42
+    static #z
+    #fx() {}
+    static #fy() {}
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "#x",
+    "#y",
+    "42",
+    "#z",
+    "#fx",
+    "#fy",
+  ],
+  "operators": Array [
+    "{}",
+    "=",
+    "static",
+    "()",
+    "{}",
+    "static",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/private-identifier.js ClassDeclaration\`
+class A {
+    #x
+    #y = 42
+    static #z
+    #fx() {}
+    static #fy() {}
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+    "#x",
+    "#y",
+    "42",
+    "#z",
+    "#fx",
+    "#fy",
+  ],
+  "operators": Array [
+    "class",
+    "{}",
+    "=",
+    "static",
+    "()",
+    "{}",
+    "static",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/private-identifier.js FunctionExpression\`
+() {}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "function",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/private-identifier.js Literal\`
+42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/private-identifier.js MethodDefinition\`
+#fx() {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "#fx",
+  ],
+  "operators": Array [
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/private-identifier.js MethodDefinition\`
+static #fy() {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "#fy",
+  ],
+  "operators": Array [
+    "static",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/private-identifier.js PrivateIdentifier\`
+#fx
+\` 1`] = `
+Object {
+  "operands": Array [
+    "#fx",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/private-identifier.js PrivateIdentifier\`
+#fy
+\` 1`] = `
+Object {
+  "operands": Array [
+    "#fy",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/private-identifier.js PrivateIdentifier\`
+#y
+\` 1`] = `
+Object {
+  "operands": Array [
+    "#y",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/private-identifier.js PrivateIdentifier\`
+#z
+\` 1`] = `
+Object {
+  "operands": Array [
+    "#z",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/private-identifier.js Program\`
+class A {
+    #x
+    #y = 42
+    static #z
+    #fx() {}
+    static #fy() {}
+}
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+    "#x",
+    "#y",
+    "42",
+    "#z",
+    "#fx",
+    "#fy",
+  ],
+  "operators": Array [
+    "class",
+    "{}",
+    "=",
+    "static",
+    "()",
+    "{}",
+    "static",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/private-identifier.js PropertyDefinition\`
+#x
+\` 1`] = `
+Object {
+  "operands": Array [
+    "#x",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/private-identifier.js PropertyDefinition\`
+#y = 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "#y",
+    "42",
+  ],
+  "operators": Array [
+    "=",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/private-identifier.js PropertyDefinition\`
+static #z
+\` 1`] = `
+Object {
+  "operands": Array [
+    "#z",
+  ],
+  "operators": Array [
+    "static",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/property.js BlockStatement\`
+{}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/property.js FunctionExpression\`
+(){}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "function",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/property.js Literal\`
+42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/property.js ObjectExpression\`
+{
+    a: 42,
+    b,
+    c(){},
+    get d(){},
+    set e(){},
+    [a]: 42,
+    [c](){},
+    get [d](){},
+    set [e](){}
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "42",
+    "b",
+    "c",
+    "d",
+    "e",
+    "a",
+    "42",
+    "c",
+    "d",
+    "e",
+  ],
+  "operators": Array [
+    "{}",
+    ",",
+    ",",
+    ",",
+    ",",
+    ",",
+    ",",
+    ",",
+    ",",
+    ":",
+    "()",
+    "{}",
+    "get",
+    "()",
+    "{}",
+    "set",
+    "()",
+    "{}",
+    "[]",
+    ":",
+    "[]",
+    "()",
+    "{}",
+    "get",
+    "[]",
+    "()",
+    "{}",
+    "set",
+    "[]",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/property.js Program\`
+o = {
+    a: 42,
+    b,
+    c(){},
+    get d(){},
+    set e(){},
+    [a]: 42,
+    [c](){},
+    get [d](){},
+    set [e](){}
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "o",
+    "a",
+    "42",
+    "b",
+    "c",
+    "d",
+    "e",
+    "a",
+    "42",
+    "c",
+    "d",
+    "e",
+  ],
+  "operators": Array [
+    "=",
+    "{}",
+    ",",
+    ",",
+    ",",
+    ",",
+    ",",
+    ",",
+    ",",
+    ",",
+    ":",
+    "()",
+    "{}",
+    "get",
+    "()",
+    "{}",
+    "set",
+    "()",
+    "{}",
+    "[]",
+    ":",
+    "[]",
+    "()",
+    "{}",
+    "get",
+    "[]",
+    "()",
+    "{}",
+    "set",
+    "[]",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/property.js Property\`
+[a]: 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "42",
+  ],
+  "operators": Array [
+    "[]",
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/property.js Property\`
+[c](){}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "c",
+  ],
+  "operators": Array [
+    "[]",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/property.js Property\`
+a: 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "42",
+  ],
+  "operators": Array [
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/property.js Property\`
+b
+\` 1`] = `
+Object {
+  "operands": Array [
+    "b",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/property.js Property\`
+c(){}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "c",
+  ],
+  "operators": Array [
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/property.js Property\`
+get [d](){}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "d",
+  ],
+  "operators": Array [
+    "get",
+    "[]",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/property.js Property\`
+get d(){}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "d",
+  ],
+  "operators": Array [
+    "get",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/property.js Property\`
+set [e](){}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "e",
+  ],
+  "operators": Array [
+    "set",
+    "[]",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/property.js Property\`
+set e(){}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "e",
+  ],
+  "operators": Array [
+    "set",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/property-definition.js ClassBody\`
+{
+    a = 42
+    b
+    [a] = 42
+    [b]
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "42",
+    "b",
+    "a",
+    "42",
+    "b",
+  ],
+  "operators": Array [
+    "{}",
+    "=",
+    "[]",
+    "=",
+    "[]",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/property-definition.js Literal\`
+42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/property-definition.js MemberExpression\`
+42
+    [b]
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+    "b",
+  ],
+  "operators": Array [
+    "[]",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/property-definition.js Program\`
+class A {
+    a = 42
+    b
+    [a] = 42
+    [b]
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+    "a",
+    "42",
+    "b",
+    "a",
+    "42",
+    "b",
+  ],
+  "operators": Array [
+    "class",
+    "{}",
+    "=",
+    "[]",
+    "=",
+    "[]",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/property-definition.js PropertyDefinition\`
+[a] = 42
+    [b]
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "42",
+    "b",
+  ],
+  "operators": Array [
+    "[]",
+    "=",
+    "[]",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/property-definition.js PropertyDefinition\`
+a = 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "42",
+  ],
+  "operators": Array [
+    "=",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/property-definition.js PropertyDefinition\`
+b
+\` 1`] = `
+Object {
+  "operands": Array [
+    "b",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/rest-element.js BlockStatement\`
+{}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/rest-element.js FunctionDeclaration\`
+function fn (...rest) {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "fn",
+    "rest",
+  ],
+  "operators": Array [
+    "function",
+    "()",
+    "...",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/rest-element.js Program\`
+function fn (...rest) {}
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "fn",
+    "rest",
+  ],
+  "operators": Array [
+    "function",
+    "()",
+    "...",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/rest-element.js RestElement\`
+...rest
+\` 1`] = `
+Object {
+  "operands": Array [
+    "rest",
+  ],
+  "operators": Array [
+    "...",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/static-block.js ClassBody\`
+{
+    static {}
+}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+    "static",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/static-block.js ClassDeclaration\`
+class A {
+    static {}
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+  ],
+  "operators": Array [
+    "class",
+    "{}",
+    "static",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/static-block.js Program\`
+class A {
+    static {}
+}
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+  ],
+  "operators": Array [
+    "class",
+    "{}",
+    "static",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/static-block.js StaticBlock\`
+static {}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "static",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/super.js BlockStatement\`
+{
+        super()
+    }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "super",
+  ],
+  "operators": Array [
+    "{}",
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/super.js BlockStatement\`
+{
+        super.fn()
+    }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "super",
+    "fn",
+  ],
+  "operators": Array [
+    "{}",
+    "()",
+    ".",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/super.js ClassBody\`
+{
+    constructor(){
+        super()
+    }
+    fn() {
+        super.fn()
+    }
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "constructor",
+    "super",
+    "fn",
+    "super",
+    "fn",
+  ],
+  "operators": Array [
+    "{}",
+    "()",
+    "{}",
+    "()",
+    "()",
+    "{}",
+    "()",
+    ".",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/super.js ClassDeclaration\`
+class A extends B {
+    constructor(){
+        super()
+    }
+    fn() {
+        super.fn()
+    }
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+    "B",
+    "constructor",
+    "super",
+    "fn",
+    "super",
+    "fn",
+  ],
+  "operators": Array [
+    "class",
+    "extends",
+    "{}",
+    "()",
+    "{}",
+    "()",
+    "()",
+    "{}",
+    "()",
+    ".",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/super.js ExpressionStatement\`
+super()
+\` 1`] = `
+Object {
+  "operands": Array [
+    "super",
+  ],
+  "operators": Array [
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/super.js ExpressionStatement\`
+super.fn()
+\` 1`] = `
+Object {
+  "operands": Array [
+    "super",
+    "fn",
+  ],
+  "operators": Array [
+    "()",
+    ".",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/super.js FunctionExpression\`
+() {
+        super.fn()
+    }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "super",
+    "fn",
+  ],
+  "operators": Array [
+    "function",
+    "()",
+    "{}",
+    "()",
+    ".",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/super.js FunctionExpression\`
+(){
+        super()
+    }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "super",
+  ],
+  "operators": Array [
+    "function",
+    "()",
+    "{}",
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/super.js MemberExpression\`
+super.fn
+\` 1`] = `
+Object {
+  "operands": Array [
+    "super",
+    "fn",
+  ],
+  "operators": Array [
+    ".",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/super.js MethodDefinition\`
+constructor(){
+        super()
+    }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "constructor",
+    "super",
+  ],
+  "operators": Array [
+    "()",
+    "{}",
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/super.js MethodDefinition\`
+fn() {
+        super.fn()
+    }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "fn",
+    "super",
+    "fn",
+  ],
+  "operators": Array [
+    "()",
+    "{}",
+    "()",
+    ".",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/super.js Program\`
+class A extends B {
+    constructor(){
+        super()
+    }
+    fn() {
+        super.fn()
+    }
+}
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+    "B",
+    "constructor",
+    "super",
+    "fn",
+    "super",
+    "fn",
+  ],
+  "operators": Array [
+    "class",
+    "extends",
+    "{}",
+    "()",
+    "{}",
+    "()",
+    "()",
+    "{}",
+    "()",
+    ".",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/super.js Super\`
+super
+\` 1`] = `
+Object {
+  "operands": Array [
+    "super",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/switch-statement.js BreakStatement\`
+break;
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "break",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/switch-statement.js Program\`
+switch (key) {
+    case value:
+        break;
+
+    default:
+        break;
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "key",
+    "value",
+  ],
+  "operators": Array [
+    "switch()",
+    "{}",
+    "case",
+    ":",
+    "break",
+    "default",
+    ":",
+    "break",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/switch-statement.js SwitchCase\`
+case value:
+        break;
+\` 1`] = `
+Object {
+  "operands": Array [
+    "value",
+  ],
+  "operators": Array [
+    "case",
+    ":",
+    "break",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/switch-statement.js SwitchCase\`
+default:
+        break;
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "default",
+    ":",
+    "break",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/try-statement.js BlockStatement\`
+{}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/try-statement.js Program\`
+try{}finally{}
+
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "try",
+    "finally",
+    "{}",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/try-statement.js TryStatement\`
+try{}finally{}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "try",
+    "finally",
+    "{}",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/unary-expression.js BinaryExpression\`
+1 + 2
+\` 1`] = `
+Object {
+  "operands": Array [
+    "1",
+    "2",
+  ],
+  "operators": Array [
+    "+",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/unary-expression.js BinaryExpression\`
+typeof 1 + 2
+\` 1`] = `
+Object {
+  "operands": Array [
+    "1",
+    "2",
+  ],
+  "operators": Array [
+    "+",
+    "typeof",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/unary-expression.js ExpressionStatement\`
+v = typeof (1 + 2)
+\` 1`] = `
+Object {
+  "operands": Array [
+    "v",
+    "1",
+    "2",
+  ],
+  "operators": Array [
+    "=",
+    "typeof",
+    "()",
+    "+",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/unary-expression.js ExpressionStatement\`
+v = typeof 1 + 2
+\` 1`] = `
+Object {
+  "operands": Array [
+    "v",
+    "1",
+    "2",
+  ],
+  "operators": Array [
+    "=",
+    "+",
+    "typeof",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/unary-expression.js ExpressionStatement\`
+v = typeof a
+\` 1`] = `
+Object {
+  "operands": Array [
+    "v",
+    "a",
+  ],
+  "operators": Array [
+    "=",
+    "typeof",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/unary-expression.js ExpressionStatement\`
+v = typeof typeof a
+\` 1`] = `
+Object {
+  "operands": Array [
+    "v",
+    "a",
+  ],
+  "operators": Array [
+    "=",
+    "typeof",
+    "typeof",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/unary-expression.js Literal\`
+1
+\` 1`] = `
+Object {
+  "operands": Array [
+    "1",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/unary-expression.js Literal\`
+2
+\` 1`] = `
+Object {
+  "operands": Array [
+    "2",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/unary-expression.js Program\`
+v = typeof a
+v = typeof 1 + 2
+v = typeof (1 + 2)
+v = typeof typeof a
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "v",
+    "a",
+    "v",
+    "1",
+    "2",
+    "v",
+    "1",
+    "2",
+    "v",
+    "a",
+  ],
+  "operators": Array [
+    "=",
+    "typeof",
+    "=",
+    "+",
+    "typeof",
+    "=",
+    "typeof",
+    "()",
+    "+",
+    "=",
+    "typeof",
+    "typeof",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/unary-expression.js UnaryExpression\`
+typeof (1 + 2)
+\` 1`] = `
+Object {
+  "operands": Array [
+    "1",
+    "2",
+  ],
+  "operators": Array [
+    "typeof",
+    "()",
+    "+",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/unary-expression.js UnaryExpression\`
+typeof 1
+\` 1`] = `
+Object {
+  "operands": Array [
+    "1",
+  ],
+  "operators": Array [
+    "typeof",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/unary-expression.js UnaryExpression\`
+typeof a
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+  ],
+  "operators": Array [
+    "typeof",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/unary-expression.js UnaryExpression\`
+typeof typeof a
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+  ],
+  "operators": Array [
+    "typeof",
+    "typeof",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/update-expression.js ExpressionStatement\`
+--i
+\` 1`] = `
+Object {
+  "operands": Array [
+    "i",
+  ],
+  "operators": Array [
+    "--",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/update-expression.js ExpressionStatement\`
+i++
+\` 1`] = `
+Object {
+  "operands": Array [
+    "i",
+  ],
+  "operators": Array [
+    "++",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/update-expression.js Program\`
+i++
+--i
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "i",
+    "i",
+  ],
+  "operators": Array [
+    "++",
+    "--",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/with-statement.js BlockStatement\`
+{
+
+}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/with-statement.js Program\`
+with(window) {
+
+}
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "window",
+  ],
+  "operators": Array [
+    "with()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/with-statement.js WithStatement\`
+with(window) {
+
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "window",
+  ],
+  "operators": Array [
+    "with()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/yield-expression.js ArrayExpression\`
+[42]
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+  ],
+  "operators": Array [
+    "[]",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/yield-expression.js BlockStatement\`
+{
+    yield 42
+    yield * [42]
+    yield (42, 1)
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+    "42",
+    "42",
+    "1",
+  ],
+  "operators": Array [
+    "{}",
+    "yield",
+    "yield",
+    "*",
+    "[]",
+    "yield",
+    "()",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/yield-expression.js ExpressionStatement\`
+yield (42, 1)
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+    "1",
+  ],
+  "operators": Array [
+    "yield",
+    "()",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/yield-expression.js ExpressionStatement\`
+yield * [42]
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+  ],
+  "operators": Array [
+    "yield",
+    "*",
+    "[]",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/yield-expression.js ExpressionStatement\`
+yield 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+  ],
+  "operators": Array [
+    "yield",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/yield-expression.js FunctionDeclaration\`
+function * fn () {
+    yield 42
+    yield * [42]
+    yield (42, 1)
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "fn",
+    "42",
+    "42",
+    "42",
+    "1",
+  ],
+  "operators": Array [
+    "function",
+    "*",
+    "()",
+    "{}",
+    "yield",
+    "yield",
+    "*",
+    "[]",
+    "yield",
+    "()",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/yield-expression.js Literal\`
+1
+\` 1`] = `
+Object {
+  "operands": Array [
+    "1",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/yield-expression.js Literal\`
+42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /js/yield-expression.js Program\`
+function * fn () {
+    yield 42
+    yield * [42]
+    yield (42, 1)
+}
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "fn",
+    "42",
+    "42",
+    "42",
+    "1",
+  ],
+  "operators": Array [
+    "function",
+    "*",
+    "()",
+    "{}",
+    "yield",
+    "yield",
+    "*",
+    "[]",
+    "yield",
+    "()",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /js/yield-expression.js SequenceExpression\`
+42, 1
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+    "1",
+  ],
+  "operators": Array [
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/class-declaration-expression.ts ClassBody\`
+{}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/class-declaration-expression.ts ClassDeclaration\`
+abstract class C {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "C",
+  ],
+  "operators": Array [
+    "class",
+    "abstract",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/class-declaration-expression.ts ClassDeclaration\`
+class B implements A {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "B",
+    "A",
+  ],
+  "operators": Array [
+    "class",
+    "implements",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/class-declaration-expression.ts ClassDeclaration\`
+declare class A {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+  ],
+  "operators": Array [
+    "class",
+    "declare",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/class-declaration-expression.ts ClassExpression\`
+class A {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+  ],
+  "operators": Array [
+    "class",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/class-declaration-expression.ts ClassExpression\`
+class B extends A {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "B",
+    "A",
+  ],
+  "operators": Array [
+    "class",
+    "extends",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/class-declaration-expression.ts Program\`
+declare class A {}
+class B implements A {}
+abstract class C {}
+const a = class A {}
+const b = class B extends A {}
+// const c = abstract class C {}
+// const d = declare class D {}
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+    "B",
+    "A",
+    "C",
+    "a",
+    "A",
+    "b",
+    "B",
+    "A",
+  ],
+  "operators": Array [
+    "class",
+    "declare",
+    "{}",
+    "class",
+    "implements",
+    "{}",
+    "class",
+    "abstract",
+    "{}",
+    "const",
+    "=",
+    "class",
+    "{}",
+    "const",
+    "=",
+    "class",
+    "extends",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/class-declaration-expression.ts TSClassImplements\`
+A
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/class-declaration-expression.ts VariableDeclaration\`
+const a = class A {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "A",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "class",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/class-declaration-expression.ts VariableDeclaration\`
+const b = class B extends A {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "b",
+    "B",
+    "A",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "class",
+    "extends",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/class-declaration-expression.ts VariableDeclarator\`
+a = class A {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "A",
+  ],
+  "operators": Array [
+    "=",
+    "class",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/class-declaration-expression.ts VariableDeclarator\`
+b = class B extends A {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "b",
+    "B",
+    "A",
+  ],
+  "operators": Array [
+    "=",
+    "class",
+    "extends",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/decorator.ts ClassBody\`
+{}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/decorator.ts Decorator\`
+@D
+\` 1`] = `
+Object {
+  "operands": Array [
+    "D",
+  ],
+  "operators": Array [
+    "@",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/decorator.ts Program\`
+@D
+class A {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "D",
+    "A",
+  ],
+  "operators": Array [
+    "class",
+    "@",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/export-all-declaration.ts ExportAllDeclaration\`
+export * from "foo" assert { type: "json" }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"foo\\"",
+    "type",
+    "\\"json\\"",
+  ],
+  "operators": Array [
+    "export",
+    "*",
+    "from",
+    "assert",
+    "{}",
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/export-all-declaration.ts ExportAllDeclaration\`
+export type * as Foo from "foo"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "Foo",
+    "\\"foo\\"",
+  ],
+  "operators": Array [
+    "export",
+    "type",
+    "*",
+    "as",
+    "from",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/export-all-declaration.ts ExportAllDeclaration\`
+export type * from "foo"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"foo\\"",
+  ],
+  "operators": Array [
+    "export",
+    "type",
+    "*",
+    "from",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/export-all-declaration.ts ImportAttribute\`
+type: "json"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "type",
+    "\\"json\\"",
+  ],
+  "operators": Array [
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/export-all-declaration.ts Literal\`
+"foo"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"foo\\"",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/export-all-declaration.ts Literal\`
+"json"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"json\\"",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/export-all-declaration.ts Program\`
+export type * from "foo"
+export type * as Foo from "foo"
+export * from "foo" assert { type: "json" }
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"foo\\"",
+    "Foo",
+    "\\"foo\\"",
+    "\\"foo\\"",
+    "type",
+    "\\"json\\"",
+  ],
+  "operators": Array [
+    "export",
+    "type",
+    "*",
+    "from",
+    "export",
+    "type",
+    "*",
+    "as",
+    "from",
+    "export",
+    "*",
+    "from",
+    "assert",
+    "{}",
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/export-named-declaration.ts ExportNamedDeclaration\`
+export {a} from "foo" assert { type: "json" }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "\\"foo\\"",
+    "type",
+    "\\"json\\"",
+  ],
+  "operators": Array [
+    "export",
+    "{}",
+    "from",
+    "assert",
+    "{}",
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/export-named-declaration.ts ExportNamedDeclaration\`
+export {type d, e, g}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "d",
+    "e",
+    "g",
+  ],
+  "operators": Array [
+    "export",
+    "{}",
+    ",",
+    ",",
+    "type",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/export-named-declaration.ts ExportNamedDeclaration\`
+export type {b as c} from "foo"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "c",
+    "b",
+    "\\"foo\\"",
+  ],
+  "operators": Array [
+    "export",
+    "type",
+    "{}",
+    "from",
+    "as",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/export-named-declaration.ts ExportNamedDeclaration\`
+export type {d, e}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "d",
+    "e",
+  ],
+  "operators": Array [
+    "export",
+    "type",
+    "{}",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/export-named-declaration.ts ExportNamedDeclaration\`
+export type {d}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "d",
+  ],
+  "operators": Array [
+    "export",
+    "type",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/export-named-declaration.ts ExportNamedDeclaration\`
+export type f = number
+\` 1`] = `
+Object {
+  "operands": Array [
+    "f",
+    "number",
+  ],
+  "operators": Array [
+    "export",
+    "type",
+    "=",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/export-named-declaration.ts ExportSpecifier\`
+a
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/export-named-declaration.ts ExportSpecifier\`
+b as c
+\` 1`] = `
+Object {
+  "operands": Array [
+    "c",
+    "b",
+  ],
+  "operators": Array [
+    "as",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/export-named-declaration.ts ExportSpecifier\`
+d
+\` 1`] = `
+Object {
+  "operands": Array [
+    "d",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/export-named-declaration.ts ExportSpecifier\`
+e
+\` 1`] = `
+Object {
+  "operands": Array [
+    "e",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/export-named-declaration.ts ExportSpecifier\`
+g
+\` 1`] = `
+Object {
+  "operands": Array [
+    "g",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/export-named-declaration.ts ExportSpecifier\`
+type d
+\` 1`] = `
+Object {
+  "operands": Array [
+    "d",
+  ],
+  "operators": Array [
+    "type",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/export-named-declaration.ts ImportAttribute\`
+type: "json"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "type",
+    "\\"json\\"",
+  ],
+  "operators": Array [
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/export-named-declaration.ts Literal\`
+"foo"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"foo\\"",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/export-named-declaration.ts Literal\`
+"json"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"json\\"",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/export-named-declaration.ts Program\`
+export {a} from "foo" assert { type: "json" }
+export type {b as c} from "foo"
+
+export type {d}
+export type {d, e}
+export {type d, e, g}
+
+export type f = number
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+    "\\"foo\\"",
+    "type",
+    "\\"json\\"",
+    "c",
+    "b",
+    "\\"foo\\"",
+    "d",
+    "d",
+    "e",
+    "d",
+    "e",
+    "g",
+    "f",
+    "number",
+  ],
+  "operators": Array [
+    "export",
+    "{}",
+    "from",
+    "assert",
+    "{}",
+    ":",
+    "export",
+    "type",
+    "{}",
+    "from",
+    "as",
+    "export",
+    "type",
+    "{}",
+    "export",
+    "type",
+    "{}",
+    ",",
+    "export",
+    "{}",
+    ",",
+    ",",
+    "type",
+    "export",
+    "type",
+    "=",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/export-named-declaration.ts TSNumberKeyword\`
+number
+\` 1`] = `
+Object {
+  "operands": Array [
+    "number",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/export-named-declaration.ts TSTypeAliasDeclaration\`
+type f = number
+\` 1`] = `
+Object {
+  "operands": Array [
+    "f",
+    "number",
+  ],
+  "operators": Array [
+    "type",
+    "=",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/function-declaration.ts BlockStatement\`
+{}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/function-declaration.ts Program\`
+declare function fn1() {}
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "fn1",
+  ],
+  "operators": Array [
+    "declare",
+    "function",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/function-declaration.ts TSDeclareFunction\`
+declare function fn1() {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "fn1",
+  ],
+  "operators": Array [
+    "declare",
+    "function",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/import-declaration.ts ImportAttribute\`
+type: "json"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "type",
+    "\\"json\\"",
+  ],
+  "operators": Array [
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/import-declaration.ts ImportDeclaration\`
+import {type B} from "bar"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "B",
+    "\\"bar\\"",
+  ],
+  "operators": Array [
+    "import",
+    "{}",
+    "from",
+    "type",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/import-declaration.ts ImportDeclaration\`
+import A from "foo" assert { type: "json" }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+    "\\"foo\\"",
+    "type",
+    "\\"json\\"",
+  ],
+  "operators": Array [
+    "import",
+    "from",
+    "assert",
+    "{}",
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/import-declaration.ts ImportDefaultSpecifier\`
+A
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/import-declaration.ts ImportSpecifier\`
+type B
+\` 1`] = `
+Object {
+  "operands": Array [
+    "B",
+  ],
+  "operators": Array [
+    "type",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/import-declaration.ts Literal\`
+"bar"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"bar\\"",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/import-declaration.ts Literal\`
+"foo"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"foo\\"",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/import-declaration.ts Literal\`
+"json"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"json\\"",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/import-declaration.ts Program\`
+import A from "foo" assert { type: "json" }
+import {type B} from "bar"
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+    "\\"foo\\"",
+    "type",
+    "\\"json\\"",
+    "B",
+    "\\"bar\\"",
+  ],
+  "operators": Array [
+    "import",
+    "from",
+    "assert",
+    "{}",
+    ":",
+    "import",
+    "{}",
+    "from",
+    "type",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/import-expression.ts ExpressionStatement\`
+import("foo", { assert: { type: "json" } })
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"foo\\"",
+    "assert",
+    "type",
+    "\\"json\\"",
+  ],
+  "operators": Array [
+    "import",
+    "()",
+    ",",
+    "{}",
+    ":",
+    "{}",
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/import-expression.ts Literal\`
+"foo"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"foo\\"",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/import-expression.ts Literal\`
+"json"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"json\\"",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/import-expression.ts ObjectExpression\`
+{ assert: { type: "json" } }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "assert",
+    "type",
+    "\\"json\\"",
+  ],
+  "operators": Array [
+    "{}",
+    ":",
+    "{}",
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/import-expression.ts ObjectExpression\`
+{ type: "json" }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "type",
+    "\\"json\\"",
+  ],
+  "operators": Array [
+    "{}",
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/import-expression.ts Program\`
+import("foo", { assert: { type: "json" } })
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"foo\\"",
+    "assert",
+    "type",
+    "\\"json\\"",
+  ],
+  "operators": Array [
+    "import",
+    "()",
+    ",",
+    "{}",
+    ":",
+    "{}",
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/import-expression.ts Property\`
+assert: { type: "json" }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "assert",
+    "type",
+    "\\"json\\"",
+  ],
+  "operators": Array [
+    ":",
+    "{}",
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/import-expression.ts Property\`
+type: "json"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "type",
+    "\\"json\\"",
+  ],
+  "operators": Array [
+    ":",
   ],
 }
 `;
@@ -3666,6 +10612,83 @@ Object {
   "operators": Array [
     "=",
     "<>",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/method-definition.ts BlockStatement\`
+{}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/method-definition.ts ClassBody\`
+{
+    public a () {}
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+  ],
+  "operators": Array [
+    "{}",
+    "public",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/method-definition.ts FunctionExpression\`
+() {}
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    "function",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/method-definition.ts MethodDefinition\`
+public a () {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+  ],
+  "operators": Array [
+    "public",
+    "()",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/method-definition.ts Program\`
+class A {
+    public a () {}
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "A",
+    "a",
+  ],
+  "operators": Array [
+    "class",
+    "{}",
+    "public",
+    "()",
+    "{}",
   ],
 }
 `;
@@ -113422,6 +120445,64 @@ Object {
     ",",
     ":",
     ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/variable-declaration.ts Literal\`
+42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "42",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/variable-declaration.ts Program\`
+declare const V = 42
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "V",
+    "42",
+  ],
+  "operators": Array [
+    "const",
+    "declare",
+    "=",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/variable-declaration.ts VariableDeclaration\`
+declare const V = 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "V",
+    "42",
+  ],
+  "operators": Array [
+    "const",
+    "declare",
+    "=",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/variable-declaration.ts VariableDeclarator\`
+V = 42
+\` 1`] = `
+Object {
+  "operands": Array [
+    "V",
+    "42",
+  ],
+  "operators": Array [
+    "=",
   ],
 }
 `;

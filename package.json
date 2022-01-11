@@ -29,6 +29,7 @@
         "cover": "nyc --reporter=lcov npm run test",
         "debug": "mocha --require ts-node/register/transpile-only \"tests/src/**/*.ts\" --reporter dot",
         "update-snap": "mocha --require ts-node/register/transpile-only \"tests/src/**/*.ts\" --reporter dot --update",
+        "update-snap-cov": "nyc --reporter=lcov npm run update-snap",
         "preversion": "npm run lint && npm test",
         "update-visitor": "node --require ts-node/register/transpile-only scripts/update-visitor.ts && eslint src/visitor.ts --fix"
     },

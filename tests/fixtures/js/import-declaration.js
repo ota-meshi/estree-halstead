@@ -1,0 +1,5 @@
+import "foo"
+import B, {C} from "foo"
+import {C, D as d} from "foo"
+import * as All from "foo"
+import E, * as All2 from "foo"

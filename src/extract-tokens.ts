@@ -452,8 +452,9 @@ const EXTRACT_TOKENS: AllVisitor = {
         this.operators.add("for()")
         this.operators.add("in")
     },
-    ForOfStatement(this: ExtractTokensContext) {
+    ForOfStatement(this: ExtractTokensContext, node) {
         this.operators.add("for()")
+        if (node.await) this.operators.add("await")
         this.operators.add("of")
     },
     ForStatement(this: ExtractTokensContext) {
@@ -488,7 +489,10 @@ const EXTRACT_TOKENS: AllVisitor = {
         if (
             !parent ||
             (parent.type !== AST_NODE_TYPES.MethodDefinition &&
-                (parent.type !== AST_NODE_TYPES.Property || !parent.method) &&
+                (parent.type !== AST_NODE_TYPES.Property ||
+                    (!parent.method &&
+                        parent.kind !== "get" &&
+                        parent.kind !== "set")) &&
                 parent.type !== AST_NODE_TYPES.TSAbstractMethodDefinition)
         ) {
             this.operators.add("function")
@@ -552,8 +556,8 @@ const EXTRACT_TOKENS: AllVisitor = {
             )
         ) {
             this.operators.add("{}")
-            this.operators.add(",", node.specifiers.length - 1)
         }
+        this.operators.add(",", node.specifiers.length - 1)
         if (node.specifiers.length) {
             this.operators.add("from")
         }
@@ -568,6 +572,7 @@ const EXTRACT_TOKENS: AllVisitor = {
         node: TSESTree.ImportExpression,
     ) {
         this.operators.add("import")
+        this.operators.add("()")
         if (node.attributes) {
             this.operators.add(",")
         }
@@ -721,7 +726,12 @@ const EXTRACT_TOKENS: AllVisitor = {
         if (node.computed) {
             this.operators.add("[]")
         }
-        if (!node.shorthand && !node.method) {
+        if (
+            !node.shorthand &&
+            !node.method &&
+            node.kind !== "get" &&
+            node.kind !== "set"
+        ) {
             this.operators.add(":")
         }
     },
@@ -815,7 +825,7 @@ const EXTRACT_TOKENS: AllVisitor = {
     ) {
         this.operators.add(node.operator)
 
-        if (getPrecedence(node) >= getPrecedence(node.argument)) {
+        if (getPrecedence(node) > getPrecedence(node.argument)) {
             this.operators.add("()")
         }
     },
@@ -949,6 +959,7 @@ const EXTRACT_TOKENS: AllVisitor = {
         this: ExtractTokensContext,
         node: TSESTree.TSDeclareFunction,
     ) {
+        if (node.declare) this.operators.add("declare")
         if (node.async) {
             this.operators.add("async")
         }
@@ -974,7 +985,10 @@ const EXTRACT_TOKENS: AllVisitor = {
         if (
             !parent ||
             (parent.type !== AST_NODE_TYPES.MethodDefinition &&
-                (parent.type !== AST_NODE_TYPES.Property || !parent.method) &&
+                (parent.type !== AST_NODE_TYPES.Property ||
+                    (!parent.method &&
+                        parent.kind !== "get" &&
+                        parent.kind !== "set")) &&
                 parent.type !== AST_NODE_TYPES.TSAbstractMethodDefinition)
         ) {
             this.operators.add("function")
