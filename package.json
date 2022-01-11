@@ -1,6 +1,6 @@
 {
     "name": "estree-halstead",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Halstead complexity measures for ESTree",
     "files": [
         "lib"
