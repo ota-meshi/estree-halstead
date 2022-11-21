@@ -5,9 +5,6 @@ import {
 } from "@typescript-eslint/visitor-keys";
 
 const visitorKeys = { ...baseVisitorKeys };
-visitorKeys.TSNamedTupleMember = [
-  ...new Set([...(visitorKeys.TSNamedTupleMember || []), "label"]),
-];
 visitorKeys.TSInterfaceDeclaration = [
   ...new Set([...(visitorKeys.TSInterfaceDeclaration || []), "implements"]),
 ];

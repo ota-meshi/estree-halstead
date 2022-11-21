@@ -93,8 +93,8 @@ export class TokensCollection<T> {
     } else {
       for (let index = 0; index < count; index++) {
         this.total.push(e);
-        this.distinct.add(e);
       }
+      if (count > 0) this.distinct.add(e);
     }
   }
 
@@ -1031,9 +1031,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   TSInferType(this: ExtractTokensContext) {
     this.operators.add("infer");
   },
-  TSInstantiationExpression(this: ExtractTokensContext) {
-    this.operators.add("<>");
-  },
+  TSInstantiationExpression: noop,
   TSInterfaceBody(this: ExtractTokensContext) {
     this.operators.add("{}");
   },
