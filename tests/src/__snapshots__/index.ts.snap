@@ -9080,6 +9080,451 @@ Object {
 }
 `;
 
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts ArrayExpression\`
+[0, 0, 255]
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.004,
+  "difficulty": 1.5,
+  "effort": 18,
+  "length": 6,
+  "time": 1,
+  "vocabulary": 4,
+  "volume": 12,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts ArrayExpression\`
+[255, 0, 0]
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.004,
+  "difficulty": 1.5,
+  "effort": 18,
+  "length": 6,
+  "time": 1,
+  "vocabulary": 4,
+  "volume": 12,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts Literal\`
+"#00ff00"
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts Literal\`
+0
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts Literal\`
+255
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts ObjectExpression\`
+{
+    red: [255, 0, 0],
+    green: "#00ff00",
+    blue: [0, 0, 255]
+}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.024360806029173992,
+  "difficulty": 3.3333333333333335,
+  "effort": 243.60806029173992,
+  "length": 22,
+  "time": 13.533781127318884,
+  "vocabulary": 10,
+  "volume": 73.08241808752197,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts Program\`
+type Colors = "red" | "green" | "blue";
+
+type RGB = [red: number, green: number, blue: number];
+
+const palette = {
+    red: [255, 0, 0],
+    green: "#00ff00",
+    blue: [0, 0, 255]
+} satisfies Record<Colors, string | RGB>;
+
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.08668531554246152,
+  "difficulty": 8.666666666666668,
+  "effort": 2253.818204104,
+  "length": 56,
+  "time": 125.21212245022222,
+  "vocabulary": 25,
+  "volume": 260.05594662738457,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts Property\`
+blue: [0, 0, 255]
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.006893233335256416,
+  "difficulty": 2,
+  "effort": 41.3594000115385,
+  "length": 8,
+  "time": 2.2977444450854723,
+  "vocabulary": 6,
+  "volume": 20.67970000576925,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts Property\`
+green: "#00ff00"
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 0.5,
+  "effort": 2.377443751081734,
+  "length": 3,
+  "time": 0.13208020839342968,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts Property\`
+red: [255, 0, 0]
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.006893233335256416,
+  "difficulty": 2,
+  "effort": 41.3594000115385,
+  "length": 8,
+  "time": 2.2977444450854723,
+  "vocabulary": 6,
+  "volume": 20.67970000576925,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts TSLiteralType\`
+"blue"
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts TSLiteralType\`
+"green"
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts TSLiteralType\`
+"red"
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts TSNamedTupleMember\`
+blue: number
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 0.5,
+  "effort": 2.377443751081734,
+  "length": 3,
+  "time": 0.13208020839342968,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts TSNamedTupleMember\`
+green: number
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 0.5,
+  "effort": 2.377443751081734,
+  "length": 3,
+  "time": 0.13208020839342968,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts TSNamedTupleMember\`
+red: number
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 0.5,
+  "effort": 2.377443751081734,
+  "length": 3,
+  "time": 0.13208020839342968,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts TSNumberKeyword\`
+number
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts TSSatisfiesExpression\`
+{
+    red: [255, 0, 0],
+    green: "#00ff00",
+    blue: [0, 0, 255]
+} satisfies Record<Colors, string | RGB>
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.040874628412503396,
+  "difficulty": 4.8999999999999995,
+  "effort": 600.8570376637999,
+  "length": 30,
+  "time": 33.38094653687777,
+  "vocabulary": 17,
+  "volume": 122.6238852375102,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts TSStringKeyword\`
+string
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts TSTupleType\`
+[red: number, green: number, blue: number]
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.011229419688230418,
+  "difficulty": 2.25,
+  "effort": 75.79858289555531,
+  "length": 12,
+  "time": 4.2110323830864065,
+  "vocabulary": 7,
+  "volume": 33.68825906469125,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts TSTypeAliasDeclaration\`
+type Colors = "red" | "green" | "blue";
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.007486279792153611,
+  "difficulty": 1.5,
+  "effort": 33.68825906469125,
+  "length": 8,
+  "time": 1.871569948038403,
+  "vocabulary": 7,
+  "volume": 22.458839376460833,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts TSTypeAliasDeclaration\`
+type RGB = [red: number, green: number, blue: number];
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.016609640474436815,
+  "difficulty": 3.5,
+  "effort": 174.40122498158655,
+  "length": 15,
+  "time": 9.688956943421475,
+  "vocabulary": 10,
+  "volume": 49.82892142331044,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts TSTypeParameterInstantiation\`
+<Colors, string | RGB>
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.005169925001442312,
+  "difficulty": 1.5,
+  "effort": 23.264662506490403,
+  "length": 6,
+  "time": 1.292481250360578,
+  "vocabulary": 6,
+  "volume": 15.509775004326936,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts TSTypeReference\`
+Colors
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts TSTypeReference\`
+RGB
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts TSTypeReference\`
+Record<Colors, string | RGB>
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.00655049481813441,
+  "difficulty": 1.5,
+  "effort": 29.47722668160484,
+  "length": 7,
+  "time": 1.6376237045336022,
+  "vocabulary": 7,
+  "volume": 19.651484454403228,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts TSUnionType\`
+"red" | "green" | "blue"
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0033333333333333335,
+  "difficulty": 0.5,
+  "effort": 5,
+  "length": 5,
+  "time": 0.2777777777777778,
+  "vocabulary": 4,
+  "volume": 10,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts TSUnionType\`
+string | RGB
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 0.5,
+  "effort": 2.377443751081734,
+  "length": 3,
+  "time": 0.13208020839342968,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts VariableDeclaration\`
+const palette = {
+    red: [255, 0, 0],
+    green: "#00ff00",
+    blue: [0, 0, 255]
+} satisfies Record<Colors, string | RGB>;
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.04754120904376099,
+  "difficulty": 6.136363636363636,
+  "effort": 875.1904392146909,
+  "length": 33,
+  "time": 48.62169106748283,
+  "vocabulary": 20,
+  "volume": 142.62362713128297,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/satisfies-operators.ts VariableDeclarator\`
+palette = {
+    red: [255, 0, 0],
+    green: "#00ff00",
+    blue: [0, 0, 255]
+} satisfies Record<Colors, string | RGB>
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.04531122681006491,
+  "difficulty": 5.454545454545454,
+  "effort": 741.456438710153,
+  "length": 32,
+  "time": 41.19202437278628,
+  "vocabulary": 19,
+  "volume": 135.93368043019473,
+}
+`;
+
 exports[`test for halstead complexity measures /ts/src/extract-tokens.ts ArrayExpression\`
 []
 \` 1`] = `
