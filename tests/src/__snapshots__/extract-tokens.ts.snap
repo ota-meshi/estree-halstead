@@ -7950,10 +7950,10 @@ Object {
     "\\"foo\\"",
     "a",
     "NamedTuple",
-    "symbol",
     "a",
-    "string",
+    "symbol",
     "b",
+    "string",
     "foo",
     "bar",
     "OptionalType",
@@ -9083,8 +9083,8 @@ a: symbol
 \` 1`] = `
 Object {
   "operands": Array [
-    "symbol",
     "a",
+    "symbol",
   ],
   "operators": Array [
     ":",
@@ -9097,8 +9097,8 @@ b: string[]
 \` 1`] = `
 Object {
   "operands": Array [
-    "string",
     "b",
+    "string",
   ],
   "operators": Array [
     ":",
@@ -9217,8 +9217,8 @@ exports[`test for extractTokens /ts/input.ts TSRestType\`
 \` 1`] = `
 Object {
   "operands": Array [
-    "string",
     "b",
+    "string",
   ],
   "operators": Array [
     "...",
@@ -9268,10 +9268,10 @@ exports[`test for extractTokens /ts/input.ts TSTupleType\`
 \` 1`] = `
 Object {
   "operands": Array [
-    "symbol",
     "a",
-    "string",
+    "symbol",
     "b",
+    "string",
   ],
   "operators": Array [
     "[]",
@@ -9476,10 +9476,10 @@ type NamedTuple = [a: symbol, ...b: string[]]
 Object {
   "operands": Array [
     "NamedTuple",
-    "symbol",
     "a",
-    "string",
+    "symbol",
     "b",
+    "string",
   ],
   "operators": Array [
     "type",
