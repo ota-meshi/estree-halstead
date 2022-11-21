@@ -11136,6 +11136,630 @@ Object {
 }
 `;
 
+exports[`test for extractTokens /ts/satisfies-operators.ts ArrayExpression\`
+[0, 0, 255]
+\` 1`] = `
+Object {
+  "operands": Array [
+    "0",
+    "0",
+    "255",
+  ],
+  "operators": Array [
+    "[]",
+    ",",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts ArrayExpression\`
+[255, 0, 0]
+\` 1`] = `
+Object {
+  "operands": Array [
+    "255",
+    "0",
+    "0",
+  ],
+  "operators": Array [
+    "[]",
+    ",",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts Literal\`
+"#00ff00"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"#00ff00\\"",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts Literal\`
+0
+\` 1`] = `
+Object {
+  "operands": Array [
+    "0",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts Literal\`
+255
+\` 1`] = `
+Object {
+  "operands": Array [
+    "255",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts ObjectExpression\`
+{
+    red: [255, 0, 0],
+    green: "#00ff00",
+    blue: [0, 0, 255]
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "red",
+    "255",
+    "0",
+    "0",
+    "green",
+    "\\"#00ff00\\"",
+    "blue",
+    "0",
+    "0",
+    "255",
+  ],
+  "operators": Array [
+    "{}",
+    ",",
+    ",",
+    ":",
+    "[]",
+    ",",
+    ",",
+    ":",
+    ":",
+    "[]",
+    ",",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts Program\`
+type Colors = "red" | "green" | "blue";
+
+type RGB = [red: number, green: number, blue: number];
+
+const palette = {
+    red: [255, 0, 0],
+    green: "#00ff00",
+    blue: [0, 0, 255]
+} satisfies Record<Colors, string | RGB>;
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "Colors",
+    "\\"red\\"",
+    "\\"green\\"",
+    "\\"blue\\"",
+    "RGB",
+    "red",
+    "number",
+    "green",
+    "number",
+    "blue",
+    "number",
+    "palette",
+    "Record",
+    "Colors",
+    "string",
+    "RGB",
+    "red",
+    "255",
+    "0",
+    "0",
+    "green",
+    "\\"#00ff00\\"",
+    "blue",
+    "0",
+    "0",
+    "255",
+  ],
+  "operators": Array [
+    "type",
+    "=",
+    "|",
+    "|",
+    "type",
+    "=",
+    "[]",
+    ",",
+    ",",
+    ":",
+    ":",
+    ":",
+    "const",
+    "=",
+    "satisfies",
+    "<>",
+    ",",
+    "|",
+    "{}",
+    ",",
+    ",",
+    ":",
+    "[]",
+    ",",
+    ",",
+    ":",
+    ":",
+    "[]",
+    ",",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts Property\`
+blue: [0, 0, 255]
+\` 1`] = `
+Object {
+  "operands": Array [
+    "blue",
+    "0",
+    "0",
+    "255",
+  ],
+  "operators": Array [
+    ":",
+    "[]",
+    ",",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts Property\`
+green: "#00ff00"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "green",
+    "\\"#00ff00\\"",
+  ],
+  "operators": Array [
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts Property\`
+red: [255, 0, 0]
+\` 1`] = `
+Object {
+  "operands": Array [
+    "red",
+    "255",
+    "0",
+    "0",
+  ],
+  "operators": Array [
+    ":",
+    "[]",
+    ",",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts TSLiteralType\`
+"blue"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"blue\\"",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts TSLiteralType\`
+"green"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"green\\"",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts TSLiteralType\`
+"red"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"red\\"",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts TSNamedTupleMember\`
+blue: number
+\` 1`] = `
+Object {
+  "operands": Array [
+    "blue",
+    "number",
+  ],
+  "operators": Array [
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts TSNamedTupleMember\`
+green: number
+\` 1`] = `
+Object {
+  "operands": Array [
+    "green",
+    "number",
+  ],
+  "operators": Array [
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts TSNamedTupleMember\`
+red: number
+\` 1`] = `
+Object {
+  "operands": Array [
+    "red",
+    "number",
+  ],
+  "operators": Array [
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts TSNumberKeyword\`
+number
+\` 1`] = `
+Object {
+  "operands": Array [
+    "number",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts TSSatisfiesExpression\`
+{
+    red: [255, 0, 0],
+    green: "#00ff00",
+    blue: [0, 0, 255]
+} satisfies Record<Colors, string | RGB>
+\` 1`] = `
+Object {
+  "operands": Array [
+    "Record",
+    "Colors",
+    "string",
+    "RGB",
+    "red",
+    "255",
+    "0",
+    "0",
+    "green",
+    "\\"#00ff00\\"",
+    "blue",
+    "0",
+    "0",
+    "255",
+  ],
+  "operators": Array [
+    "satisfies",
+    "<>",
+    ",",
+    "|",
+    "{}",
+    ",",
+    ",",
+    ":",
+    "[]",
+    ",",
+    ",",
+    ":",
+    ":",
+    "[]",
+    ",",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts TSStringKeyword\`
+string
+\` 1`] = `
+Object {
+  "operands": Array [
+    "string",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts TSTupleType\`
+[red: number, green: number, blue: number]
+\` 1`] = `
+Object {
+  "operands": Array [
+    "red",
+    "number",
+    "green",
+    "number",
+    "blue",
+    "number",
+  ],
+  "operators": Array [
+    "[]",
+    ",",
+    ",",
+    ":",
+    ":",
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts TSTypeAliasDeclaration\`
+type Colors = "red" | "green" | "blue";
+\` 1`] = `
+Object {
+  "operands": Array [
+    "Colors",
+    "\\"red\\"",
+    "\\"green\\"",
+    "\\"blue\\"",
+  ],
+  "operators": Array [
+    "type",
+    "=",
+    "|",
+    "|",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts TSTypeAliasDeclaration\`
+type RGB = [red: number, green: number, blue: number];
+\` 1`] = `
+Object {
+  "operands": Array [
+    "RGB",
+    "red",
+    "number",
+    "green",
+    "number",
+    "blue",
+    "number",
+  ],
+  "operators": Array [
+    "type",
+    "=",
+    "[]",
+    ",",
+    ",",
+    ":",
+    ":",
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts TSTypeParameterInstantiation\`
+<Colors, string | RGB>
+\` 1`] = `
+Object {
+  "operands": Array [
+    "Colors",
+    "string",
+    "RGB",
+  ],
+  "operators": Array [
+    "<>",
+    ",",
+    "|",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts TSTypeReference\`
+Colors
+\` 1`] = `
+Object {
+  "operands": Array [
+    "Colors",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts TSTypeReference\`
+RGB
+\` 1`] = `
+Object {
+  "operands": Array [
+    "RGB",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts TSTypeReference\`
+Record<Colors, string | RGB>
+\` 1`] = `
+Object {
+  "operands": Array [
+    "Record",
+    "Colors",
+    "string",
+    "RGB",
+  ],
+  "operators": Array [
+    "<>",
+    ",",
+    "|",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts TSUnionType\`
+"red" | "green" | "blue"
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"red\\"",
+    "\\"green\\"",
+    "\\"blue\\"",
+  ],
+  "operators": Array [
+    "|",
+    "|",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts TSUnionType\`
+string | RGB
+\` 1`] = `
+Object {
+  "operands": Array [
+    "string",
+    "RGB",
+  ],
+  "operators": Array [
+    "|",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts VariableDeclaration\`
+const palette = {
+    red: [255, 0, 0],
+    green: "#00ff00",
+    blue: [0, 0, 255]
+} satisfies Record<Colors, string | RGB>;
+\` 1`] = `
+Object {
+  "operands": Array [
+    "palette",
+    "Record",
+    "Colors",
+    "string",
+    "RGB",
+    "red",
+    "255",
+    "0",
+    "0",
+    "green",
+    "\\"#00ff00\\"",
+    "blue",
+    "0",
+    "0",
+    "255",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "satisfies",
+    "<>",
+    ",",
+    "|",
+    "{}",
+    ",",
+    ",",
+    ":",
+    "[]",
+    ",",
+    ",",
+    ":",
+    ":",
+    "[]",
+    ",",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/satisfies-operators.ts VariableDeclarator\`
+palette = {
+    red: [255, 0, 0],
+    green: "#00ff00",
+    blue: [0, 0, 255]
+} satisfies Record<Colors, string | RGB>
+\` 1`] = `
+Object {
+  "operands": Array [
+    "palette",
+    "Record",
+    "Colors",
+    "string",
+    "RGB",
+    "red",
+    "255",
+    "0",
+    "0",
+    "green",
+    "\\"#00ff00\\"",
+    "blue",
+    "0",
+    "0",
+    "255",
+  ],
+  "operators": Array [
+    "=",
+    "satisfies",
+    "<>",
+    ",",
+    "|",
+    "{}",
+    ",",
+    ",",
+    ":",
+    "[]",
+    ",",
+    ",",
+    ":",
+    ":",
+    "[]",
+    ",",
+    ",",
+  ],
+}
+`;
+
 exports[`test for extractTokens /ts/src/extract-tokens.ts ArrayExpression\`
 []
 \` 1`] = `

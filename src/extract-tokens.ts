@@ -75,7 +75,8 @@ type Operator =
   | "module"
   | "namespace"
   | "keyof"
-  | "is";
+  | "is"
+  | "satisfies";
 
 export type ExtractTokensResult = {
   readonly operators: TokensCollection<string>;
@@ -1177,6 +1178,9 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   TSRestType(this: ExtractTokensContext) {
     this.operators.add("...");
+  },
+  TSSatisfiesExpression(this: ExtractTokensContext) {
+    this.operators.add("satisfies");
   },
   TSStaticKeyword(this: ExtractTokensContext) {
     this.operators.add("static");

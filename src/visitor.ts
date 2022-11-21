@@ -551,6 +551,10 @@ export type Visitor = {
     node: TSESTree.TSRestType,
     parent: TSESTree.Node | null
   ) => void;
+  TSSatisfiesExpression?: (
+    node: TSESTree.TSSatisfiesExpression,
+    parent: TSESTree.Node | null
+  ) => void;
   TSStaticKeyword?: (
     node: TSESTree.TSStaticKeyword,
     parent: TSESTree.Node | null
