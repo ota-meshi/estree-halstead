@@ -8614,6 +8614,398 @@ Object {
 }
 `;
 
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts BlockStatement\`
+{
+    return { value };
+}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.002113283334294875,
+  "difficulty": 1,
+  "effort": 6.339850002884624,
+  "length": 4,
+  "time": 0.3522138890491458,
+  "vocabulary": 3,
+  "volume": 6.339850002884624,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts CallExpression\`
+makeStringBox('abc')
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 0.5,
+  "effort": 2.377443751081734,
+  "length": 3,
+  "time": 0.13208020839342968,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts EmptyStatement\`
+;
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0.5,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts FunctionDeclaration\`
+function makeBox<T>(value: T) {
+    return { value };
+}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.012679700005769252,
+  "difficulty": 5,
+  "effort": 190.19550008653877,
+  "length": 12,
+  "time": 10.566416671474377,
+  "vocabulary": 9,
+  "volume": 38.03910001730775,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts Literal\`
+'abc'
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts NewExpression\`
+new ErrorMap()
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 1,
+  "effort": 4.754887502163468,
+  "length": 3,
+  "time": 0.26416041678685936,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts ObjectExpression\`
+{ value }
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0006666666666666666,
+  "difficulty": 0.5,
+  "effort": 1,
+  "length": 2,
+  "time": 0.05555555555555555,
+  "vocabulary": 2,
+  "volume": 2,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts Program\`
+function makeBox<T>(value: T) {
+    return { value };
+};
+
+// TODO: https://github.com/microsoft/TypeScript/issues/50161#issuecomment-1249500875
+const makeStringBox = /*@__IGNORE__*/(makeBox/*@__IGNORE__*/)<string>;  // (value: string) => { value: string }
+const stringBox = makeStringBox('abc');  // { value: string }
+
+const ErrorMap = Map<string, Error>;  // new () => Map<string, Error>
+const errorMap = new ErrorMap();  // Map<string, Error>
+
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.05797261104228486,
+  "difficulty": 8.5,
+  "effort": 1478.301581578264,
+  "length": 39,
+  "time": 82.12786564323689,
+  "vocabulary": 22,
+  "volume": 173.9178331268546,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts Property\`
+value
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts ReturnStatement\`
+return { value };
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 1,
+  "effort": 4.754887502163468,
+  "length": 3,
+  "time": 0.26416041678685936,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts TSInstantiationExpression\`
+(makeBox/*@__IGNORE__*/)<string>
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.001584962500721156,
+  "difficulty": 0.5,
+  "effort": 2.377443751081734,
+  "length": 3,
+  "time": 0.13208020839342968,
+  "vocabulary": 3,
+  "volume": 4.754887502163468,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts TSInstantiationExpression\`
+Map<string, Error>
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0038698801581456034,
+  "difficulty": 1,
+  "effort": 11.60964047443681,
+  "length": 5,
+  "time": 0.6449800263576005,
+  "vocabulary": 5,
+  "volume": 11.60964047443681,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts TSStringKeyword\`
+string
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts TSTypeAnnotation\`
+: T
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0006666666666666666,
+  "difficulty": 0.5,
+  "effort": 1,
+  "length": 2,
+  "time": 0.05555555555555555,
+  "vocabulary": 2,
+  "volume": 2,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts TSTypeParameter\`
+T
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts TSTypeParameterDeclaration\`
+<T>
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0006666666666666666,
+  "difficulty": 0.5,
+  "effort": 1,
+  "length": 2,
+  "time": 0.05555555555555555,
+  "vocabulary": 2,
+  "volume": 2,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts TSTypeParameterInstantiation\`
+<string, Error>
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0026666666666666666,
+  "difficulty": 1,
+  "effort": 8,
+  "length": 4,
+  "time": 0.4444444444444444,
+  "vocabulary": 4,
+  "volume": 8,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts TSTypeParameterInstantiation\`
+<string>
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0006666666666666666,
+  "difficulty": 0.5,
+  "effort": 1,
+  "length": 2,
+  "time": 0.05555555555555555,
+  "vocabulary": 2,
+  "volume": 2,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts TSTypeReference\`
+Error
+\` 1`] = `
+Object {
+  "deliveredBugs": 0,
+  "difficulty": 0,
+  "effort": 0,
+  "length": 1,
+  "time": 0,
+  "vocabulary": 1,
+  "volume": 0,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts VariableDeclaration\`
+const ErrorMap = Map<string, Error>;
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.008,
+  "difficulty": 2,
+  "effort": 48,
+  "length": 8,
+  "time": 2.6666666666666665,
+  "vocabulary": 8,
+  "volume": 24,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts VariableDeclaration\`
+const errorMap = new ErrorMap();
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.005169925001442312,
+  "difficulty": 2,
+  "effort": 31.019550008653873,
+  "length": 6,
+  "time": 1.723308333814104,
+  "vocabulary": 6,
+  "volume": 15.509775004326936,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts VariableDeclaration\`
+const makeStringBox = /*@__IGNORE__*/(makeBox/*@__IGNORE__*/)<string>;
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.005169925001442312,
+  "difficulty": 1.5,
+  "effort": 23.264662506490403,
+  "length": 6,
+  "time": 1.292481250360578,
+  "vocabulary": 6,
+  "volume": 15.509775004326936,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts VariableDeclaration\`
+const stringBox = makeStringBox('abc');
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.005169925001442312,
+  "difficulty": 1.5,
+  "effort": 23.264662506490403,
+  "length": 6,
+  "time": 1.292481250360578,
+  "vocabulary": 6,
+  "volume": 15.509775004326936,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts VariableDeclarator\`
+ErrorMap = Map<string, Error>
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.00655049481813441,
+  "difficulty": 1.5,
+  "effort": 29.47722668160484,
+  "length": 7,
+  "time": 1.6376237045336022,
+  "vocabulary": 7,
+  "volume": 19.651484454403228,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts VariableDeclarator\`
+errorMap = new ErrorMap()
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0038698801581456034,
+  "difficulty": 1.5,
+  "effort": 17.414460711655217,
+  "length": 5,
+  "time": 0.9674700395364009,
+  "vocabulary": 5,
+  "volume": 11.60964047443681,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts VariableDeclarator\`
+makeStringBox = /*@__IGNORE__*/(makeBox/*@__IGNORE__*/)<string>
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0038698801581456034,
+  "difficulty": 1,
+  "effort": 11.60964047443681,
+  "length": 5,
+  "time": 0.6449800263576005,
+  "vocabulary": 5,
+  "volume": 11.60964047443681,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/instantiation-expression.ts VariableDeclarator\`
+stringBox = makeStringBox('abc')
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0038698801581456034,
+  "difficulty": 1,
+  "effort": 11.60964047443681,
+  "length": 5,
+  "time": 0.6449800263576005,
+  "vocabulary": 5,
+  "volume": 11.60964047443681,
+}
+`;
+
 exports[`test for halstead complexity measures /ts/method-definition.ts BlockStatement\`
 {}
 \` 1`] = `

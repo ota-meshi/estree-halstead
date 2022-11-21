@@ -10616,6 +10616,449 @@ Object {
 }
 `;
 
+exports[`test for extractTokens /ts/instantiation-expression.ts BlockStatement\`
+{
+    return { value };
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "value",
+  ],
+  "operators": Array [
+    "{}",
+    "return",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts CallExpression\`
+makeStringBox('abc')
+\` 1`] = `
+Object {
+  "operands": Array [
+    "makeStringBox",
+    "\\"abc\\"",
+  ],
+  "operators": Array [
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts EmptyStatement\`
+;
+\` 1`] = `
+Object {
+  "operands": Array [],
+  "operators": Array [
+    ";",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts FunctionDeclaration\`
+function makeBox<T>(value: T) {
+    return { value };
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "makeBox",
+    "T",
+    "value",
+    "T",
+    "value",
+  ],
+  "operators": Array [
+    "function",
+    "()",
+    "<>",
+    ":",
+    "{}",
+    "return",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts Literal\`
+'abc'
+\` 1`] = `
+Object {
+  "operands": Array [
+    "\\"abc\\"",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts NewExpression\`
+new ErrorMap()
+\` 1`] = `
+Object {
+  "operands": Array [
+    "ErrorMap",
+  ],
+  "operators": Array [
+    "new",
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts ObjectExpression\`
+{ value }
+\` 1`] = `
+Object {
+  "operands": Array [
+    "value",
+  ],
+  "operators": Array [
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts Program\`
+function makeBox<T>(value: T) {
+    return { value };
+};
+
+// TODO: https://github.com/microsoft/TypeScript/issues/50161#issuecomment-1249500875
+const makeStringBox = /*@__IGNORE__*/(makeBox/*@__IGNORE__*/)<string>;  // (value: string) => { value: string }
+const stringBox = makeStringBox('abc');  // { value: string }
+
+const ErrorMap = Map<string, Error>;  // new () => Map<string, Error>
+const errorMap = new ErrorMap();  // Map<string, Error>
+
+\` 1`] = `
+Object {
+  "operands": Array [
+    "makeBox",
+    "T",
+    "value",
+    "T",
+    "value",
+    "makeStringBox",
+    "makeBox",
+    "string",
+    "stringBox",
+    "makeStringBox",
+    "\\"abc\\"",
+    "ErrorMap",
+    "Map",
+    "string",
+    "Error",
+    "errorMap",
+    "ErrorMap",
+  ],
+  "operators": Array [
+    "function",
+    "()",
+    "<>",
+    ":",
+    "{}",
+    "return",
+    "{}",
+    ";",
+    "const",
+    "=",
+    "<>",
+    "const",
+    "=",
+    "()",
+    "const",
+    "=",
+    "<>",
+    ",",
+    "const",
+    "=",
+    "new",
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts Property\`
+value
+\` 1`] = `
+Object {
+  "operands": Array [
+    "value",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts ReturnStatement\`
+return { value };
+\` 1`] = `
+Object {
+  "operands": Array [
+    "value",
+  ],
+  "operators": Array [
+    "return",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts TSInstantiationExpression\`
+(makeBox/*@__IGNORE__*/)<string>
+\` 1`] = `
+Object {
+  "operands": Array [
+    "makeBox",
+    "string",
+  ],
+  "operators": Array [
+    "<>",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts TSInstantiationExpression\`
+Map<string, Error>
+\` 1`] = `
+Object {
+  "operands": Array [
+    "Map",
+    "string",
+    "Error",
+  ],
+  "operators": Array [
+    "<>",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts TSStringKeyword\`
+string
+\` 1`] = `
+Object {
+  "operands": Array [
+    "string",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts TSTypeAnnotation\`
+: T
+\` 1`] = `
+Object {
+  "operands": Array [
+    "T",
+  ],
+  "operators": Array [
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts TSTypeParameter\`
+T
+\` 1`] = `
+Object {
+  "operands": Array [
+    "T",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts TSTypeParameterDeclaration\`
+<T>
+\` 1`] = `
+Object {
+  "operands": Array [
+    "T",
+  ],
+  "operators": Array [
+    "<>",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts TSTypeParameterInstantiation\`
+<string, Error>
+\` 1`] = `
+Object {
+  "operands": Array [
+    "string",
+    "Error",
+  ],
+  "operators": Array [
+    "<>",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts TSTypeParameterInstantiation\`
+<string>
+\` 1`] = `
+Object {
+  "operands": Array [
+    "string",
+  ],
+  "operators": Array [
+    "<>",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts TSTypeReference\`
+Error
+\` 1`] = `
+Object {
+  "operands": Array [
+    "Error",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts VariableDeclaration\`
+const ErrorMap = Map<string, Error>;
+\` 1`] = `
+Object {
+  "operands": Array [
+    "ErrorMap",
+    "Map",
+    "string",
+    "Error",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "<>",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts VariableDeclaration\`
+const errorMap = new ErrorMap();
+\` 1`] = `
+Object {
+  "operands": Array [
+    "errorMap",
+    "ErrorMap",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "new",
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts VariableDeclaration\`
+const makeStringBox = /*@__IGNORE__*/(makeBox/*@__IGNORE__*/)<string>;
+\` 1`] = `
+Object {
+  "operands": Array [
+    "makeStringBox",
+    "makeBox",
+    "string",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "<>",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts VariableDeclaration\`
+const stringBox = makeStringBox('abc');
+\` 1`] = `
+Object {
+  "operands": Array [
+    "stringBox",
+    "makeStringBox",
+    "\\"abc\\"",
+  ],
+  "operators": Array [
+    "const",
+    "=",
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts VariableDeclarator\`
+ErrorMap = Map<string, Error>
+\` 1`] = `
+Object {
+  "operands": Array [
+    "ErrorMap",
+    "Map",
+    "string",
+    "Error",
+  ],
+  "operators": Array [
+    "=",
+    "<>",
+    ",",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts VariableDeclarator\`
+errorMap = new ErrorMap()
+\` 1`] = `
+Object {
+  "operands": Array [
+    "errorMap",
+    "ErrorMap",
+  ],
+  "operators": Array [
+    "=",
+    "new",
+    "()",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts VariableDeclarator\`
+makeStringBox = /*@__IGNORE__*/(makeBox/*@__IGNORE__*/)<string>
+\` 1`] = `
+Object {
+  "operands": Array [
+    "makeStringBox",
+    "makeBox",
+    "string",
+  ],
+  "operators": Array [
+    "=",
+    "<>",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/instantiation-expression.ts VariableDeclarator\`
+stringBox = makeStringBox('abc')
+\` 1`] = `
+Object {
+  "operands": Array [
+    "stringBox",
+    "makeStringBox",
+    "\\"abc\\"",
+  ],
+  "operators": Array [
+    "=",
+    "()",
+  ],
+}
+`;
+
 exports[`test for extractTokens /ts/method-definition.ts BlockStatement\`
 {}
 \` 1`] = `

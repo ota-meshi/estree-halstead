@@ -423,6 +423,10 @@ export type Visitor = {
     node: TSESTree.TSFunctionType,
     parent: TSESTree.Node | null
   ) => void;
+  TSInstantiationExpression?: (
+    node: TSESTree.TSInstantiationExpression,
+    parent: TSESTree.Node | null
+  ) => void;
   TSImportEqualsDeclaration?: (
     node: TSESTree.TSImportEqualsDeclaration,
     parent: TSESTree.Node | null
@@ -441,10 +445,6 @@ export type Visitor = {
   ) => void;
   TSInferType?: (
     node: TSESTree.TSInferType,
-    parent: TSESTree.Node | null
-  ) => void;
-  TSInstantiationExpression?: (
-    node: TSESTree.TSInstantiationExpression,
     parent: TSESTree.Node | null
   ) => void;
   TSInterfaceBody?: (

@@ -38,6 +38,14 @@ describe("test for extractTokens", () => {
         )}${" ".repeat(
           comment.range[1] - comment.range[0]
         )}${stripedComment.slice(comment.range[1])}`;
+
+        // ignore next char
+        if (comment.value.trim() === "@__IGNORE__") {
+          stripedComment = `${stripedComment.slice(
+            0,
+            comment.range[1]
+          )}${" "}${stripedComment.slice(comment.range[1] + 1)}`;
+        }
       }
       const set = new Set<string>();
       walk(ast, (node) => {
@@ -119,7 +127,12 @@ function splitTokens(
     .sort((a, b) => b.length - a.length);
   let remain = code;
   for (const token of tokens) {
-    const index = remain.indexOf(token);
+    let index = remain.indexOf(token);
+    if (index < 0) {
+      if (/^".*"$/.test(token)) {
+        index = remain.indexOf(token.replace(/^"|"$/g, "'"));
+      }
+    }
     if (index >= 0) {
       remain = `${remain.slice(0, index)}${remain
         .slice(index, index + token.length)
