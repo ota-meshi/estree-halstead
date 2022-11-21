@@ -1059,6 +1059,9 @@ const EXTRACT_TOKENS: AllVisitor = {
     TSInferType(this: ExtractTokensContext) {
         this.operators.add("infer")
     },
+    TSInstantiationExpression(this: ExtractTokensContext) {
+        this.operators.add("<>")
+    },
     TSInterfaceBody(this: ExtractTokensContext) {
         this.operators.add("{}")
     },

@@ -443,6 +443,10 @@ export type Visitor = {
         node: TSESTree.TSInferType,
         parent: TSESTree.Node | null,
     ) => void
+    TSInstantiationExpression?: (
+        node: TSESTree.TSInstantiationExpression,
+        parent: TSESTree.Node | null,
+    ) => void
     TSInterfaceBody?: (
         node: TSESTree.TSInterfaceBody,
         parent: TSESTree.Node | null,
