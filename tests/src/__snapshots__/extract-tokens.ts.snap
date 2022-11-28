@@ -6259,6 +6259,170 @@ Object {
 }
 `;
 
+exports[`test for extractTokens /ts/abstract-accessor-property.ts ClassBody\`
+{
+    abstract accessor foo: number
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "foo",
+    "number",
+  ],
+  "operators": Array [
+    "{}",
+    "abstract",
+    "accessor",
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/abstract-accessor-property.ts Program\`
+abstract class Foo {
+    abstract accessor foo: number
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "Foo",
+    "foo",
+    "number",
+  ],
+  "operators": Array [
+    "class",
+    "abstract",
+    "{}",
+    "abstract",
+    "accessor",
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/abstract-accessor-property.ts TSAbstractAccessorProperty\`
+abstract accessor foo: number
+\` 1`] = `
+Object {
+  "operands": Array [
+    "foo",
+    "number",
+  ],
+  "operators": Array [
+    "abstract",
+    "accessor",
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/abstract-accessor-property.ts TSNumberKeyword\`
+number
+\` 1`] = `
+Object {
+  "operands": Array [
+    "number",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/abstract-accessor-property.ts TSTypeAnnotation\`
+: number
+\` 1`] = `
+Object {
+  "operands": Array [
+    "number",
+  ],
+  "operators": Array [
+    ":",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/accessor-property.ts AccessorProperty\`
+accessor bar
+\` 1`] = `
+Object {
+  "operands": Array [
+    "bar",
+  ],
+  "operators": Array [
+    "accessor",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/accessor-property.ts AccessorProperty\`
+accessor foo = 2
+\` 1`] = `
+Object {
+  "operands": Array [
+    "foo",
+    "2",
+  ],
+  "operators": Array [
+    "accessor",
+    "=",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/accessor-property.ts ClassBody\`
+{
+  accessor foo = 2
+  accessor bar
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "foo",
+    "2",
+    "bar",
+  ],
+  "operators": Array [
+    "{}",
+    "accessor",
+    "=",
+    "accessor",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/accessor-property.ts Literal\`
+2
+\` 1`] = `
+Object {
+  "operands": Array [
+    "2",
+  ],
+  "operators": Array [],
+}
+`;
+
+exports[`test for extractTokens /ts/accessor-property.ts Program\`
+class Foo {
+  accessor foo = 2
+  accessor bar
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "Foo",
+    "foo",
+    "2",
+    "bar",
+  ],
+  "operators": Array [
+    "class",
+    "{}",
+    "accessor",
+    "=",
+    "accessor",
+  ],
+}
+`;
+
 exports[`test for extractTokens /ts/class-declaration-expression.ts ClassBody\`
 {}
 \` 1`] = `
@@ -7969,8 +8133,8 @@ Object {
     "}C\`",
     "B",
     "typeAssertion",
-    "string",
     "\\"foo\\"",
+    "string",
     "Keyof",
     "T",
     "Typeof",
@@ -10040,8 +10204,8 @@ exports[`test for extractTokens /ts/input.ts TSTypeAssertion\`
 \` 1`] = `
 Object {
   "operands": Array [
-    "string",
     "\\"foo\\"",
+    "string",
   ],
   "operators": Array [
     "<>",
@@ -10542,8 +10706,8 @@ const typeAssertion = <string>"foo"
 Object {
   "operands": Array [
     "typeAssertion",
-    "string",
     "\\"foo\\"",
+    "string",
   ],
   "operators": Array [
     "const",
@@ -10606,8 +10770,8 @@ typeAssertion = <string>"foo"
 Object {
   "operands": Array [
     "typeAssertion",
-    "string",
     "\\"foo\\"",
+    "string",
   ],
   "operators": Array [
     "=",
