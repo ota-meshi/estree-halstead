@@ -59,6 +59,7 @@ type Operator =
   | "finally"
   | "with()"
   | "yield"
+  | "accessor"
   // TS
   | "?"
   | "<>"
@@ -72,6 +73,7 @@ type Operator =
   | "infer"
   | "interface"
   | "readonly"
+  | "override"
   | "module"
   | "namespace"
   | "keyof"
@@ -233,6 +235,22 @@ function getPrecedence(node: TSESTree.Expression): number {
 }
 
 const EXTRACT_TOKENS: AllVisitor = {
+  AccessorProperty(
+    this: ExtractTokensContext,
+    node: TSESTree.AccessorProperty
+  ) {
+    this.operators.add("accessor");
+    if (node.accessibility) this.operators.add(node.accessibility);
+    if (node.static) this.operators.add("static");
+    if (node.override) this.operators.add("override");
+    if (node.readonly) this.operators.add("readonly");
+    if (node.computed) {
+      this.operators.add("[]");
+    }
+    if (node.value) {
+      this.operators.add("=");
+    }
+  },
   ArrayExpression(this: ExtractTokensContext, node: TSESTree.ArrayExpression) {
     this.operators.add("[]");
     this.operators.add(",", node.elements.length - 1);
@@ -670,6 +688,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   ) {
     if (node.accessibility) this.operators.add(node.accessibility);
     if (node.static) this.operators.add("static");
+    if (node.override) this.operators.add("override");
     if (node.kind === "get" || node.kind === "set")
       this.operators.add(node.kind);
     if (node.computed) {
@@ -725,6 +744,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   ) {
     if (node.accessibility) this.operators.add(node.accessibility);
     if (node.static) this.operators.add("static");
+    if (node.override) this.operators.add("override");
     if (node.readonly) this.operators.add("readonly");
     if (node.computed) {
       this.operators.add("[]");
@@ -854,6 +874,23 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
 
   // TS
+  TSAbstractAccessorProperty(
+    this: ExtractTokensContext,
+    node: TSESTree.TSAbstractAccessorProperty
+  ) {
+    this.operators.add("abstract");
+    this.operators.add("accessor");
+    if (node.accessibility) this.operators.add(node.accessibility);
+    if (node.static) this.operators.add("static");
+    if (node.override) this.operators.add("override");
+    if (node.readonly) this.operators.add("readonly");
+    if (node.computed) {
+      this.operators.add("[]");
+    }
+    if (node.value) {
+      this.operators.add("=");
+    }
+  },
   TSAbstractKeyword(this: ExtractTokensContext) {
     this.operators.add("abstract");
   },
@@ -864,6 +901,7 @@ const EXTRACT_TOKENS: AllVisitor = {
     this.operators.add("abstract");
     if (node.accessibility) this.operators.add(node.accessibility);
     if (node.static) this.operators.add("static");
+    if (node.override) this.operators.add("override");
     if (node.kind === "get" || node.kind === "set")
       this.operators.add(node.kind);
     if (node.computed) {
@@ -877,6 +915,7 @@ const EXTRACT_TOKENS: AllVisitor = {
     this.operators.add("abstract");
     if (node.accessibility) this.operators.add(node.accessibility);
     if (node.static) this.operators.add("static");
+    if (node.override) this.operators.add("override");
     if (node.computed) {
       this.operators.add("[]");
     }
@@ -1148,6 +1187,7 @@ const EXTRACT_TOKENS: AllVisitor = {
     if (node.accessibility) this.operators.add(node.accessibility);
     if (node.readonly) this.operators.add("readonly");
     if (node.static) this.operators.add("static");
+    if (node.override) this.operators.add("override");
     if (node.export) this.operators.add("export");
   },
   TSPrivateKeyword(this: ExtractTokensContext) {

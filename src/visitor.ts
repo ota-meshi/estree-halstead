@@ -1,5 +1,9 @@
 import type { TSESTree, AST_NODE_TYPES } from "@typescript-eslint/types";
 export type Visitor = {
+  AccessorProperty?: (
+    node: TSESTree.AccessorProperty,
+    parent: TSESTree.Node | null
+  ) => void;
   ArrayExpression?: (
     node: TSESTree.ArrayExpression,
     parent: TSESTree.Node | null
@@ -329,6 +333,10 @@ export type Visitor = {
   ) => void;
   YieldExpression?: (
     node: TSESTree.YieldExpression,
+    parent: TSESTree.Node | null
+  ) => void;
+  TSAbstractAccessorProperty?: (
+    node: TSESTree.TSAbstractAccessorProperty,
     parent: TSESTree.Node | null
   ) => void;
   TSAbstractKeyword?: (
