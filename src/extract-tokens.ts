@@ -237,7 +237,7 @@ function getPrecedence(node: TSESTree.Expression): number {
 const EXTRACT_TOKENS: AllVisitor = {
   AccessorProperty(
     this: ExtractTokensContext,
-    node: TSESTree.AccessorProperty
+    node: TSESTree.AccessorProperty,
   ) {
     this.operators.add("accessor");
     if (node.accessibility) this.operators.add(node.accessibility);
@@ -261,7 +261,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   ArrowFunctionExpression(
     this: ExtractTokensContext,
-    node: TSESTree.ArrowFunctionExpression
+    node: TSESTree.ArrowFunctionExpression,
   ) {
     if (node.async) {
       this.operators.add("async");
@@ -287,7 +287,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   AssignmentExpression(
     this: ExtractTokensContext,
-    node: TSESTree.AssignmentExpression
+    node: TSESTree.AssignmentExpression,
   ) {
     this.operators.add(node.operator);
 
@@ -297,7 +297,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   AssignmentPattern(
     this: ExtractTokensContext,
-    _node: TSESTree.AssignmentPattern
+    _node: TSESTree.AssignmentPattern,
   ) {
     this.operators.add("=");
   },
@@ -310,7 +310,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   BinaryExpression(
     this: ExtractTokensContext,
-    node: TSESTree.BinaryExpression
+    node: TSESTree.BinaryExpression,
   ) {
     this.operators.add(node.operator as ESTree.BinaryExpression["operator"]);
 
@@ -343,7 +343,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   ClassDeclaration(
     this: ExtractTokensContext,
-    node: TSESTree.ClassDeclaration
+    node: TSESTree.ClassDeclaration,
   ) {
     this.operators.add("class");
     if (node.superClass) {
@@ -373,7 +373,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   ConditionalExpression(
     this: ExtractTokensContext,
-    node: TSESTree.ConditionalExpression
+    node: TSESTree.ConditionalExpression,
   ) {
     if (getPrecedence(node) >= getPrecedence(node.test)) {
       this.operators.add("()");
@@ -398,7 +398,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   ExportAllDeclaration(
     this: ExtractTokensContext,
-    node: TSESTree.ExportAllDeclaration
+    node: TSESTree.ExportAllDeclaration,
   ) {
     this.operators.add("export");
     if (node.exportKind === "type") {
@@ -418,7 +418,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   ExportDefaultDeclaration(
     this: ExtractTokensContext,
-    node: TSESTree.ExportDefaultDeclaration
+    node: TSESTree.ExportDefaultDeclaration,
   ) {
     this.operators.add("export");
     if (node.exportKind === "type") {
@@ -428,7 +428,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   ExportNamedDeclaration(
     this: ExtractTokensContext,
-    node: TSESTree.ExportNamedDeclaration
+    node: TSESTree.ExportNamedDeclaration,
   ) {
     this.operators.add("export");
     if (node.specifiers.length) {
@@ -470,7 +470,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   FunctionDeclaration(
     this: ExtractTokensContext,
-    node: TSESTree.FunctionDeclaration
+    node: TSESTree.FunctionDeclaration,
   ) {
     if (node.async) {
       this.operators.add("async");
@@ -487,7 +487,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   FunctionExpression(
     this: ExtractTokensContext,
     node: TSESTree.FunctionExpression,
-    parent: TSESTree.Node | null
+    parent: TSESTree.Node | null,
   ) {
     if (node.async) {
       this.operators.add("async");
@@ -514,7 +514,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   Identifier(
     this: ExtractTokensContext,
     node: TSESTree.Identifier,
-    parent: TSESTree.Node | null
+    parent: TSESTree.Node | null,
   ) {
     if (parent) {
       if (
@@ -549,7 +549,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   ImportDeclaration(
     this: ExtractTokensContext,
-    node: TSESTree.ImportDeclaration
+    node: TSESTree.ImportDeclaration,
   ) {
     this.operators.add("import");
     if (node.importKind === "type") {
@@ -557,7 +557,7 @@ const EXTRACT_TOKENS: AllVisitor = {
     }
     if (
       node.specifiers.some(
-        (spec) => spec.type === AST_NODE_TYPES.ImportSpecifier
+        (spec) => spec.type === AST_NODE_TYPES.ImportSpecifier,
       )
     ) {
       this.operators.add("{}");
@@ -574,7 +574,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   ImportDefaultSpecifier: noop,
   ImportExpression(
     this: ExtractTokensContext,
-    node: TSESTree.ImportExpression
+    node: TSESTree.ImportExpression,
   ) {
     this.operators.add("import");
     this.operators.add("()");
@@ -653,7 +653,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   LogicalExpression(
     this: ExtractTokensContext,
-    node: TSESTree.LogicalExpression
+    node: TSESTree.LogicalExpression,
   ) {
     this.operators.add(node.operator);
 
@@ -663,7 +663,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   MemberExpression(
     this: ExtractTokensContext,
-    node: TSESTree.MemberExpression
+    node: TSESTree.MemberExpression,
   ) {
     if (getPrecedence(node) > getPrecedence(node.object)) {
       this.operators.add("()");
@@ -684,7 +684,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   MethodDefinition(
     this: ExtractTokensContext,
-    node: TSESTree.MethodDefinition
+    node: TSESTree.MethodDefinition,
   ) {
     if (node.accessibility) this.operators.add(node.accessibility);
     if (node.static) this.operators.add("static");
@@ -707,7 +707,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   ObjectExpression(
     this: ExtractTokensContext,
-    node: TSESTree.ObjectExpression
+    node: TSESTree.ObjectExpression,
   ) {
     this.operators.add("{}");
     this.operators.add(",", node.properties.length - 1);
@@ -718,7 +718,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   PrivateIdentifier(
     this: ExtractTokensContext,
-    node: TSESTree.PrivateIdentifier
+    node: TSESTree.PrivateIdentifier,
   ) {
     this.operands.add(`#${node.name}`);
   },
@@ -740,7 +740,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   PropertyDefinition(
     this: ExtractTokensContext,
-    node: TSESTree.PropertyDefinition
+    node: TSESTree.PropertyDefinition,
   ) {
     if (node.accessibility) this.operators.add(node.accessibility);
     if (node.static) this.operators.add("static");
@@ -761,7 +761,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   SequenceExpression(
     this: ExtractTokensContext,
-    node: TSESTree.SequenceExpression
+    node: TSESTree.SequenceExpression,
   ) {
     this.operators.add(",", node.expressions.length - 1);
   },
@@ -791,7 +791,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   TemplateElement(
     this: ExtractTokensContext,
     node: TSESTree.TemplateElement,
-    parent: TSESTree.Node | null
+    parent: TSESTree.Node | null,
   ) {
     let open = "`";
     let close = "`";
@@ -832,7 +832,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   UpdateExpression(
     this: ExtractTokensContext,
-    node: TSESTree.UpdateExpression
+    node: TSESTree.UpdateExpression,
   ) {
     this.operators.add(node.operator);
 
@@ -842,7 +842,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   VariableDeclaration(
     this: ExtractTokensContext,
-    node: TSESTree.VariableDeclaration
+    node: TSESTree.VariableDeclaration,
   ) {
     this.operators.add(node.kind);
     this.operators.add(",", node.declarations.length - 1);
@@ -851,7 +851,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   VariableDeclarator(
     this: ExtractTokensContext,
-    node: TSESTree.VariableDeclarator
+    node: TSESTree.VariableDeclarator,
   ) {
     if (node.init) {
       this.operators.add("=");
@@ -876,7 +876,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   // TS
   TSAbstractAccessorProperty(
     this: ExtractTokensContext,
-    node: TSESTree.TSAbstractAccessorProperty
+    node: TSESTree.TSAbstractAccessorProperty,
   ) {
     this.operators.add("abstract");
     this.operators.add("accessor");
@@ -896,7 +896,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   TSAbstractMethodDefinition(
     this: ExtractTokensContext,
-    node: TSESTree.TSAbstractMethodDefinition
+    node: TSESTree.TSAbstractMethodDefinition,
   ) {
     this.operators.add("abstract");
     if (node.accessibility) this.operators.add(node.accessibility);
@@ -910,7 +910,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   TSAbstractPropertyDefinition(
     this: ExtractTokensContext,
-    node: TSESTree.TSAbstractPropertyDefinition
+    node: TSESTree.TSAbstractPropertyDefinition,
   ) {
     this.operators.add("abstract");
     if (node.accessibility) this.operators.add(node.accessibility);
@@ -943,7 +943,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   TSCallSignatureDeclaration(
     this: ExtractTokensContext,
-    node: TSESTree.TSCallSignatureDeclaration
+    node: TSESTree.TSCallSignatureDeclaration,
   ) {
     this.operators.add("()");
     this.operators.add(",", node.params.length - 1);
@@ -955,7 +955,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   TSConstructSignatureDeclaration(
     this: ExtractTokensContext,
-    node: TSESTree.TSConstructSignatureDeclaration
+    node: TSESTree.TSConstructSignatureDeclaration,
   ) {
     this.operators.add("new");
     this.operators.add("()");
@@ -963,7 +963,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   TSConstructorType(
     this: ExtractTokensContext,
-    node: TSESTree.TSConstructorType
+    node: TSESTree.TSConstructorType,
   ) {
     this.operators.add("new");
     this.operators.add("()");
@@ -971,7 +971,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   TSDeclareFunction(
     this: ExtractTokensContext,
-    node: TSESTree.TSDeclareFunction
+    node: TSESTree.TSDeclareFunction,
   ) {
     if (node.declare) this.operators.add("declare");
     if (node.async) {
@@ -990,7 +990,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   TSEmptyBodyFunctionExpression(
     this: ExtractTokensContext,
     node: TSESTree.TSEmptyBodyFunctionExpression,
-    parent: TSESTree.Node | null
+    parent: TSESTree.Node | null,
   ) {
     if (node.async) {
       this.operators.add("async");
@@ -1016,7 +1016,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   TSEnumDeclaration(
     this: ExtractTokensContext,
-    node: TSESTree.TSEnumDeclaration
+    node: TSESTree.TSEnumDeclaration,
   ) {
     if (node.const) this.operators.add("const");
     this.operators.add("enum");
@@ -1077,7 +1077,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   TSInterfaceDeclaration(
     this: ExtractTokensContext,
-    node: TSESTree.TSInterfaceDeclaration
+    node: TSESTree.TSInterfaceDeclaration,
   ) {
     this.operators.add("interface");
     if (node.extends) {
@@ -1096,7 +1096,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   TSInterfaceHeritage: noop,
   TSIntersectionType(
     this: ExtractTokensContext,
-    node: TSESTree.TSIntersectionType
+    node: TSESTree.TSIntersectionType,
   ) {
     this.operators.add("&", node.types.length - 1);
   },
@@ -1124,7 +1124,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   TSMethodSignature(
     this: ExtractTokensContext,
-    node: TSESTree.TSMethodSignature
+    node: TSESTree.TSMethodSignature,
   ) {
     if (node.accessibility) this.operators.add(node.accessibility);
     if (node.readonly) this.operators.add("readonly");
@@ -1143,7 +1143,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   TSModuleDeclaration(
     this: ExtractTokensContext,
-    node: TSESTree.TSModuleDeclaration
+    node: TSESTree.TSModuleDeclaration,
   ) {
     if (node.declare) this.operators.add("declare");
     if (!node.global) {
@@ -1157,7 +1157,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   TSNamedTupleMember(
     this: ExtractTokensContext,
-    node: TSESTree.TSNamedTupleMember
+    node: TSESTree.TSNamedTupleMember,
   ) {
     if (node.optional) this.operators.add("?");
     this.operators.add(":");
@@ -1182,7 +1182,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   TSParameterProperty(
     this: ExtractTokensContext,
-    node: TSESTree.TSParameterProperty
+    node: TSESTree.TSParameterProperty,
   ) {
     if (node.accessibility) this.operators.add(node.accessibility);
     if (node.readonly) this.operators.add("readonly");
@@ -1195,7 +1195,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   TSPropertySignature(
     this: ExtractTokensContext,
-    node: TSESTree.TSPropertySignature
+    node: TSESTree.TSPropertySignature,
   ) {
     if (node.accessibility) this.operators.add(node.accessibility);
     if (node.readonly) this.operators.add("readonly");
@@ -1246,7 +1246,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   TSTypeAnnotation(
     this: ExtractTokensContext,
     node: TSESTree.TSTypeAnnotation,
-    parent: TSESTree.Node | null
+    parent: TSESTree.Node | null,
   ) {
     if (parent) {
       if (
@@ -1276,7 +1276,7 @@ const EXTRACT_TOKENS: AllVisitor = {
   TSTypeParameter(
     this: ExtractTokensContext,
     node: TSESTree.TSTypeParameter,
-    parent
+    parent,
   ) {
     if (node.constraint) {
       if (
@@ -1295,14 +1295,14 @@ const EXTRACT_TOKENS: AllVisitor = {
   },
   TSTypeParameterDeclaration(
     this: ExtractTokensContext,
-    node: TSESTree.TSTypeParameterDeclaration
+    node: TSESTree.TSTypeParameterDeclaration,
   ) {
     this.operators.add("<>");
     this.operators.add(",", node.params.length - 1);
   },
   TSTypeParameterInstantiation(
     this: ExtractTokensContext,
-    node: TSESTree.TSTypeParameterInstantiation
+    node: TSESTree.TSTypeParameterInstantiation,
   ) {
     this.operators.add("<>");
     this.operators.add(",", node.params.length - 1);
@@ -1332,7 +1332,7 @@ const EXTRACT_TOKENS: AllVisitor = {
  * Extract tokens
  */
 export function extractTokens(
-  node: ESTree.Node | TSESTree.Node
+  node: ESTree.Node | TSESTree.Node,
 ): ExtractTokensResult {
   const context = new ExtractTokensContext();
 
@@ -1346,7 +1346,7 @@ export function extractTokens(
       ) {
         extract.call(context, node, parent);
       }
-    }
+    },
   );
 
   return context;

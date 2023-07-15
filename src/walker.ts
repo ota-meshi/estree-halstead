@@ -14,7 +14,7 @@ visitorKeys.TSInterfaceDeclaration = [
  */
 export function walk(
   node: TSESTree.Node,
-  visit: (node: TSESTree.Node, parent: TSESTree.Node | null) => void
+  visit: (node: TSESTree.Node, parent: TSESTree.Node | null) => void,
 ): void {
   const nodes: { node: TSESTree.Node; parent: TSESTree.Node | null }[] = [
     { node, parent: null },
