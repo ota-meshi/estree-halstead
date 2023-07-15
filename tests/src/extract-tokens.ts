@@ -19,7 +19,7 @@ const FIXTURES_ROOT = path.resolve(dirname, "../fixtures");
 // const SRC_ROOT = path.resolve(dirname, "../../src")
 describe("test for extractTokens", () => {
   for (const fixture of listupFixtures(
-    FIXTURES_ROOT
+    FIXTURES_ROOT,
     // , SRC_ROOT
   )) {
     describe(fixture.filename, () => {
@@ -34,16 +34,16 @@ describe("test for extractTokens", () => {
       for (const comment of ast.comments || []) {
         stripedComment = `${stripedComment.slice(
           0,
-          comment.range[0]
+          comment.range[0],
         )}${" ".repeat(
-          comment.range[1] - comment.range[0]
+          comment.range[1] - comment.range[0],
         )}${stripedComment.slice(comment.range[1])}`;
 
         // ignore next char
         if (comment.value.trim() === "@__IGNORE__") {
           stripedComment = `${stripedComment.slice(
             0,
-            comment.range[1]
+            comment.range[1],
           )}${" "}${stripedComment.slice(comment.range[1] + 1)}`;
         }
       }
@@ -68,13 +68,13 @@ describe("test for extractTokens", () => {
           const remainTokens = splitTokens(
             stripedComment.slice(...node.range),
             tokens,
-            node
+            node,
           );
 
           assert.deepEqual(
             // eslint-disable-next-line max-nested-callbacks -- ignore
             remainTokens.split(/\s+/).filter((s) => s),
-            []
+            [],
           );
         });
       });
@@ -85,7 +85,7 @@ describe("test for extractTokens", () => {
 function splitTokens(
   code: string,
   tokensResult: ExtractTokensResult,
-  node: TSESTree.Node
+  node: TSESTree.Node,
 ): string {
   if (
     node.type === AST_NODE_TYPES.TSTypeAnnotation ||
@@ -122,7 +122,7 @@ function splitTokens(
         ? ["switch", "(", ")"]
         : token === "with()"
         ? ["with", "(", ")"]
-        : token
+        : token,
     )
     .sort((a, b) => b.length - a.length);
   let remain = code;

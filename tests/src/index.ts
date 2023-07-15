@@ -15,7 +15,7 @@ const FIXTURES_ROOT = path.resolve(dirname, "../fixtures");
 // const SRC_ROOT = path.resolve(dirname, "../../src")
 describe("test for halstead complexity measures", () => {
   for (const fixture of listupFixtures(
-    FIXTURES_ROOT
+    FIXTURES_ROOT,
     // , SRC_ROOT
   )) {
     describe(fixture.filename, () => {
