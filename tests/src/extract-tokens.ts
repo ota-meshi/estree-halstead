@@ -113,16 +113,16 @@ function splitTokens(
       token === "<>"
         ? [...token]
         : token === "if()"
-        ? ["if", "(", ")"]
-        : token === "for()"
-        ? ["for", "(", ")"]
-        : token === "while()"
-        ? ["while", "(", ")"]
-        : token === "switch()"
-        ? ["switch", "(", ")"]
-        : token === "with()"
-        ? ["with", "(", ")"]
-        : token,
+          ? ["if", "(", ")"]
+          : token === "for()"
+            ? ["for", "(", ")"]
+            : token === "while()"
+              ? ["while", "(", ")"]
+              : token === "switch()"
+                ? ["switch", "(", ")"]
+                : token === "with()"
+                  ? ["with", "(", ")"]
+                  : token,
     )
     .sort((a, b) => b.length - a.length);
   let remain = code;
