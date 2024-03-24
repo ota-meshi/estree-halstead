@@ -43,7 +43,8 @@ type ImportType = import("foo").B
 type UnpackedPromise<T=string> = T extends Promise<infer U>
   ? U
   : T
-interface I extends E implements T {}
+// interface I extends E implements T {} // Interface declaration cannot have 'implements' clause.
+interface I extends E {}
 type IntersectionType = A & B
 type UnionType = A | B
 type Uppercase<S extends string> = intrinsic;
@@ -68,7 +69,8 @@ type NamedTuple = [a: symbol, ...b: string[]]
 const foo = bar!
 type OptionalType = [number?]
 class Class {
-    constructor(private a)
+    // constructor(private a) // A parameter property is only allowed in a constructor implementation.
+    constructor(private a) {}
 }
 type QualifiedName = A.B
 type TemplateLiteralType = `A${B}C`

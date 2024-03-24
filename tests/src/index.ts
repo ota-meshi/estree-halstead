@@ -2,6 +2,7 @@ import chai from "chai";
 import { jestSnapshotPlugin } from "mocha-chai-jest-snapshot";
 import { parse } from "@typescript-eslint/parser";
 import path from "path";
+import type { TSESTree } from "@typescript-eslint/types";
 import { listupFixtures } from "./utils";
 import { walk } from "../../src/walker";
 import { analyze } from "../../src/index";
@@ -23,7 +24,7 @@ describe("test for halstead complexity measures", () => {
         project: [],
         loc: true,
         range: true,
-      });
+      }) as TSESTree.Program;
       const set = new Set<string>();
       walk(ast, (node) => {
         if (node.type === "Identifier") return;

@@ -349,7 +349,7 @@ const EXTRACT_TOKENS: AllVisitor = {
     if (node.superClass) {
       this.operators.add("extends");
     }
-    if (node.implements) {
+    if (node.implements?.length) {
       this.operators.add("implements");
       this.operators.add(",", node.implements.length - 1);
     }
@@ -363,8 +363,9 @@ const EXTRACT_TOKENS: AllVisitor = {
     if (node.superClass) {
       this.operators.add("extends");
     }
-    if (node.implements) {
+    if (node.implements?.length) {
       this.operators.add("implements");
+      this.operators.add(",", node.implements.length - 1);
     }
     if (node.abstract) {
       this.operators.add("abstract");
@@ -1063,7 +1064,7 @@ const EXTRACT_TOKENS: AllVisitor = {
     this.operators.add("[]");
     if (node.readonly) this.operators.add("readonly");
     if (node.static) this.operators.add("static");
-    if (node.export) this.operators.add("export");
+    // if (node.export) this.operators.add("export");
   },
   TSIndexedAccessType(this: ExtractTokensContext) {
     this.operators.add("[]");
@@ -1080,16 +1081,9 @@ const EXTRACT_TOKENS: AllVisitor = {
     node: TSESTree.TSInterfaceDeclaration,
   ) {
     this.operators.add("interface");
-    if (node.extends) {
+    if (node.extends?.length) {
       this.operators.add("extends");
       this.operators.add(",", node.extends.length - 1);
-    }
-    if (node.implements) {
-      this.operators.add("implements");
-      this.operators.add(",", node.implements.length - 1);
-    }
-    if (node.abstract) {
-      this.operators.add("abstract");
     }
     if (node.declare) this.operators.add("declare");
   },
@@ -1129,7 +1123,7 @@ const EXTRACT_TOKENS: AllVisitor = {
     if (node.accessibility) this.operators.add(node.accessibility);
     if (node.readonly) this.operators.add("readonly");
     if (node.static) this.operators.add("static");
-    if (node.export) this.operators.add("export");
+    // if (node.export) this.operators.add("export");
     if (node.kind === "get" || node.kind === "set")
       this.operators.add(node.kind);
     if (node.computed) this.operators.add("[]");
@@ -1188,7 +1182,7 @@ const EXTRACT_TOKENS: AllVisitor = {
     if (node.readonly) this.operators.add("readonly");
     if (node.static) this.operators.add("static");
     if (node.override) this.operators.add("override");
-    if (node.export) this.operators.add("export");
+    // if (node.export) this.operators.add("export");
   },
   TSPrivateKeyword(this: ExtractTokensContext) {
     this.operators.add("private");
@@ -1200,7 +1194,7 @@ const EXTRACT_TOKENS: AllVisitor = {
     if (node.accessibility) this.operators.add(node.accessibility);
     if (node.readonly) this.operators.add("readonly");
     if (node.static) this.operators.add("static");
-    if (node.export) this.operators.add("export");
+    // if (node.export) this.operators.add("export");
     if (node.computed) this.operators.add("[]");
     if (node.optional) this.operators.add("?");
   },

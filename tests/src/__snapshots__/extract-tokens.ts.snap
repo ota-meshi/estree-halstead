@@ -7487,6 +7487,26 @@ Object {
 
 exports[`test for extractTokens /ts/input.ts ClassBody\`
 {
+    // constructor(private a) // A parameter property is only allowed in a constructor implementation.
+    constructor(private a) {}
+}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "constructor",
+    "a",
+  ],
+  "operators": Array [
+    "{}",
+    "()",
+    "private",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/input.ts ClassBody\`
+{
     abstract m(this: Abs, a: number): void {}
 
     abstract me(this: Abs, a: string): void
@@ -7568,24 +7588,6 @@ Object {
     "abstract",
     "static",
     ":",
-  ],
-}
-`;
-
-exports[`test for extractTokens /ts/input.ts ClassBody\`
-{
-    constructor(private a)
-}
-\` 1`] = `
-Object {
-  "operands": Array [
-    "constructor",
-    "a",
-  ],
-  "operators": Array [
-    "{}",
-    "()",
-    "private",
   ],
 }
 `;
@@ -7682,7 +7684,8 @@ Object {
 
 exports[`test for extractTokens /ts/input.ts ClassDeclaration\`
 class Class {
-    constructor(private a)
+    // constructor(private a) // A parameter property is only allowed in a constructor implementation.
+    constructor(private a) {}
 }
 \` 1`] = `
 Object {
@@ -7696,6 +7699,7 @@ Object {
     "{}",
     "()",
     "private",
+    "{}",
   ],
 }
 `;
@@ -7767,6 +7771,22 @@ Object {
     "function",
     "()",
     ":",
+    "{}",
+  ],
+}
+`;
+
+exports[`test for extractTokens /ts/input.ts FunctionExpression\`
+(private a) {}
+\` 1`] = `
+Object {
+  "operands": Array [
+    "a",
+  ],
+  "operators": Array [
+    "function",
+    "()",
+    "private",
     "{}",
   ],
 }
@@ -7863,7 +7883,7 @@ Object {
 `;
 
 exports[`test for extractTokens /ts/input.ts MethodDefinition\`
-constructor(private a)
+constructor(private a) {}
 \` 1`] = `
 Object {
   "operands": Array [
@@ -7873,6 +7893,7 @@ Object {
   "operators": Array [
     "()",
     "private",
+    "{}",
   ],
 }
 `;
@@ -7923,7 +7944,8 @@ type ImportType = import("foo").B
 type UnpackedPromise<T=string> = T extends Promise<infer U>
   ? U
   : T
-interface I extends E implements T {}
+// interface I extends E implements T {} // Interface declaration cannot have 'implements' clause.
+interface I extends E {}
 type IntersectionType = A & B
 type UnionType = A | B
 type Uppercase<S extends string> = intrinsic;
@@ -7948,7 +7970,8 @@ type NamedTuple = [a: symbol, ...b: string[]]
 const foo = bar!
 type OptionalType = [number?]
 class Class {
-    constructor(private a)
+    // constructor(private a) // A parameter property is only allowed in a constructor implementation.
+    constructor(private a) {}
 }
 type QualifiedName = A.B
 type TemplateLiteralType = \`A\${B}C\`
@@ -8077,7 +8100,6 @@ Object {
     "T",
     "I",
     "E",
-    "T",
     "IntersectionType",
     "A",
     "B",
@@ -8288,7 +8310,6 @@ Object {
     "infer",
     "interface",
     "extends",
-    "implements",
     "{}",
     "type",
     "=",
@@ -8361,6 +8382,7 @@ Object {
     "{}",
     "()",
     "private",
+    "{}",
     "type",
     "=",
     ".",
@@ -8718,21 +8740,6 @@ Object {
 `;
 
 exports[`test for extractTokens /ts/input.ts TSEmptyBodyFunctionExpression\`
-(private a)
-\` 1`] = `
-Object {
-  "operands": Array [
-    "a",
-  ],
-  "operators": Array [
-    "function",
-    "()",
-    "private",
-  ],
-}
-`;
-
-exports[`test for extractTokens /ts/input.ts TSEmptyBodyFunctionExpression\`
 (this: Abs, a: null): void
 \` 1`] = `
 Object {
@@ -9062,18 +9069,16 @@ Object {
 `;
 
 exports[`test for extractTokens /ts/input.ts TSInterfaceDeclaration\`
-interface I extends E implements T {}
+interface I extends E {}
 \` 1`] = `
 Object {
   "operands": Array [
     "I",
     "E",
-    "T",
   ],
   "operators": Array [
     "interface",
     "extends",
-    "implements",
     "{}",
   ],
 }

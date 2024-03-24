@@ -15,7 +15,7 @@
   },
   "types": "./lib/index.d.ts",
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=18.18"
   },
   "scripts": {
     "prebuild": "npm run -s clean",
@@ -49,16 +49,16 @@
   },
   "homepage": "https://github.com/ota-meshi/estree-halstead#readme",
   "dependencies": {
-    "@typescript-eslint/types": "^5.44.1-alpha.15",
-    "@typescript-eslint/visitor-keys": "^5.44.1-alpha.15"
+    "@typescript-eslint/types": "^7.3.1",
+    "@typescript-eslint/visitor-keys": "^7.3.1"
   },
   "devDependencies": {
     "@ota-meshi/eslint-plugin": "^0.15.2",
     "@types/chai": "^4.3.0",
     "@types/estree": "^1.0.0",
     "@types/mocha": "^10.0.0",
-    "@typescript-eslint/eslint-plugin": "^6",
-    "@typescript-eslint/parser": "^6",
+    "@typescript-eslint/eslint-plugin": "^7.3.1",
+    "@typescript-eslint/parser": "^7.3.1",
     "chai": "^4.3.4",
     "eslint": "^8.3.0",
     "eslint-config-prettier": "^9.0.0",
