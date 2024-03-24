@@ -3,7 +3,7 @@
     "target": "es2015",
     "strict": true,
     "lib": ["es2020", "DOM"],
-    "module": "CommonJS",
+    "module": "NodeNext",
     "declaration": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
@@ -11,7 +11,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "esModuleInterop": true,
-    "moduleResolution": "node"
+    "moduleResolution": "NodeNext",
+    "skipLibCheck": true
   },
   "include": [
     "src/**/*.ts",

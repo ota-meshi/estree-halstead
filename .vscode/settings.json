@@ -2,7 +2,7 @@
   "eslint.validate": ["javascript", "typescript", "json", "jsonc", "vue"],
   // "eslint.run": "onSave",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "vetur.validation.template": false,
   "files.watcherExclude": {

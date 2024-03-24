@@ -6295,6 +6295,23 @@ Object {
 
 exports[`test for halstead complexity measures /ts/input.ts ClassBody\`
 {
+    // constructor(private a) // A parameter property is only allowed in a constructor implementation.
+    constructor(private a) {}
+}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.004643856189774725,
+  "difficulty": 1.5,
+  "effort": 20.897352853986263,
+  "length": 6,
+  "time": 1.1609640474436813,
+  "vocabulary": 5,
+  "volume": 13.931568569324174,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/input.ts ClassBody\`
+{
     abstract m(this: Abs, a: number): void {}
 
     abstract me(this: Abs, a: string): void
@@ -6318,22 +6335,6 @@ Object {
   "time": 89.31984729433881,
   "vocabulary": 20,
   "volume": 267.95954188301647,
-}
-`;
-
-exports[`test for halstead complexity measures /ts/input.ts ClassBody\`
-{
-    constructor(private a)
-}
-\` 1`] = `
-Object {
-  "deliveredBugs": 0.0038698801581456034,
-  "difficulty": 1.5,
-  "effort": 17.414460711655217,
-  "length": 5,
-  "time": 0.9674700395364009,
-  "vocabulary": 5,
-  "volume": 11.60964047443681,
 }
 `;
 
@@ -6367,17 +6368,18 @@ Object {
 
 exports[`test for halstead complexity measures /ts/input.ts ClassDeclaration\`
 class Class {
-    constructor(private a)
+    // constructor(private a) // A parameter property is only allowed in a constructor implementation.
+    constructor(private a) {}
 }
 \` 1`] = `
 Object {
-  "deliveredBugs": 0.00655049481813441,
+  "deliveredBugs": 0.007486279792153611,
   "difficulty": 2,
-  "effort": 39.302968908806456,
-  "length": 7,
-  "time": 2.1834982727114696,
+  "effort": 44.91767875292167,
+  "length": 8,
+  "time": 2.495426597384537,
   "vocabulary": 7,
-  "volume": 19.651484454403228,
+  "volume": 22.458839376460833,
 }
 `;
 
@@ -6434,6 +6436,20 @@ Object {
   "time": 1.723308333814104,
   "vocabulary": 6,
   "volume": 15.509775004326936,
+}
+`;
+
+exports[`test for halstead complexity measures /ts/input.ts FunctionExpression\`
+(private a) {}
+\` 1`] = `
+Object {
+  "deliveredBugs": 0.0038698801581456034,
+  "difficulty": 2,
+  "effort": 23.21928094887362,
+  "length": 5,
+  "time": 1.289960052715201,
+  "vocabulary": 5,
+  "volume": 11.60964047443681,
 }
 `;
 
@@ -6522,16 +6538,16 @@ Object {
 `;
 
 exports[`test for halstead complexity measures /ts/input.ts MethodDefinition\`
-constructor(private a)
+constructor(private a) {}
 \` 1`] = `
 Object {
-  "deliveredBugs": 0.0026666666666666666,
-  "difficulty": 1,
-  "effort": 8,
-  "length": 4,
-  "time": 0.4444444444444444,
-  "vocabulary": 4,
-  "volume": 8,
+  "deliveredBugs": 0.0038698801581456034,
+  "difficulty": 1.5,
+  "effort": 17.414460711655217,
+  "length": 5,
+  "time": 0.9674700395364009,
+  "vocabulary": 5,
+  "volume": 11.60964047443681,
 }
 `;
 
@@ -6581,7 +6597,8 @@ type ImportType = import("foo").B
 type UnpackedPromise<T=string> = T extends Promise<infer U>
   ? U
   : T
-interface I extends E implements T {}
+// interface I extends E implements T {} // Interface declaration cannot have 'implements' clause.
+interface I extends E {}
 type IntersectionType = A & B
 type UnionType = A | B
 type Uppercase<S extends string> = intrinsic;
@@ -6606,7 +6623,8 @@ type NamedTuple = [a: symbol, ...b: string[]]
 const foo = bar!
 type OptionalType = [number?]
 class Class {
-    constructor(private a)
+    // constructor(private a) // A parameter property is only allowed in a constructor implementation.
+    constructor(private a) {}
 }
 type QualifiedName = A.B
 type TemplateLiteralType = \`A\${B}C\`
@@ -6617,13 +6635,13 @@ type TypePredicate = (v:any)=>v is T
 
 \` 1`] = `
 Object {
-  "deliveredBugs": 0.9696378592457139,
-  "difficulty": 46.00000000000001,
-  "effort": 133810.02457590852,
-  "length": 419,
-  "time": 7433.89025421714,
+  "deliveredBugs": 0.9673236877439342,
+  "difficulty": 45.75000000000001,
+  "effort": 132765.176142855,
+  "length": 418,
+  "time": 7375.843119047499,
   "vocabulary": 123,
-  "volume": 2908.9135777371416,
+  "volume": 2901.9710632318024,
 }
 `;
 
@@ -6892,20 +6910,6 @@ Object {
   "time": 4.429237459849817,
   "vocabulary": 10,
   "volume": 39.863137138648355,
-}
-`;
-
-exports[`test for halstead complexity measures /ts/input.ts TSEmptyBodyFunctionExpression\`
-(private a)
-\` 1`] = `
-Object {
-  "deliveredBugs": 0.0026666666666666666,
-  "difficulty": 1.5,
-  "effort": 12,
-  "length": 4,
-  "time": 0.6666666666666666,
-  "vocabulary": 4,
-  "volume": 8,
 }
 `;
 
@@ -7179,16 +7183,16 @@ Object {
 `;
 
 exports[`test for halstead complexity measures /ts/input.ts TSInterfaceDeclaration\`
-interface I extends E implements T {}
+interface I extends E {}
 \` 1`] = `
 Object {
-  "deliveredBugs": 0.00655049481813441,
-  "difficulty": 2,
-  "effort": 39.302968908806456,
-  "length": 7,
-  "time": 2.1834982727114696,
-  "vocabulary": 7,
-  "volume": 19.651484454403228,
+  "deliveredBugs": 0.0038698801581456034,
+  "difficulty": 1.5,
+  "effort": 17.414460711655217,
+  "length": 5,
+  "time": 0.9674700395364009,
+  "vocabulary": 5,
+  "volume": 11.60964047443681,
 }
 `;
 

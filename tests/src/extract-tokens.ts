@@ -29,7 +29,7 @@ describe("test for extractTokens", () => {
         range: true,
         comment: true,
         tokens: true,
-      });
+      }) as TSESTree.Program;
       let stripedComment = fixture.content;
       for (const comment of ast.comments || []) {
         stripedComment = `${stripedComment.slice(
