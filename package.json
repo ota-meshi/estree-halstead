@@ -31,7 +31,12 @@
     "update-snap": "mocha --require ts-node/register/transpile-only \"tests/src/**/*.ts\" --reporter dot --update",
     "update-snap-cov": "nyc --reporter=lcov npm run update-snap",
     "preversion": "npm run lint && npm test",
-    "update-visitor": "node --require ts-node/register/transpile-only scripts/update-visitor.ts && eslint src/visitor.ts --fix"
+    "update-visitor": "node --require ts-node/register/transpile-only scripts/update-visitor.ts && eslint src/visitor.ts --fix",
+    "prerelease": "npm run clean && npm run build",
+    "release": "changeset publish"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",
@@ -53,7 +58,9 @@
     "@typescript-eslint/visitor-keys": "^7.3.1"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.26.2",
     "@ota-meshi/eslint-plugin": "^0.15.2",
+    "@svitejs/changesets-changelog-github-compact": "^1.1.0",
     "@types/chai": "^4.3.0",
     "@types/estree": "^1.0.0",
     "@types/mocha": "^10.0.0",
